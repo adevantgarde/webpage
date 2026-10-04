@@ -1040,71 +1040,6 @@
   </div>
 </div>
 
-<!-- ============================================================
-     PAGE: ARCHIV 2023 — Programmheft als Flipbook (BIEDER_MEIER_X)
-     ============================================================ -->
-<div class="page" id="page-archiv-2023">
-  <header>
-          <div class="wrap">
-        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
-        <div class="header-bottom-row">
-          <div class="year-block" data-default-year="2023">
-            <div class="year-toggle">
-              <a href="#archiv-2023" class="year-big">Festival 2023</a>
-              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
-            </div>
-            <div class="year-dropdown"><div class="year-dropdown-list"></div></div>
-          </div>
-          <nav class="header-nav">
-          <div class="nav-item">
-            <div class="nav-item-toggle">
-              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
-              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
-            </div>
-            <div class="nav-dropdown">
-              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
-              <a href="#intro" data-i18n="nav.about">Über uns</a>
-              <a href="#team">Team</a>
-              <a href="#presse" data-i18n="nav.press">Presse</a>
-              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-toggle">
-              <a href="#records">aDevantgarde records</a>
-              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
-            </div>
-            <div class="nav-dropdown">
-              <a href="#records-release-3">Schoeck vs. Bauer</a>
-              <a href="#records-release-2">An Earth Symphony</a>
-              <a href="#records-release-1">Zentaur – Quartet</a>
-            </div>
-          </div>
-          </nav>
-          <div class="lang-switch" role="group" aria-label="Sprache / Language">
-            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
-          </div>
-        </div>
-      </div>
-  </header>
-
-
-  <div class="archiv-banner" data-i18n="arch.2023">Archiv — 17. aDevantgarde-Festival 2023 · BIEDER_MEIER_X</div>
-
-  <div class="flipbook-wrap">
-    <h1 class="flipbook-title" data-i18n="flip.title">Programmheft <span>BIEDER_MEIER_X</span></h1>
-    <div class="flipbook-stage">
-      <div class="flip-page-under"><img id="fpImgUnder" alt=""></div>
-      <div class="flip-page-active" id="fpActive" onclick="flipbookNext()"><img id="fpImgActive" alt=""></div>
-    </div>
-    <div class="flipbook-controls">
-      <button type="button" onclick="flipbookPrev()" aria-label="Vorherige Seite" data-i18n-aria="aria.prev">‹</button>
-      <span id="flipbookPageIndicator" class="flipbook-page-indicator">1 / 52</span>
-      <button type="button" onclick="flipbookNext()" aria-label="Nächste Seite" data-i18n-aria="aria.next">›</button>
-    </div>
-    <p class="flipbook-hint" data-i18n="flip.hint">Klick auf das Bild oder nutze die Pfeile zum Umblättern.</p>
-  </div>
-</div>
 
 <script src="archiv-daten.js"></script>
 <script>
@@ -1283,7 +1218,7 @@
 </script>
 <script>
   // ---- Simple hash-based router across the three "pages" ----
-  const pageIds = ['ueber-uns', 'records', 'festival', 'archiv-2025', 'archiv-2023', 'impressum', 'datenschutz', 'akademie', 'archiv'];
+  const pageIds = ['ueber-uns', 'records', 'festival', 'archiv-2025', 'impressum', 'datenschutz', 'akademie', 'archiv'];
   function currentPageFromHash(){
     const h = (location.hash || '').replace('#','');
     const matchedPage = pageIds.find(p => h === p || h.startsWith(p + '-'));
@@ -1335,7 +1270,7 @@
 
   // Year switcher — synced globally with whichever page/edition is actually loaded
   const ALL_FESTIVAL_YEARS = [2027,2025,2023,2021,2019,2017,2015,2013,2011,2009,2007,2005,2003,2001,1999,1997,1995,1993,1991];
-  const PAGE_TO_YEAR = {festival:2027, 'archiv-2025':2025, 'archiv-2023':2023};
+  const PAGE_TO_YEAR = {festival:2027, 'archiv-2025':2025};
   const ACTIVE_YEARS = ALL_FESTIVAL_YEARS;
   let currentFestivalYear = 2027;
 
@@ -1376,36 +1311,113 @@
   // ===== Festival-Archiv: Übersicht (#archiv) und Einzelseiten (#archiv-JJJJ) aus archiv-daten.js =====
   const ARCH_MDE=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
   const ARCH_MEN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const ARCH_MAB_DE=['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+  const ARCH_MAB_EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const ARCH_WDE=['So','Mo','Di','Mi','Do','Fr','Sa'], ARCH_WEN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const ARCH_L={
-    de:{all:'← Alle Festivals', tag:'Archiv', program:'Programm', prev:'Vorheriges Festival', next:'Nächstes Festival', h1:'Festival-Archiv', lead:'Alle bisherigen Ausgaben des aDevantgarde-Festivals seit 1991.', upcoming:'Kommend', place:'München'},
-    en:{all:'← All festivals', tag:'Archive', program:'Programme', prev:'Previous festival', next:'Next festival', h1:'Festival archive', lead:'All editions of the aDevantgarde Festival since 1991.', upcoming:'Upcoming', place:'Munich'}
+    de:{tag:'Archiv', back:'← Alle Festivals', all:'Alle Festivals', h1:'Festival-Archiv', lead:'Alle Ausgaben des aDevantgarde-Festivals seit 1991.', upcoming:'Das nächste Festival',
+        program:'Programm', videos:'Videos', about:'Über das Festival', team:'Team', heft:'Programmheft', heftOpen:'Programmheft durchblättern', pages:'Seiten',
+        heftHint:'Klick auf das Bild oder nutze die Pfeile zum Umblättern.', prevPage:'Vorherige Seite', nextPage:'Nächste Seite', booklet:'Programmheft (PDF)', flyer:'Flyer (PDF)',
+        play:'Video abspielen', badge:'Video', goVideo:'Video ansehen', videoNote:'Die Videos werden erst nach einem Klick von YouTube geladen.', privacy:'Datenschutz',
+        prev:'Vorheriges Festival', next:'Nächstes Festival', concerts:['Konzert','Konzerte'], vids:['Video','Videos'], place:'München', poster:'Plakat'},
+    en:{tag:'Archive', back:'← All festivals', all:'All festivals', h1:'Festival archive', lead:'All editions of the aDevantgarde Festival since 1991.', upcoming:'The next festival',
+        program:'Programme', videos:'Videos', about:'About the festival', team:'Team', heft:'Programme booklet', heftOpen:'Browse the programme booklet', pages:'pages',
+        heftHint:'Click the image or use the arrows to turn the pages.', prevPage:'Previous page', nextPage:'Next page', booklet:'Programme booklet (PDF)', flyer:'Flyer (PDF)',
+        play:'Play video', badge:'Video', goVideo:'Watch video', videoNote:'The videos are only loaded from YouTube after you click.', privacy:'Privacy policy',
+        prev:'Previous festival', next:'Next festival', concerts:['concert','concerts'], vids:['video','videos'], place:'Munich', poster:'Poster'}
   };
   const ARCH_NOTE_EN='The archive texts are available in German only.';
   function archEsc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
   function archParse(s){ const p = s.slice(0,10).split('-').map(Number); return {y:p[0], m:p[1]-1, d:p[2], dow:new Date(p[0], p[1]-1, p[2]).getDay()}; }
+  function archTime(s){
+    const time = s.slice(11,16);
+    if(!time || time === '00:00') return '';
+    if(LANG === 'en'){ let hh = +time.slice(0,2); const ap = hh >= 12 ? 'pm' : 'am'; hh = hh % 12 || 12; return `${hh}:${time.slice(3,5)} ${ap}`; }
+    return time;
+  }
   function archRange(a, b){
     const A = archParse(a), B = archParse(b);
     if(LANG === 'en') return A.m === B.m ? `${A.d}–${B.d} ${ARCH_MEN[A.m]} ${A.y}` : `${A.d} ${ARCH_MEN[A.m]} – ${B.d} ${ARCH_MEN[B.m]} ${B.y}`;
     return A.m === B.m ? `${A.d}.–${B.d}. ${ARCH_MDE[A.m]} ${A.y}` : `${A.d}. ${ARCH_MDE[A.m]} – ${B.d}. ${ARCH_MDE[B.m]} ${B.y}`;
   }
   function archEventDate(s){
-    const D = archParse(s), time = s.slice(11,16), hasT = time && time !== '00:00';
-    if(LANG === 'en'){
-      let t = '';
-      if(hasT){ let hh = +time.slice(0,2); const ap = hh >= 12 ? 'pm' : 'am'; hh = hh % 12 || 12; t = ` · ${hh}:${time.slice(3,5)} ${ap}`; }
-      return `${ARCH_WEN[D.dow]}, ${D.d} ${ARCH_MEN[D.m]} ${D.y}${t}`;
-    }
-    return `${ARCH_WDE[D.dow]}., ${D.d}. ${ARCH_MDE[D.m]} ${D.y}${hasT ? ` · ${time} Uhr` : ''}`;
+    const D = archParse(s), t = archTime(s);
+    if(LANG === 'en') return `${ARCH_WEN[D.dow]}, ${D.d} ${ARCH_MEN[D.m]} ${D.y}${t ? ' · ' + t : ''}`;
+    return `${ARCH_WDE[D.dow]}., ${D.d}. ${ARCH_MDE[D.m]} ${D.y}${t ? ' · ' + t + ' Uhr' : ''}`;
+  }
+  function archCal(s){
+    const D = archParse(s), t = archTime(s), en = LANG === 'en';
+    return {d:D.d, m:(en ? ARCH_MAB_EN : ARCH_MAB_DE)[D.m], w:(en ? ARCH_WEN : ARCH_WDE)[D.dow] + (t ? ' · ' + t : '')};
   }
   function archOrdinalEn(n){ const s=['th','st','nd','rd'], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
   function archName(n){ return LANG === 'en' ? `${archOrdinalEn(n)} aDevantgarde Festival` : `${n}. aDevantgarde-Festival`; }
   function archHref(e){ return '#archiv-' + e.year; }
+  function archCount(n, words){ return `${n} ${words[n === 1 ? 0 : 1]}`; }
+  function archSec(id, title, note, body){
+    return `<section class="arch-sec" id="${id}"><h2>${archEsc(title)}${note ? `<span class="arch-h2-note">${archEsc(note)}</span>` : ''}</h2>${body}</section>`;
+  }
+
+  function archGoTo(id){
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block: id.indexOf('arch-vid-') === 0 ? 'center' : 'start'});
+  }
+  // Video erst nach Klick laden (kein Kontakt zu YouTube beim bloßen Seitenaufruf)
+  function archLoadVideo(btn){
+    const card = btn.closest('.arch-vcard');
+    const box = card && card.querySelector('.arch-vbox');
+    if(!box) return;
+    box.classList.add('is-playing');
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(card.dataset.yt) + '?autoplay=1&rel=0" title="' + archEsc(card.dataset.title || 'Video') + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+  }
   // Fehlt eine Bilddatei, wird (falls vorhanden) die nächste Variante versucht, sonst verschwindet das Bild ohne kaputtes Symbol
   function archImgFallback(img){
     const rest = (img.dataset.alt || '').split('|').filter(Boolean);
-    if(rest.length){ img.dataset.alt = rest.slice(1).join('|'); img.src = rest[0]; }
-    else { const f = img.closest('figure'); if(f) f.remove(); }
+    if(rest.length){ img.dataset.alt = rest.slice(1).join('|'); img.src = rest[0]; return; }
+    const f = img.closest('figure, .arch-ev-thumb');
+    if(!f) return;
+    const box = f.parentElement;
+    f.remove();
+    if(box && box.classList.contains('arch-ev-pics') && !box.querySelector('figure')){
+      const body = box.closest('.arch-ev-body');
+      box.remove();
+      if(body) body.classList.remove('has-pics');
+    }
+  }
+  // Fehlt das Plakat, steht stattdessen die Jahreszahl groß im Kopfbereich
+  function archPosterFail(img){
+    const f = img.closest('figure');
+    if(!f) return;
+    const y = document.createElement('div');
+    y.className = 'arch-bigyear'; y.setAttribute('aria-hidden', 'true'); y.textContent = f.dataset.year || '';
+    f.replaceWith(y);
+  }
+  // Links auf Dateien im Archivordner (PDF usw.) verschwinden, falls die Datei nicht hochgeladen wurde (nur bei echtem 404)
+  function archCheckFiles(root){
+    root.querySelectorAll('a[href^="archiv-"]').forEach(a => {
+      fetch(a.getAttribute('href'), {method:'HEAD'}).then(r => {
+        if(r.status !== 404) return;
+        const p = a.parentElement;
+        if(p && p.classList.contains('arch-dl')){ a.remove(); if(!p.querySelector('a')) p.remove(); }
+        else if(p && p.tagName === 'P' && p.textContent.trim() === a.textContent.trim()) p.remove();
+        else a.replaceWith(document.createTextNode(a.textContent));
+      }).catch(() => {});
+    });
+  }
+
+  function archEventHtml(ev, vidNo, L){
+    const c = archCal(ev.start);
+    const pics = ev.pics || (ev.img ? [{s: ev.img}] : []);
+    const first = pics[0] ? [].concat(pics[0].s) : null;
+    const thumb = first ? `<span class="arch-ev-thumb"><img src="${archEsc(first[0])}" data-alt="${archEsc(first.slice(1).join('|'))}" alt="" loading="lazy" onerror="archImgFallback(this)"></span>` : '';
+    const badge = ev.yt ? `<span class="arch-ev-badge"><i aria-hidden="true"></i>${archEsc(L.badge)}</span>` : '';
+    const head = `<span class="arch-ev-cal"><span class="d">${c.d}</span><span class="m">${archEsc(c.m)}</span><span class="w">${archEsc(c.w)}</span></span>`
+      + `<span class="arch-ev-text"><span class="arch-ev-title">${archEsc(ev.title)}</span>${ev.loc ? `<span class="arch-ev-loc">${archEsc(ev.loc)}</span>` : ''}${badge}</span>${thumb}`;
+    if(!ev.html && !pics.length) return `<div class="arch-event"><div class="arch-ev-head">${head}</div></div>`;
+    const figs = pics.map(p => { const s = [].concat(p.s); return `<figure><img src="${archEsc(s[0])}" data-alt="${archEsc(s.slice(1).join('|'))}" alt="${archEsc(ev.title)}" loading="lazy" onerror="archImgFallback(this)">${p.c ? `<figcaption>© ${archEsc(p.c)}</figcaption>` : ''}</figure>`; }).join('');
+    const vlink = (ev.yt && vidNo != null) ? `<p class="arch-ev-vlink"><button type="button" onclick="archGoTo('arch-vid-${vidNo}')"><i aria-hidden="true"></i>${archEsc(L.goVideo)}</button></p>` : '';
+    const addr = (ev.loc && ev.addr) ? `<p class="arch-ev-addr">${archEsc(ev.loc)}, ${archEsc(ev.addr)}</p>` : '';
+    return `<details class="arch-event"><summary class="arch-ev-head">${head}<span class="arch-ev-chev" aria-hidden="true"></span></summary>`
+      + `<div class="arch-ev-body${figs ? ' has-pics' : ''}"><div class="arch-ev-main">${vlink}${ev.html || ''}${addr}</div>${figs ? `<div class="arch-ev-pics">${figs}</div>` : ''}</div></details>`;
   }
 
   function renderArchive(){
@@ -1416,47 +1428,63 @@
     const note = `<p class="legal-note" lang="en">${archEsc(ARCH_NOTE_EN)}</p>`;
     const m = (location.hash || '').match(/^#archiv-(\d{4})$/);
     const idx = m ? data.findIndex(e => e.year === parseInt(m[1], 10)) : -1;
+
+    // ---------- Übersicht ----------
     if(idx < 0){
-      const rows = data.slice().reverse().map(e => `
-        <a class="arch-row" href="${archHref(e)}">
-          <span class="arch-row-year">${e.year}</span>
-          <span class="arch-row-main"><span class="arch-row-n">${archEsc(archName(e.n))}</span>${e.motto ? `<span class="arch-row-motto">${archEsc(e.motto)}</span>` : ''}</span>
-          <span class="arch-row-dates">${archEsc(archRange(e.start, e.end))}</span>
-        </a>`).join('');
-      const next = `
-        <a class="arch-row" href="#festival">
-          <span class="arch-row-year">2027</span>
-          <span class="arch-row-main"><span class="arch-row-n">${archEsc(archName(19))} <em class="arch-badge">${archEsc(L.upcoming)}</em></span><span class="arch-row-motto">URGENT</span></span>
-          <span class="arch-row-dates">${archEsc(archRange('2027-06-22','2027-07-03'))}</span>
-        </a>`;
-      root.innerHTML = `<span class="akad-tag">${archEsc(L.tag)}</span><h1>${archEsc(L.h1)}</h1><p class="akad-lead">${archEsc(L.lead)}</p>${note}<div class="arch-list">${next}${rows}</div>`;
+      const cards = data.slice().reverse().map(x => {
+        const ne = (x.events || []).length, nv = (x.events || []).filter(v => v.yt).length;
+        const meta = [ne ? archCount(ne, L.concerts) : '', nv ? archCount(nv, L.vids) : ''].filter(Boolean).join(' · ');
+        return `<a class="arch-card" href="${archHref(x)}"><span class="arch-card-year">${x.year}</span><span class="arch-card-title">${archEsc(x.motto || archName(x.n))}</span>`
+          + `<span class="arch-card-n">${x.motto ? archEsc(archName(x.n)) : ''}</span><span class="arch-card-date">${archEsc(archRange(x.start, x.end))}</span>${meta ? `<span class="arch-card-meta">${archEsc(meta)}</span>` : ''}</a>`;
+      }).join('');
+      root.innerHTML = `<div class="arch-ov-head"><p class="arch-kicker"><span class="arch-pill">${archEsc(L.tag)}</span></p><h1>${archEsc(L.h1)}</h1><p class="arch-lead">${archEsc(L.lead)}</p></div>${note}`
+        + `<a class="arch-upnext" href="#festival"><span class="k">${archEsc(L.upcoming)} · ${archEsc(archName(19))}</span><span class="mt">URGENT</span><span class="dt">${archEsc(archRange('2027-06-22', '2027-07-03'))}</span><span class="arch-arrow" aria-hidden="true"></span></a>`
+        + `<div class="arch-grid">${cards}</div>`;
       return;
     }
+
+    // ---------- Einzelne Ausgabe ----------
     const e = data[idx], prev = data[idx-1], nxt = data[idx+1];
     const title = e.motto || archName(e.n);
-    const kicker = e.motto ? `<p class="arch-kicker">${archEsc(archName(e.n))}</p>` : '';
-    const events = (e.events || []).map(ev => {
-      const head = `<span class="arch-ev-date">${archEsc(archEventDate(ev.start))}</span><span class="arch-ev-text"><span class="arch-ev-title">${archEsc(ev.title)}</span>${ev.loc ? `<span class="arch-ev-loc">${archEsc(ev.loc)}</span>` : ''}</span>`;
-      if(!ev.html && !ev.img) return `<div class="arch-event"><div class="arch-ev-head">${head}</div></div>`;
-      const addr = ev.addr ? `<p class="arch-ev-addr">${archEsc(ev.loc)}, ${archEsc(ev.addr)}</p>` : '';
-      const imgs = ev.img ? [].concat(ev.img) : [];
-      const pic = imgs.length ? `<figure class="arch-ev-img"><img src="${archEsc(imgs[0])}" data-alt="${archEsc(imgs.slice(1).join('|'))}" alt="${archEsc(ev.title)}" loading="lazy" onerror="archImgFallback(this)"></figure>` : '';
-      return `<details class="arch-event"><summary class="arch-ev-head">${head}</summary><div class="arch-ev-body">${pic}${ev.html}${addr}</div></details>`;
-    }).join('');
-    const pager = `<nav class="arch-pager">
-      ${prev ? `<a href="${archHref(prev)}">← ${archEsc(L.prev)}<strong>${prev.year}</strong></a>` : '<span></span>'}
-      ${nxt ? `<a class="arch-pager-next" href="${archHref(nxt)}">${archEsc(L.next)} →<strong>${nxt.year}</strong></a>` : '<span></span>'}
-    </nav>`;
-    root.innerHTML = `
-      <a class="legal-back" href="#archiv">${archEsc(L.all)}</a>
-      <span class="akad-tag">${archEsc(L.tag)}</span>
-      ${kicker}
-      <h1>${archEsc(title)}</h1>
-      <p class="arch-dates">${archEsc(archRange(e.start, e.end))} · ${archEsc(L.place)}</p>
-      ${note}
-      ${(e.intro || e.poster) ? `<div class="arch-top"><div class="arch-intro">${e.intro || ''}</div>${e.poster ? `<figure class="arch-poster"><img src="${archEsc(e.poster)}" alt="${archEsc((LANG === 'en' ? 'Poster ' : 'Plakat ') + title)}" loading="lazy" onerror="this.closest('figure').remove()"></figure>` : ''}</div>` : ''}
-      ${events ? `<h2>${archEsc(L.program)}</h2><div class="arch-events">${events}</div>` : ''}
-      ${pager}`;
+    const evs = e.events || [];
+    const vids = []; evs.forEach(ev => { if(ev.yt){ ev._vid = vids.length; vids.push(ev); } else ev._vid = null; });
+
+    const sections = [];
+    const parts = [];
+    if(evs.length){ sections.push(['arch-sec-program', L.program]); parts.push(archSec('arch-sec-program', L.program, archCount(evs.length, L.concerts), `<div class="arch-events">${evs.map(ev => archEventHtml(ev, ev._vid, L)).join('')}</div>`)); }
+    if(vids.length){
+      sections.push(['arch-sec-videos', L.videos]);
+      const cards = vids.map((v, i) => `<div class="arch-vcard" id="arch-vid-${i}" data-yt="${archEsc(v.yt)}" data-title="${archEsc(v.title)}">`
+        + `<div class="arch-vbox"><button type="button" class="arch-video-btn" onclick="archLoadVideo(this)" aria-label="${archEsc(L.play)}: ${archEsc(v.title)}"><span class="arch-video-play" aria-hidden="true"></span><span class="arch-video-label">${archEsc(L.play)}</span></button></div>`
+        + `<div class="arch-vcap"><strong>${archEsc(v.title)}</strong><span>${archEsc(archEventDate(v.start))}${v.loc ? ' · ' + archEsc(v.loc) : ''}</span></div></div>`).join('');
+      parts.push(archSec('arch-sec-videos', L.videos, archCount(vids.length, L.vids), `<p class="arch-note">${archEsc(L.videoNote)} <a href="#datenschutz">${archEsc(L.privacy)}</a></p><div class="arch-videos">${cards}</div>`));
+    }
+    if(e.heft){
+      sections.push(['arch-sec-heft', L.heft]);
+      const n = (typeof HEFT_PAGE_COUNT !== 'undefined') ? HEFT_PAGE_COUNT : 52;
+      const dl = (e.downloads && e.downloads.length) ? `<p class="arch-dl">${e.downloads.map(d => `<a href="${archEsc(d.f)}" target="_blank" rel="noopener">${archEsc(L[d.k] || d.k)}</a>`).join('')}</p>` : '';
+      parts.push(archSec('arch-sec-heft', L.heft, '', `${dl}<details class="arch-heftcard"><summary><span class="arch-heft-ic" aria-hidden="true"></span><span class="arch-heft-t">${archEsc(L.heftOpen)}<small>${n} ${archEsc(L.pages)}</small></span><span class="arch-ev-chev" aria-hidden="true"></span></summary>`
+        + `<div class="arch-heft"><div class="flipbook-stage"><div class="flip-page-under"><img id="fpImgUnder" alt=""></div><div class="flip-page-active" id="fpActive" onclick="flipbookNext()"><img id="fpImgActive" alt="${archEsc(L.heft)}"></div></div>`
+        + `<div class="flipbook-controls"><button type="button" onclick="flipbookPrev()" aria-label="${archEsc(L.prevPage)}">‹</button><span id="flipbookPageIndicator" class="flipbook-page-indicator">1 / ${n}</span><button type="button" onclick="flipbookNext()" aria-label="${archEsc(L.nextPage)}">›</button></div>`
+        + `<p class="flipbook-hint">${archEsc(L.heftHint)}</p></div></details>`));
+    }
+    if(e.intro){ sections.push(['arch-sec-text', L.about]); parts.push(archSec('arch-sec-text', L.about, '', `<div class="arch-text">${e.intro}</div>`)); }
+    if(e.team){ sections.push(['arch-sec-team', L.team]); parts.push(archSec('arch-sec-team', L.team, '', `<div class="arch-team">${e.team}</div>`)); }
+
+    const chips = sections.length > 1 ? `<nav class="arch-chips" aria-label="${archEsc(title)}">${sections.map(s => `<button type="button" onclick="archGoTo('${s[0]}')">${archEsc(s[1])}</button>`).join('')}</nav>` : '';
+    const side = e.poster
+      ? `<figure class="arch-poster" data-year="${e.year}"><img src="${archEsc(e.poster)}" alt="${archEsc(L.poster + ' ' + title)}" onerror="archPosterFail(this)"></figure>`
+      : `<div class="arch-bigyear" aria-hidden="true">${e.year}</div>`;
+    const pg = (x, dir) => !x ? '<span></span>' : `<a class="arch-pg arch-pg--${dir}" href="${archHref(x)}"><span class="arch-arrow" aria-hidden="true"></span>`
+      + `<span class="arch-pg-dir">${archEsc(dir === 'prev' ? L.prev : L.next)}</span><span class="arch-pg-year">${x.year}</span><span class="arch-pg-title">${archEsc(x.motto || archName(x.n))}</span><span class="arch-pg-date">${archEsc(archRange(x.start, x.end))}</span></a>`;
+
+    root.innerHTML = `<a class="legal-back" href="#archiv">${archEsc(L.back)}</a>`
+      + `<div class="arch-hero${e.motto ? '' : ' no-motto'}"><div class="arch-hero-text"><p class="arch-kicker"><span class="arch-pill">${archEsc(L.tag)}</span>${e.motto ? archEsc(archName(e.n)) : ''}</p>`
+      + `<h1>${archEsc(title)}</h1><p class="arch-meta"><span>${archEsc(archRange(e.start, e.end))}</span><span>${archEsc(L.place)}</span></p>${chips}</div><div class="arch-hero-side">${side}</div></div>`
+      + note + parts.join('')
+      + `<nav class="arch-pager">${pg(prev, 'prev')}${pg(nxt, 'next')}</nav><p class="arch-all"><a href="#archiv">${archEsc(L.all)}</a></p>`;
+    archCheckFiles(root);
+    if(e.heft && typeof initHeftFlipbook === 'function') initHeftFlipbook();
   }
 
   function toggleYearDropdown(btn){
@@ -1921,7 +1949,7 @@
   })();
 </script>
 <script>
-  // Programmheft-Flipbook (Archiv 2023) — eigenständig, ohne externe Bibliothek
+  // Programmheft-Flipbook (Archiv 2023, eingebettet in die Archivseite) — eigenständig, ohne externe Bibliothek
   const HEFT_PAGE_COUNT = 52;
   let heftCurrentPage = 1;
   let heftFlipbookReady = false;
@@ -1930,12 +1958,8 @@
   function heftPagePath(n){ return `heft2023/page-${heftPad(n)}.jpg`; }
 
   function initHeftFlipbook(){
-    if(heftFlipbookReady) return;
-    const activeImg = document.getElementById('fpImgActive');
-    const underImg = document.getElementById('fpImgUnder');
-    if(!activeImg || !underImg) return;
-    heftFlipbookReady = true;
-    renderHeftPage(1);
+    // wird nach jedem Aufbau der Archivseite 2023 aufgerufen und zeigt die zuletzt gesehene Seite
+    renderHeftPage(heftCurrentPage || 1);
   }
 
   function renderHeftPage(n){
@@ -1967,8 +1991,6 @@
   function flipbookPrev(){ heftFlipTo(heftCurrentPage - 1); }
   function flipbookNext(){ heftFlipTo(heftCurrentPage + 1); }
 
-  window.addEventListener('DOMContentLoaded', initHeftFlipbook);
-  window.addEventListener('hashchange', () => { setTimeout(initHeftFlipbook, 50); });
 </script>
 </body>
 </html>
