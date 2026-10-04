@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aDevantgarde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Archivo:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#211E1C">
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1: ÜBER UNS (Startseite)
+     ============================================================ -->
+<div class="page" id="page-ueber-uns">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" class="current" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+
+
+  <section class="logo-hero" aria-label="aDevantgarde – Music Festival – Made by Composers">
+    <div class="wrap">
+      <img src="aDevantgarde-logo-tagline.png" alt="aDevantgarde – Music Festival – Made by Composers">
+    </div>
+  </section>
+
+  <section id="off-season">
+    <div class="wrap">
+      <h2 data-i18n="nav.events">Kommende Veranstaltungen</h2>
+      <p class="offseason-legend" id="offseasonLegend" hidden data-i18n="off.legend">Konzerte von <span class="offseason-own-tag">aDevantgarde</span> und von unseren Mitgliedern</p>
+      <div class="offseason-list" id="offseasonList">
+        <p class="offseason-empty" data-i18n="off.empty">Aktuell keine bestätigten Termine — schau bald wieder vorbei.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="intro">
+    <div class="wrap">
+      <div class="dark-tile">
+      <h2 data-i18n="nav.about">Über uns</h2>
+      <p class="intro-text" data-i18n="intro.1">Wir sind ein Verein Münchner Komponistinnen und Komponisten mit einer gemeinsamen Leidenschaft für Neue Musik. Uns treibt an, die Szene vor Ort zu stärken und international zu vernetzen.</p>
+      <p class="intro-text" data-i18n="intro.2">Gegründet wurde aDevantgarde 1991 auf Initiative Wilhelm Killmayers von dessen Studierenden – als A/DEvantgarde – Projekte Neuer Musik e.V. Ursprünglich verstanden wir uns als Gegenbewegung zum klassischen Neue-Musik-Festival. Dieses Format gibt es in der Form heute kaum noch – wir sind trotzdem geblieben und machen weiterhin, was uns begeistert: frische Ideen auf hohem künstlerischen Niveau, etabliert und experimentell.</p>
+      <p class="intro-text" data-i18n="intro.3">Alle zwei Jahre zeigen wir das auf unserem aDevantgarde-Festival. Dazwischen mit Konzertprojekten im Off-Season-Programm – etwa der Konzertreihe „Neuer Hoargartn".</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap">
+      <h2>Team</h2>
+
+      <div class="team-grid" id="teamGrid">
+        <p class="offseason-empty" data-i18n="team.loading">Team wird geladen …</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ehrenmitglieder">
+    <div class="wrap">
+      <h2 data-i18n="hon.title">Ehrenmitglieder</h2>
+      <p style="font-size:16px; color:var(--gray); line-height:1.8; max-width:680px;">
+        <a href="https://de.schott-music.com/shop/autoren/wilhelm-killmayer" target="_blank" rel="noopener">Wilhelm Killmayer †</a>,
+        <a href="http://www.moritzeggert.de/" target="_blank" rel="noopener">Moritz Eggert</a> <span data-i18n="hon.chair">(Ehrenvorsitzender)</span>,
+        <a href="https://de.wikipedia.org/wiki/Sandeep_Bhagwati" target="_blank" rel="noopener">Sandeep Bhagwati</a>,
+        <a href="http://musikverlag-nickel.eu/Schmitt/" target="_blank" rel="noopener">Markus Schmitt</a> <span data-i18n="hon.and">und</span>
+        <a href="http://www.bernhardweidner.de/" target="_blank" rel="noopener">Bernhard Weidner</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="medien">
+    <div class="wrap">
+      <div class="dark-tile">
+      <h2 data-i18n="media.title">Medien</h2>
+
+      <span class="section-label media-label">YouTube</span>
+      <div class="video-carousel-wrap">
+        <div class="video-carousel" id="videoCarousel">
+          <p class="videos-status" data-i18n="videos.loading">Videos werden geladen …</p>
+        </div>
+        <div class="video-carousel-thumbs" id="videoThumbs"></div>
+      </div>
+      <a href="https://www.youtube.com/@adevantgarde1845" target="_blank" rel="noopener" class="offseason-link" data-i18n="media.yt">Zum YouTube-Kanal ↗</a>
+
+      <span class="section-label media-label media-label-cds">aDevantgarde records</span>
+      <div class="cd-grid">
+        <a href="#records" class="cd-cover"><img src="cover3.jpg" alt="Schoeck vs. Bauer oder What Futures Are You Longing For?"></a>
+        <a href="#records" class="cd-cover"><img src="cover2.jpg" alt="An Earth Symphony"></a>
+        <a href="#records" class="cd-cover"><img src="cover1.jpg" alt="Zentaur – Quartet"></a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="presse">
+    <div class="wrap">
+      <h2 data-i18n="nav.press">Presse</h2>
+      <p class="intro-text" data-i18n="press.intro">Presseinformationen zum kommenden Festival folgen in Kürze. Für Presseanfragen: <a href="mailto:presse@adevantgarde.de" class="contact-email">presse@adevantgarde.de</a></p>
+
+      <div class="press-toggle-block">
+        <button type="button" class="press-toggle" onclick="togglePress(this)">
+          <span data-i18n="press.files">Pressemeldungen</span> <span class="arrow">▾</span>
+        </button>
+        <div class="press-toggle-body">
+          <ul class="press-file-list">
+            <li><a href="PM/PM-aDe-Records-CD-Release.pdf" target="_blank" rel="noopener">PM-aDe-Records-CD-Release.pdf</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <h2 data-i18n="nav.contact">Kontakt</h2>
+
+      <div class="contact-cards">
+        <div class="contact-card dark-tile">
+          <h3 data-i18n="contact.general">Allgemein</h3>
+          <p data-i18n="contact.general.t">Fragen rund um Verein und Festival an</p>
+          <a href="mailto:leitung@adevantgarde.de" class="contact-email">leitung@adevantgarde.de</a>
+        </div>
+        <div class="contact-card dark-tile">
+          <h3 data-i18n="contact.member">Mitglied werden</h3>
+          <p data-i18n="contact.member.t">Formlose Mail mit kurzer Vorstellung an</p>
+          <a href="mailto:kbb@adevantgarde.de" class="contact-email">kbb@adevantgarde.de</a>
+        </div>
+        <div class="contact-card dark-tile">
+          <h3 data-i18n="nav.press">Presse</h3>
+          <p data-i18n="contact.press.t">Presseanfragen und Medienmaterial an</p>
+          <a href="mailto:presse@adevantgarde.de" class="contact-email">presse@adevantgarde.de</a>
+        </div>
+      </div>
+
+      <p class="contact-note" data-i18n="contact.note">Blindbewerbungen von Interpret:innen, Kunstschaffenden und Agenturen sind leider nicht möglich.</p>
+
+      <a href="https://www.instagram.com/adevantgarde_festival" target="_blank" rel="noopener" class="social-icon-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+
+      <div class="legal-row">
+        <a href="#impressum" data-i18n="legal.imprint">Impressum</a>
+        <a href="#datenschutz" data-i18n="legal.privacy">Datenschutzerklärung</a>
+        <span class="legal-break" aria-hidden="true"></span>
+        <a href="satzung.pdf" target="_blank" rel="noopener" data-i18n="legal.statutes">Satzung (PDF)</a>
+        <span class="legal-break" aria-hidden="true"></span>
+        <span class="legal-row-sep">·</span>
+        <span class="member-area-label" data-i18n="legal.members">Mitgliederbereich:</span>
+        <a href="https://www.campai.com/" target="_blank" rel="noopener">Campai</a>
+        <a href="https://leonzmy.github.io/ade_intranet/" target="_blank" rel="noopener">Intranet</a>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+<!-- ============================================================
+     PAGE 2: ADEVANTGARDE RECORDS
+     ============================================================ -->
+<div class="page" id="page-records">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records" class="current">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Label</span>
+      <h1>aDevantgarde records</h1>
+      <p data-i18n="rec.hero">Unser Label dokumentiert Produktionen aus dem Festivalumfeld dauerhaft — als physische und digitale Veröffentlichungen, unabhängig vom zweijährigen Festivalrhythmus.</p>
+    </div>
+  </section>
+
+  <section id="veroeffentlichungen">
+    <div class="wrap">
+      <span class="section-label" data-i18n="rec.releases">Veröffentlichungen</span>
+      <h2 data-i18n="rec.all">Alle Releases</h2>
+      <div class="release-quicknav">
+        <a href="#records-release-1">1</a>
+        <a href="#records-release-2">2</a>
+        <a href="#records-release-3">3</a>
+      </div>
+
+      <div class="release-block" id="records-release-3">
+        <div class="release-num">Release #3</div>
+        <div class="release">
+          <div>
+            <div class="cover"><img src="cover3.jpg" alt="Cover: Schoeck vs. Bauer"></div>
+          </div>
+          <div class="release-card">
+            <h3>SCHOECK vs. BAUER oder WHAT FUTURES ARE YOU LONGING FOR?</h3>
+            <div class="artist" data-i18n="r3.artist">Komponisten: Michael Emanuel Bauer, Othmar Schoeck, Gunnar Geisse<br>Interpreten: Robert Koller (Bariton), Stefan Kägi (Klavier), Gunnar Geisse (Laptop Guitar)</div>
+            <div class="release-tabs">
+              <button class="tab-btn active" onclick="switchTab('r3','info',this)" data-i18n="rec.info">Infotext</button>
+              <button class="tab-btn" onclick="switchTab('r3','tracks',this)">Tracklist</button>
+              <a class="stream-btn" href="https://adevantgarde.lnk.to/ar0003" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8l6 4-6 4z"/></svg>Stream</a>
+              <button type="button" class="details-toggle" onclick="toggleReleaseDetails(this)">Details <span class="arrow">▾</span></button>
+            </div>
+            <div class="release-details">
+            <div class="tab-panel active" id="r3-info">
+              <p class="desc" data-i18n="r3.desc">Im Sommer 2018 gräbt der Schweizer Pianist Stefan Kägi den Liedzyklus Nachhall, op. 70 für Stimme und Orchester des Schweizer Komponisten Othmar Schoeck (1886-1957) aus. Der wegen seiner technischen und interpretatorischen Herausforderung nur selten gespielte Liedzyklus Nachhall, op. 70 liegt hier als Ersteinspielung für Stimme und Klavier vor. Stefan Kägi und Michael Emanuel Bauer, die beide ein großes Faible für k-punk aka Mark Fisher haben, insbesondere für dessen Buch Ghosts of my Life. Writings on Depression, Hauntology and Lost Futures (Zero Books 2014), finden, dass es doch gar keine schlechte Idee wäre, Schoecks Liedzyklus daher aus dem Geist der Derrida'schen Hauntology neu zu betrachten. Die hier vorliegende Ersteinspielung stellt die beiden Zyklen gegenüber. Unmittelbar nach dem jeweiligen Lied von Othmar Schoeck folgt die entsprechende Fortschreibung von Michael Emanuel Bauer. Bauers Fortschreibung macht auch nicht Halt vor den Texten von Matthias Claudius und Nikolaus Lenau. In der Tradition von Raymond Queneau und der Gruppe Oulipo werden die Texte formal-lettristisch dekonstruiert und neu zusammengesetzt.</p>
+            </div>
+            <div class="tab-panel" id="r3-tracks">
+              <ul class="tracklist">
+                <li><div class="track-info"><span class="track-title">1. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 1, Nachhall</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">3:51</span></li>
+                <li><div class="track-info"><span class="track-title">2. Afterimages: No. 1, Nachhall</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">1:44</span></li>
+                <li><div class="track-info"><span class="track-title">3. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 2, Einsamkeit</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">4:56</span></li>
+                <li><div class="track-info"><span class="track-title">4. Afterimages: No. 2, Einsamkeit</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">3:28</span></li>
+                <li><div class="track-info"><span class="track-title">5. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 3, Mein Herz</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">1:34</span></li>
+                <li><div class="track-info"><span class="track-title">6. Afterimages: No. 3, Mein Herz</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">1:59</span></li>
+                <li><div class="track-info"><span class="track-title">7. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 4, Veränderte Welt</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">1:20</span></li>
+                <li><div class="track-info"><span class="track-title">8. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 5, Abendheimkehr</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">1:18</span></li>
+                <li><div class="track-info"><span class="track-title">9. Afterimages: No. 5, Abendheimkehr</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">2:27</span></li>
+                <li><div class="track-info"><span class="track-title">10. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 6, Auf eine holländische Landschaft</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">2:05</span></li>
+                <li><div class="track-info"><span class="track-title">11. Afterimages: No. 6, Auf eine holländische Landschaft</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">2:40</span></li>
+                <li><div class="track-info"><span class="track-title">12. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 7, Stimme des Windes</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">2:38</span></li>
+                <li><div class="track-info"><span class="track-title">13. Afterimages: No. 7, Stimme des Windes</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">2:31</span></li>
+                <li><div class="track-info"><span class="track-title">14. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 8, Der falsche Freund</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">1:15</span></li>
+                <li><div class="track-info"><span class="track-title">15. Afterimages: No. 8, Der falsche Freund</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">1:24</span></li>
+                <li><div class="track-info"><span class="track-title">16. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 9, Niagara</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">3:27</span></li>
+                <li><div class="track-info"><span class="track-title">17. Afterimages: No. 9, Niagara</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">3:08</span></li>
+                <li><div class="track-info"><span class="track-title">18. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 10, Heimatklang</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">2:57</span></li>
+                <li><div class="track-info"><span class="track-title">19. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 11, Der Kranich</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">2:23</span></li>
+                <li><div class="track-info"><span class="track-title">20. Afterimages: No. 12, Der Kranich</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">1:22</span></li>
+                <li><div class="track-info"><span class="track-title">21. Nachhall, Op. 70 (Version for Voice &amp; Piano): No. 12, O du Land</span><span class="track-composer">Othmar Schoeck</span></div><span class="track-duration">2:13</span></li>
+                <li><div class="track-info"><span class="track-title">22. Afterimages: No. 13, O du Land</span><span class="track-composer">Michael Emanuel Bauer</span></div><span class="track-duration">2:26</span></li>
+                <li><div class="track-info"><span class="track-title">23. Nachhall Afterimages: Remix_01a Nachhall</span><span class="track-composer">Gunnar Geisse</span></div><span class="track-duration">2:32</span></li>
+                <li><div class="track-info"><span class="track-title">24. Nachhall Afterimages: Remix_01b Nachhall</span><span class="track-composer">Gunnar Geisse</span></div><span class="track-duration">1:38</span></li>
+                <li><div class="track-info"><span class="track-title">25. Nachhall Afterimages: Remix_02 Einsamkeit</span><span class="track-composer">Gunnar Geisse</span></div><span class="track-duration">3:43</span></li>
+                <li><div class="track-info"><span class="track-title">26. Nachhall Afterimages: Remix_09 Niagara</span><span class="track-composer">Gunnar Geisse</span></div><span class="track-duration">3:27</span></li>
+                <li><div class="track-info"><span class="track-title">27. Nachhall Afterimages: Remix_10 Heimatklang</span><span class="track-composer">Gunnar Geisse</span></div><span class="track-duration">1:59</span></li>
+                <li><div class="track-info"><span class="track-title">28. Nachhall Afterimages: Remix_11 Der Kranich</span><span class="track-composer">Gunnar Geisse</span></div><span class="track-duration">1:10</span></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="release-block" id="records-release-2">
+        <div class="release-num">Release #2</div>
+        <div class="release">
+          <div>
+            <div class="cover"><img src="cover2.jpg" alt="Cover: An Earth Symphony"></div>
+          </div>
+          <div class="release-card">
+            <h3>AN EARTH SYMPHONY</h3>
+            <div class="artist" data-i18n="r2.artist">Tobias PM Schneid · Augsburger Philharmoniker · Domonkos Héja (Dirigent) · Jung-Eun Shin (Violine)</div>
+            <div class="release-tabs">
+              <button class="tab-btn active" onclick="switchTab('r2','info',this)" data-i18n="rec.info">Infotext</button>
+              <button class="tab-btn" onclick="switchTab('r2','tracks',this)">Tracklist</button>
+              <button class="tab-btn" onclick="switchTab('r2','trailer',this)">Trailer</button>
+              <a class="stream-btn" href="https://adevantgarde.lnk.to/ar0002" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8l6 4-6 4z"/></svg>Stream</a>
+              <button type="button" class="details-toggle" onclick="toggleReleaseDetails(this)">Details <span class="arrow">▾</span></button>
+            </div>
+            <div class="release-details">
+            <div class="tab-panel active" id="r2-info">
+              <p class="desc" data-i18n="r2.desc">Mit der zweiten Veröffentlichung in der Live-Reihe unseres Labels präsentieren wir die Einspielung der Augsburger Philharmoniker unter Domonkos Héja und mit Jung-Eun Shin an der Solo-Violine der 4. Sinfonie („An Earth Symphony") von Tobias PM Schneid. Tobias PM Schneids „Earth Symphony" ist kein verklärender Hymnus auf den Planeten Erde, sondern ein großorchestraler Aufschrei, ein Fanal, um auch im Konzertsaal auf die prekäre Klimasituation und die Dringlichkeit eines bewussten und achtsamen Umgangs mit den Ressourcen dieses Planeten zu verweisen. Die fünf Sätze der Sinfonie – Magma, Water, Tree, Desert und Air – kommentieren auf je eigene Weise das „Aus den Fugen geraten"-Sein unseres Ökosystems, und thematisieren die Zersetzungsprozesse, denen dieses System durch menschliches Handeln ausgesetzt ist. Kein musikalischer Ökothriller, sondern ein Mahnmal mit der Aufforderung verantwortungsbewusst zu handeln.</p>
+            </div>
+            <div class="tab-panel" id="r2-tracks">
+              <ul class="tracklist">
+                <li><span>1. Symphony No. 4 "An Earth": I. Magma - Live</span><span>8:05</span></li>
+                <li><span>2. Symphony No. 4 "An Earth": II. Water - Live</span><span>4:37</span></li>
+                <li><span>3. Symphony No. 4 "An Earth": III. Tree - Live</span><span>6:05</span></li>
+                <li><span>4. Symphony No. 4 "An Earth": IV. Desert - Live</span><span>6:43</span></li>
+                <li><span>5. Symphony No. 4 "An Earth": V. Air - Live</span><span>8:09</span></li>
+              </ul>
+            </div>
+            <div class="tab-panel" id="r2-trailer">
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/URCCvxXxok0" title="Trailer: An Earth Symphony" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="release-block" id="records-release-1">
+        <div class="release-num">Release #1</div>
+        <div class="release">
+          <div>
+            <div class="cover"><img src="cover1.jpg" alt="Cover: Zentaur – Quartet"></div>
+          </div>
+          <div class="release-card">
+            <h3>ZENTAUR – QUARTET</h3>
+            <div class="artist">string quartets by aDevantgarde composers · Zentaur-Quartett</div>
+            <div class="release-tabs">
+              <button class="tab-btn active" onclick="switchTab('r1','info',this)" data-i18n="rec.info">Infotext</button>
+              <button class="tab-btn" onclick="switchTab('r1','tracks',this)">Tracklist</button>
+              <button class="tab-btn" onclick="switchTab('r1','trailer',this)">Trailer</button>
+              <a class="stream-btn" href="https://adevantgarde.lnk.to/ar0001" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8l6 4-6 4z"/></svg>Stream</a>
+              <button type="button" class="details-toggle" onclick="toggleReleaseDetails(this)">Details <span class="arrow">▾</span></button>
+            </div>
+            <div class="release-details">
+            <div class="tab-panel active" id="r1-info">
+              <p class="desc" data-i18n="r1.desc1">Das im Jahr 2023 neu gegründete Label aDevantgarde records aus München widmet sich zeitgenössischer Musik mit vielfältigen Erscheinungsformen und Stilistiken. Das Debütalbum versammelt dreizehn Streichquartette, die zwischen 1997 und 2019 entstanden sind. Die CD ist das erste Produkt dieser neuen Reihe.</p>
+              <p class="desc" data-i18n="r1.desc2">Das Zentaur-Quartett spielte Werke von Carl Christian Bettendorf, Caio de Azevedo, Sandeep Bhagwati, Christian Dieck, Nina Deuse, Moritz Eggert, Markus Lehmann-Horn, Helga Pogatschar, Jacopo Salvatori, Johannes X. Schachtner, Katharina Schmauder, Alexander Strauch und Bernhard Weidner ein, die einen Querschnitt durch mehr als dreißig Jahre aDevantgarde darstellen.</p>
+              <p class="desc" data-i18n="r1.desc3">Annette Fritz (1. Violine), Marc Kaufmann (2. Violine), Katharina Schmauder (Viola) und Caio de Azevedo (Violoncello) stellen mit dieser CD-Produktion einmal mehr ihr herausragendes Können und Engagement für zeitgenössische Kompositionen unter Beweis.</p>
+            </div>
+            <div class="tab-panel" id="r1-tracks">
+              <ul class="tracklist">
+                <li><div class="track-info"><span class="track-title">1. Il y a l'Océan (rev. 2007)</span><span class="track-composer">Carl Christian Bettendorf, Zentaur-Quartett</span></div><span class="track-duration">10:30</span></li>
+                <li><div class="track-info"><span class="track-title">2. Scratch – string quartet (rev. 2020): I. Satz</span><span class="track-composer">Nina Deuse, Zentaur-Quartett</span></div><span class="track-duration">4:04</span></li>
+                <li><div class="track-info"><span class="track-title">3. Scratch – string quartet (rev. 2020): II. Satz</span><span class="track-composer">Nina Deuse, Zentaur-Quartett</span></div><span class="track-duration">2:44</span></li>
+                <li><div class="track-info"><span class="track-title">4. Scratch – string quartet (rev. 2020): III. Satz</span><span class="track-composer">Nina Deuse, Zentaur-Quartett</span></div><span class="track-duration">3:48</span></li>
+                <li><div class="track-info"><span class="track-title">5. Skin</span><span class="track-composer">Katharina Schmauder, Zentaur-Quartett</span></div><span class="track-duration">5:59</span></li>
+                <li><div class="track-info"><span class="track-title">6. Clouds &amp; Fragments</span><span class="track-composer">Markus Lehmann-Horn, Zentaur-Quartett</span></div><span class="track-duration">11:17</span></li>
+                <li><div class="track-info"><span class="track-title">7. 1. Streichquartett</span><span class="track-composer">Caio de Azevedo, Zentaur-Quartett</span></div><span class="track-duration">5:27</span></li>
+                <li><div class="track-info"><span class="track-title">8. Bruckner Schemen</span><span class="track-composer">Bernhard Weidner, Zentaur-Quartett</span></div><span class="track-duration">12:09</span></li>
+                <li><div class="track-info"><span class="track-title">9. Streichquartett Nr. 3 "Vor Anker" (rev. 2018)</span><span class="track-composer">Johannes X. Schachtner, Zentaur-Quartett</span></div><span class="track-duration">9:45</span></li>
+                <li><div class="track-info"><span class="track-title">10. Streichquartett Nr. 1 – H-I-A-S</span><span class="track-composer">Alexander Strauch, Zentaur-Quartett</span></div><span class="track-duration">10:48</span></li>
+                <li><div class="track-info"><span class="track-title">11. Pixels</span><span class="track-composer">Jacopo Salvatori, Zentaur-Quartett</span></div><span class="track-duration">7:29</span></li>
+                <li><div class="track-info"><span class="track-title">12. Streichquartett (2019) – I.</span><span class="track-composer">Christian Dieck, Zentaur-Quartett</span></div><span class="track-duration">2:29</span></li>
+                <li><div class="track-info"><span class="track-title">13. Streichquartett (2019) – II.</span><span class="track-composer">Christian Dieck, Zentaur-Quartett</span></div><span class="track-duration">2:46</span></li>
+                <li><div class="track-info"><span class="track-title">14. Stele III for James Tenney</span><span class="track-composer">Sandeep Bhagwati, Zentaur-Quartett</span></div><span class="track-duration">8:35</span></li>
+                <li><div class="track-info"><span class="track-title">15. Scary Meditation (rev. 2019)</span><span class="track-composer">Helga Pogatschar, Zentaur-Quartett</span></div><span class="track-duration">10:37</span></li>
+                <li><div class="track-info"><span class="track-title">16. Et in Arcadia Ego – String quartet No. 2</span><span class="track-composer">Moritz Eggert, Zentaur-Quartett</span></div><span class="track-duration">16:05</span></li>
+              </ul>
+            </div>
+            <div class="tab-panel" id="r1-trailer">
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/NKH4M78VCag" title="Trailer: Zentaur – Quartet" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© aDevantgarde records</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     PAGE 3: FESTIVAL 2027 (comic style)
+     ============================================================ -->
+<div class="page" id="page-festival">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+
+  <section class="fest-stage" id="festStage" aria-label="19. aDevantgarde-Festival – URGENT">
+    <h1 class="sr-only" data-i18n="fest.h1">19. aDevantgarde-Festival – URGENT</h1>
+    <div class="fest-copy" id="festCopy">
+      <div class="fest-copy-inner">
+        <p class="fest-lead" data-i18n="fest.lead">Das 19. aDevantgarde-Festival findet unter dem Motto „<strong>URGENT</strong>“ vom 22.06. bis 03.07.2027 in München statt.</p>
+        <p data-i18n="fest.p1">Wir bringen regionale und internationale Akteure der freien Szene auf die Bühne und präsentieren unterschiedliche Formate – von klassischen Konzerten bis zu einem Escape Room.</p>
+        <p data-i18n="fest.p2">Das genaue Programm wird im Februar 2027 veröffentlicht.</p>
+        <p data-i18n="fest.p3">Bleibt auf dem Laufenden auf <a href="https://www.instagram.com/adevantgarde_festival" target="_blank" rel="noopener">Instagram</a>.</p>
+
+        <a class="akad-cta" href="#akademie">
+          <span class="akad-cta-tag" data-i18n="akad.cta.tag">Open Call</span>
+          <span class="akad-cta-title" data-i18n="akad.cta.title">aDe-Akademie</span>
+          <span class="akad-cta-desc" data-i18n="akad.cta.desc">Sechstägiges Akademieprogramm für junge Komponierende – parallel zum Festival. Bewerbung bis 15.11.2026.</span>
+          <span class="akad-cta-link" data-i18n="akad.cta.link">Mehr erfahren ↗</span>
+        </a>
+      </div>
+    </div>
+    <img class="fest-stamp" id="festStamp" src="urgent-stamp.png" alt="URGENT – Stempel" width="1600" height="1210">
+    <button type="button" class="fest-hint" id="festHint" aria-label="Weiterlesen" data-i18n-aria="aria.hint">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l7 7 7-7"/></svg>
+    </button>
+  </section>
+</div>
+
+<div class="page" id="page-impressum">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+  <main class="legal">
+    <div class="legal-wrap">
+      <a class="legal-back" href="#ueber-uns" data-i18n="legal.back">← Zurück zur Startseite</a>
+      <p class="legal-note" data-i18n="legal.note" lang="en">The legal texts on this page are provided in German only.</p>
+      <div lang="de">
+        <h1>Impressum</h1>
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <p><strong>A/DEvantgarde e.V. – Projekte Neuer Musik</strong><br>
+        <span class="legal-todo">[Straße und Hausnummer]</span><br>
+        <span class="legal-todo">[PLZ] München</span></p>
+        <p>Vereinsregister: VR 13428<br>
+        Registergericht: <span class="legal-todo">[Registergericht, z. B. Amtsgericht München – bitte prüfen]</span></p>
+        <p>Vertreten durch den Vorstand:<br>
+        Markus Lehmann-Horn (1. Vorsitzender)<br>
+        Katrin Klose (2. Vorsitzende)<br>
+        Christian Dieck (Schatzmeister)</p>
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href="mailto:leitung@adevantgarde.de">leitung@adevantgarde.de</a></p>
+        <h2>Verantwortlich für den Inhalt</h2>
+        <p><span class="legal-todo">[Name und Anschrift der inhaltlich verantwortlichen Person ergänzen]</span></p>
+        <h2 class="legal-section">Haftungsausschluss</h2>
+        <h2>1. Inhalt des Onlineangebotes</h2>
+<p>Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. Haftungsansprüche gegen den Autor, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Autors kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.</p>
+<p>Alle Angebote sind freibleibend und unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.</p>
+<h2>2. Verweise und Links</h2>
+<p>Bei direkten oder indirekten Verweisen auf fremde Webseiten („Hyperlinks“), die außerhalb des Verantwortungsbereiches des Autors liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern.</p>
+<p>Der Autor erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/ verknüpften Seiten hat der Autor keinerlei Einfluss. Deshalb distanziert er sich hiermit ausdrücklich von allen Inhalten aller verlinkten/verknüpften Seiten, die nach der Linksetzung verändert wurden. Diese Feststellung gilt für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie für Fremdeinträge in vom Autor eingerichteten Gästebüchern, Diskussionsforen, Linkverzeichnissen, Mailinglisten und in allen anderen Formen von Datenbanken, auf deren Inhalt externe Schreibzugriffe möglich sind. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde, nicht derjenige, der über Links auf die jeweilige Veröffentlichung lediglich verweist.</p>
+<h2>3. Urheber- und Kennzeichenrecht</h2>
+<p>Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, von ihm selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen.</p>
+<p>Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen nicht durch Rechte Dritter geschützt sind!</p>
+<p>Das Copyright für veröffentlichte, vom Autor selbst erstellte Objekte bleibt allein beim Autor der Seiten. Eine Vervielfältigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung des Autors nicht gestattet.</p>
+<h2>4. Rechtswirksamkeit dieses Haftungsausschlusses</h2>
+<p>Dieser Haftungsausschluss ist als Teil des Internetangebotes <a href="http://www.adevantgarde.de" target="_blank" rel="noopener">http://www.adevantgarde.de</a> zu betrachten, von dem aus auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="page" id="page-datenschutz">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+  <main class="legal">
+    <div class="legal-wrap">
+      <a class="legal-back" href="#ueber-uns" data-i18n="legal.back">← Zurück zur Startseite</a>
+      <p class="legal-note" data-i18n="legal.note" lang="en">The legal texts on this page are provided in German only.</p>
+      <div lang="de">
+        <h1>Datenschutzerklärung</h1>
+        <p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend kurz „Daten“) innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen, wie z.B. unser Social Media Profile auf (nachfolgend gemeinsam bezeichnet als „Onlineangebot“). Im Hinblick auf die verwendeten Begrifflichkeiten, wie z.B. „Verarbeitung“ oder „Verantwortlicher“ verweisen wir auf die Definitionen im Art. 4 der Datenschutzgrundverordnung (DSGVO).</p>
+<h3>a) Verantwortlicher</h3>
+<p>A/DEvantgarde e.V. – Projekte Neuer Musik<br>München, VR 13428</p>
+<h3>b) Arten der verarbeiteten Daten</h3>
+<ul><li>Bestandsdaten (z.B., Namen, Adressen).</li><li>Kontaktdaten (z.B., E-Mail, Telefonnummern).</li><li>Inhaltsdaten (z.B., Texteingaben, Fotografien, Videos).</li><li>Nutzungsdaten (z.B., besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten).</li><li>Meta-/Kommunikationsdaten (z.B., Geräte-Informationen, IP-Adressen).</li></ul>
+<h3>c) Kategorien betroffener Personen</h3>
+<p>Besucher und Nutzer des Onlineangebotes (Nachfolgend bezeichnen wir die betroffenen Personen zusammenfassend auch als „Nutzer“).</p>
+<h3>d) Zweck der Verarbeitung</h3>
+<ul><li>Zurverfügungstellung des Onlineangebotes, seiner Funktionen und Inhalte.</li><li>Beantwortung von Kontaktanfragen und Kommunikation mit Nutzern.</li><li>Sicherheitsmaßnahmen.</li><li>Reichweitenmessung/Marketing</li></ul>
+<h3>e) Verwendete Begrifflichkeiten</h3>
+<p>„Personenbezogene Daten“ sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden „betroffene Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung (z.B. Cookie) oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.</p>
+<p>„Verarbeitung“ ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten.</p>
+<p>„Pseudonymisierung“ die Verarbeitung personenbezogener Daten in einer Weise, dass die personenbezogenen Daten ohne Hinzuziehung zusätzlicher Informationen nicht mehr einer spezifischen betroffenen Person zugeordnet werden können, sofern diese zusätzlichen Informationen gesondert aufbewahrt werden und technischen und organisatorischen Maßnahmen unterliegen, die gewährleisten, dass die personenbezogenen Daten nicht einer identifizierten oder identifizierbaren natürlichen Person zugewiesen werden.</p>
+<p>„Profiling“ jede Art der automatisierten Verarbeitung personenbezogener Daten, die darin besteht, dass diese personenbezogenen Daten verwendet werden, um bestimmte persönliche Aspekte, die sich auf eine natürliche Person beziehen, zu bewerten, insbesondere um Aspekte bezüglich Arbeitsleistung, wirtschaftliche Lage, Gesundheit, persönliche Vorlieben, Interessen, Zuverlässigkeit, Verhalten, Aufenthaltsort oder Ortswechsel dieser natürlichen Person zu analysieren oder vorherzusagen.</p>
+<p>Als „Verantwortlicher“ wird die natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet, bezeichnet.</p>
+<p>„Auftragsverarbeiter“ eine natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet.</p>
+<h3>f) Maßgebliche Rechtsgrundlagen</h3>
+<p>Nach Maßgabe des Art. 13 DSGVO teilen wir Ihnen die Rechtsgrundlagen unserer Datenverarbeitungen mit. Sofern die Rechtsgrundlage in der Datenschutzerklärung nicht genannt wird, gilt Folgendes: Die Rechtsgrundlage für die Einholung von Einwilligungen ist Art. 6 Abs. 1 lit. a und Art. 7 DSGVO, die Rechtsgrundlage für die Verarbeitung zur Erfüllung unserer Leistungen und Durchführung vertraglicher Maßnahmen sowie Beantwortung von Anfragen ist Art. 6 Abs. 1 lit. b DSGVO, die Rechtsgrundlage für die Verarbeitung zur Erfüllung unserer rechtlichen Verpflichtungen ist Art. 6 Abs. 1 lit. c DSGVO, und die Rechtsgrundlage für die Verarbeitung zur Wahrung unserer berechtigten Interessen ist Art. 6 Abs. 1 lit. f DSGVO. Für den Fall, dass lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person eine Verarbeitung personenbezogener Daten erforderlich machen, dient Art. 6 Abs. 1 lit. d DSGVO als Rechtsgrundlage.</p>
+<h3>g) Sicherheitsmaßnahmen</h3>
+<p>Wir treffen nach Maßgabe des Art. 32 DSGVO unter Berücksichtigung des Stands der Technik, der Implementierungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie der unterschiedlichen Eintrittswahrscheinlichkeit und Schwere des Risikos für die Rechte und Freiheiten natürlicher Personen, geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten.</p>
+<p>Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen Zugangs zu den Daten, als auch des sie betreffenden Zugriffs, der Eingabe, Weitergabe, der Sicherung der Verfügbarkeit und ihrer Trennung. Des Weiteren haben wir Verfahren eingerichtet, die eine Wahrnehmung von Betroffenenrechten, Löschung von Daten und Reaktion auf Gefährdung der Daten gewährleisten. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der Entwicklung, bzw. Auswahl von Hardware, Software sowie Verfahren, entsprechend dem Prinzip des Datenschutzes durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen (Art. 25 DSGVO).</p>
+<h3>h) Zusammenarbeit mit Auftragsverarbeitern und Dritten</h3>
+<p>Sofern wir im Rahmen unserer Verarbeitung Daten gegenüber anderen Personen und Unternehmen (Auftragsverarbeitern oder Dritten) offenbaren, sie an diese übermitteln oder ihnen sonst Zugriff auf die Daten gewähren, erfolgt dies nur auf Grundlage einer gesetzlichen Erlaubnis (z.B. wenn eine Übermittlung der Daten an Dritte, wie an Zahlungsdienstleister, gem. Art. 6 Abs. 1 lit. b DSGVO zur Vertragserfüllung erforderlich ist), Sie eingewilligt haben, eine rechtliche Verpflichtung dies vorsieht oder auf Grundlage unserer berechtigten Interessen (z.B. beim Einsatz von Beauftragten, Webhostern, etc.).</p>
+<p>Sofern wir Dritte mit der Verarbeitung von Daten auf Grundlage eines sog. „Auftragsverarbeitungsvertrages“ beauftragen, geschieht dies auf Grundlage des Art. 28 DSGVO.</p>
+<h3>i) Übermittlungen in Drittländer</h3>
+<p>Sofern wir Daten in einem Drittland (d.h. außerhalb der Europäischen Union (EU) oder des Europäischen Wirtschaftsraums (EWR)) verarbeiten oder dies im Rahmen der Inanspruchnahme von Diensten Dritter oder Offenlegung, bzw. Übermittlung von Daten an Dritte geschieht, erfolgt dies nur, wenn es zur Erfüllung unserer (vor)vertraglichen Pflichten, auf Grundlage Ihrer Einwilligung, aufgrund einer rechtlichen Verpflichtung oder auf Grundlage unserer berechtigten Interessen geschieht. Vorbehaltlich gesetzlicher oder vertraglicher Erlaubnisse, verarbeiten oder lassen wir die Daten in einem Drittland nur beim Vorliegen der besonderen Voraussetzungen der Art. 44 ff. DSGVO verarbeiten. D.h. die Verarbeitung erfolgt z.B. auf Grundlage besonderer Garantien, wie der offiziell anerkannten Feststellung eines der EU entsprechenden Datenschutzniveaus (z.B. für die USA durch das „Privacy Shield“) oder Beachtung offiziell anerkannter spezieller vertraglicher Verpflichtungen (so genannte „Standardvertragsklauseln“).</p>
+<h3>j) Rechte der betroffenen Personen</h3>
+<p>Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden und auf Auskunft über diese Daten sowie auf weitere Informationen und Kopie der Daten entsprechend Art. 15 DSGVO.</p>
+<p>Sie haben entsprechend. Art. 16 DSGVO das Recht, die Vervollständigung der Sie betreffenden Daten oder die Berichtigung der Sie betreffenden unrichtigen Daten zu verlangen.</p>
+<p>Sie haben nach Maßgabe des Art. 17 DSGVO das Recht zu verlangen, dass betreffende Daten unverzüglich gelöscht werden, bzw. alternativ nach Maßgabe des Art. 18 DSGVO eine Einschränkung der Verarbeitung der Daten zu verlangen.</p>
+<p>Sie haben das Recht zu verlangen, dass die Sie betreffenden Daten, die Sie uns bereitgestellt haben nach Maßgabe des Art. 20 DSGVO zu erhalten und deren Übermittlung an andere Verantwortliche zu fordern.</p>
+<p>Sie haben ferner gem. Art. 77 DSGVO das Recht, eine Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen.</p>
+<h3>k) Widerrufsrecht</h3>
+<p>Sie haben das Recht, erteilte Einwilligungen gem. Art. 7 Abs. 3 DSGVO mit Wirkung für die Zukunft zu widerrufen</p>
+<h3>l) Widerspruchsrecht</h3>
+<p>Sie können der künftigen Verarbeitung der Sie betreffenden Daten nach Maßgabe des Art. 21 DSGVO jederzeit widersprechen. Der Widerspruch kann insbesondere gegen die Verarbeitung für Zwecke der Direktwerbung erfolgen.</p>
+<h3>m) Cookies und Widerspruchsrecht bei Direktwerbung</h3>
+<p>Als „Cookies“ werden kleine Dateien bezeichnet, die auf Rechnern der Nutzer gespeichert werden. Innerhalb der Cookies können unterschiedliche Angaben gespeichert werden. Ein Cookie dient primär dazu, die Angaben zu einem Nutzer (bzw. dem Gerät auf dem das Cookie gespeichert ist) während oder auch nach seinem Besuch innerhalb eines Onlineangebotes zu speichern. Als temporäre Cookies, bzw. „Session-Cookies“ oder „transiente Cookies“, werden Cookies bezeichnet, die gelöscht werden, nachdem ein Nutzer ein Onlineangebot verlässt und seinen Browser schließt. In einem solchen Cookie kann z.B. der Inhalt eines Warenkorbs in einem Onlineshop oder ein Login-Status gespeichert werden. Als „permanent“ oder „persistent“ werden Cookies bezeichnet, die auch nach dem Schließen des Browsers gespeichert bleiben. So kann z.B. der Login-Status gespeichert werden, wenn die Nutzer diese nach mehreren Tagen aufsuchen. Ebenso können in einem solchen Cookie die Interessen der Nutzer gespeichert werden, die für Reichweitenmessung oder Marketingzwecke verwendet werden. Als „Third-Party-Cookie“ werden Cookies bezeichnet, die von anderen Anbietern als dem Verantwortlichen, der das Onlineangebot betreibt, angeboten werden (andernfalls, wenn es nur dessen Cookies sind spricht man von „First-Party Cookies“).</p>
+<p>Wir können temporäre und permanente Cookies einsetzen und klären hierüber im Rahmen unserer Datenschutzerklärung auf.</p>
+<p>Falls die Nutzer nicht möchten, dass Cookies auf ihrem Rechner gespeichert werden, werden sie gebeten die entsprechende Option in den Systemeinstellungen ihres Browsers zu deaktivieren. Gespeicherte Cookies können in den Systemeinstellungen des Browsers gelöscht werden. Der Ausschluss von Cookies kann zu Funktionseinschränkungen dieses Onlineangebotes führen.</p>
+<p>Ein genereller Widerspruch gegen den Einsatz der zu Zwecken des Onlinemarketing eingesetzten Cookies kann bei einer Vielzahl der Dienste, vor allem im Fall des Trackings, über die US-amerikanische Seite <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener">http://www.aboutads.info/choices/</a> oder die EU-Seite <a href="http://www.youronlinechoices.com/" target="_blank" rel="noopener">http://www.youronlinechoices.com/</a> erklärt werden. Des Weiteren kann die Speicherung von Cookies mittels deren Abschaltung in den Einstellungen des Browsers erreicht werden. Bitte beachten Sie, dass dann gegebenenfalls nicht alle Funktionen dieses Onlineangebotes genutzt werden können.</p>
+<h3>n) Löschung von Daten</h3>
+<p>Die von uns verarbeiteten Daten werden nach Maßgabe der Art. 17 und 18 DSGVO gelöscht oder in ihrer Verarbeitung eingeschränkt. Sofern nicht im Rahmen dieser Datenschutzerklärung ausdrücklich angegeben, werden die bei uns gespeicherten Daten gelöscht, sobald sie für ihre Zweckbestimmung nicht mehr erforderlich sind und der Löschung keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Sofern die Daten nicht gelöscht werden, weil sie für andere und gesetzlich zulässige Zwecke erforderlich sind, wird deren Verarbeitung eingeschränkt. D.h. die Daten werden gesperrt und nicht für andere Zwecke verarbeitet. Das gilt z.B. für Daten, die aus handels- oder steuerrechtlichen Gründen aufbewahrt werden müssen.</p>
+<p>Nach gesetzlichen Vorgaben in Deutschland, erfolgt die Aufbewahrung insbesondere für 10 Jahre gemäß §§ 147 Abs. 1 AO, 257 Abs. 1 Nr. 1 und 4, Abs. 4 HGB (Bücher, Aufzeichnungen, Lageberichte, Buchungsbelege, Handelsbücher, für Besteuerung relevanter Unterlagen, etc.) und 6 Jahre gemäß § 257 Abs. 1 Nr. 2 und 3, Abs. 4 HGB (Handelsbriefe).</p>
+<p>Nach gesetzlichen Vorgaben in Österreich erfolgt die Aufbewahrung insbesondere für 7 J gemäß § 132 Abs. 1 BAO (Buchhaltungsunterlagen, Belege/Rechnungen, Konten, Belege, Geschäftspapiere, Aufstellung der Einnahmen und Ausgaben, etc.), für 22 Jahre im Zusammenhang mit Grundstücken und für 10 Jahre bei Unterlagen im Zusammenhang mit elektronisch erbrachten Leistungen, Telekommunikations-, Rundfunk- und Fernsehleistungen, die an Nichtunternehmer in EU-Mitgliedstaaten erbracht werden und für die der Mini-One-Stop-Shop (MOSS) in Anspruch genommen wird.</p>
+<p>Erstellt mit Datenschutz-Generator.de von RA Dr. Thomas Schwenke</p>
+<h3>Google Analytics</h3>
+<p>Unsere Homepage benutzt Google Analytics, einen Webanalysedienst von Google. Google Analytics verwendet so genannte Cookies (kleine Textdateien), die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch die Cookie erzeugten Informationen über Ihre Benutzung dieser Homepage (einschließlich Ihrer IP-Adresse) werden an einen Server von Google in den USA übertragen und dort gespeichert. Google wird diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für die Homepage-Betreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dieses gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten von Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung in Ihrer Browser-Software verhindern, wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website in vollem Umfang nutzen können. Durch die Nutzung unserer Homepage erklären Sie sich mit der Bearbeitung, der über Sie erhobenen Daten durch Google, in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="page" id="page-akademie">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+  <main class="legal">
+    <div class="legal-wrap">
+      <a class="legal-back" href="#festival" data-i18n="akad.back">← Zurück zum Festival</a>
+
+      <span class="akad-tag" data-i18n="akad.tag">Open Call</span>
+      <h1>aDe-Akademie</h1>
+      <p class="akad-lead" data-i18n="akad.intro">Das aDevantgarde-Festival schreibt für die 19. Festivalausgabe 2027 erstmalig ein festivalbegleitendes Akademieprogramm aus. Das 6-tägige Akademieprogramm findet zeitgleich mit dem Festival in München statt.</p>
+
+      <div class="akad-schedule">
+        <div><span data-i18n="akad.sched.deadline.l">Bewerbungsdeadline</span><strong data-i18n="akad.sched.deadline.v">15.11.2026</strong></div>
+        <div><span data-i18n="akad.sched.results.l">Ergebnisbekanntgabe</span><strong data-i18n="akad.sched.results.v">10.01.2027 (spätestens)</strong></div>
+        <div><span data-i18n="akad.sched.submit.l">Abgabe Komposition</span><strong data-i18n="akad.sched.submit.v">01.05.2027</strong></div>
+        <div><span data-i18n="akad.sched.period.l">Akademiezeitraum</span><strong data-i18n="akad.sched.period.v">22.06.–27.06.2027</strong></div>
+      </div>
+
+      <a class="akad-apply-btn" href="mailto:info@adevantgarde.de" data-i18n="akad.apply.btn">Jetzt bewerben ↗</a>
+
+      <h2 data-i18n="akad.who.h">Wer kann sich bewerben?</h2>
+      <p data-i18n="akad.who.t">Junge Komponierende, die am Ende ihres Studiums oder am Anfang ihrer Karriere stehen. Es gibt keine Altersgrenze, internationale Bewerbungen sind willkommen.</p>
+
+      <h2 data-i18n="akad.program.h">Was beinhaltet das Akademieprogramm?</h2>
+      <p data-i18n="akad.program.t">Akademieteilnehmende erhalten Einzelunterricht in Komposition bei Vladimir Tarnopolski und Katrin Klose. Darüber hinaus erhalten sie Impulsvorträge von weiteren renommierten Persönlichkeiten und bekommen selbst die Möglichkeit, in Form eines Vortrags ihre eigenen künstlerischen Arbeiten zu präsentieren. Die Akademieteilnehmenden werden beauftragt, ein neues Werk zu komponieren, das im Rahmen des Festivals vom ensemble via nova aufgeführt wird. Die Kompositionen werden gemeinsam mit dem Ensemble erarbeitet, wobei der Probenprozess von den Akademieteilnehmenden selbst geleitet und von Dozierenden professionell begleitet wird. Darüber hinaus erhalten die Akademieteilnehmenden Einblick in das Festival durch Gespräche mit der Künstlerischen Leitung, Probenbesuche und freien Eintritt zu allen Konzerten.</p>
+
+      <h2 data-i18n="akad.terms.h">Welche Rahmenbedingungen gelten für die Neukomposition?</h2>
+      <p data-i18n="akad.terms.t">Die Neukomposition soll zwischen 5 und 15 Minuten dauern. Die Komponierenden können selbst wählen, ob sie für das gesamte Ensemble, eine kleinere Besetzung oder solistisch komponieren möchten. Abgabe der Kompositionen ist am 01.05.2027; auf Wunsch kann vor der Abgabe ein Gespräch mit einer:einem Dozierenden der Akademie oder einer Vertretung des Ensembles stattfinden. Das 19. aDevantgarde-Festival steht unter dem Motto „URGENT“. Die Komposition kann sich auf das Motto beziehen, muss es aber nicht.</p>
+
+      <h2 data-i18n="akad.cost.h">Was kostet die Akademie?</h2>
+      <p data-i18n="akad.cost.t1">Es gibt keine Bewerbungsgebühr. Die Teilnahmegebühr beträgt 250 €, Übernachtungs- und Reisekosten können nicht übernommen werden. Das Festival unterstützt bei der Suche nach Übernachtungsmöglichkeiten.</p>
+      <p data-i18n="akad.cost.t2">Bewerber:innen in finanziell prekärer Situation können einen Antrag auf Übernahme der Teilnahmegebühr stellen – hierfür bitte im Voraus (!) Kontakt aufnehmen.</p>
+
+      <h2 data-i18n="akad.apply.h">Welche Bewerbungsunterlagen sind wo einzureichen?</h2>
+      <ul>
+        <li data-i18n="akad.apply.i1">Lebenslauf (tabellarisch)</li>
+        <li data-i18n="akad.apply.i2">Motivationsschreiben und/oder Skizze für die Neukomposition mit Angabe der gewünschten Besetzung (inkl. einer Alternative)</li>
+        <li data-i18n="akad.apply.i3">2 eigene Kompositionen (Partitur + ggf. Aufnahme)</li>
+      </ul>
+      <p data-i18n="akad.apply.lang">Die Bewerbungen können in Deutsch oder Englisch eingereicht werden.</p>
+      <p data-i18n="akad.apply.mail">Die Bewerbung ist fristgerecht per Mail an <a href="mailto:info@adevantgarde.de">info@adevantgarde.de</a> zu schicken. Nicht fristgerecht eingegangene Bewerbungen können nicht berücksichtigt werden.</p>
+
+      <h2 data-i18n="akad.jury.h">Anzahl der Plätze und Zusammensetzung der Jury</h2>
+      <p data-i18n="akad.jury.places">Das Festival vergibt etwa 12 Plätze. Mitglieder der Jury sind:</p>
+      <ul>
+        <li data-i18n="akad.jury.1">Leon Zmelty (Künstlerischer Leiter des aDevantgarde-Festivals)</li>
+        <li data-i18n="akad.jury.2">Jakob Stillmark (Ensemblemanager des ensemble via nova und Mitglied des Kuratoriums)</li>
+        <li data-i18n="akad.jury.3">Katrin Klose (Dozentin)</li>
+        <li data-i18n="akad.jury.4">Vladimir Tarnopolski (Dozent)</li>
+        <li data-i18n="akad.jury.5">Moritz Schneidewendt (ensemble via nova)</li>
+      </ul>
+
+      <h2 data-i18n="akad.ensemble.h">Besetzung ensemble via nova</h2>
+      <ul>
+        <li data-i18n="akad.ens.1">Daniel Gutiérrez – Cello</li>
+        <li data-i18n="akad.ens.2">Marianna Schürmann – Flöte</li>
+        <li data-i18n="akad.ens.3">Moritz Schneidewendt – Klarinette</li>
+        <li data-i18n="akad.ens.4">Neža Torkar – Akkordeon</li>
+        <li data-i18n="akad.ens.5">N.N. – Klangregie</li>
+      </ul>
+
+      <h2 data-i18n="akad.contact.h">Rückfragen bitte an</h2>
+      <p>Leon Zmelty<br><a href="mailto:info@adevantgarde.de">info@adevantgarde.de</a></p>
+
+      <h2 class="legal-section" data-i18n="akad.about.viaNova.h">Über das ensemble via nova</h2>
+      <p data-i18n="akad.about.viaNova.t1">Neue Wege beschreiten, ausgetretene Pfade verlassen, das Unerwartete suchen – das ensemble via nova richtet den Blick mutig nach vorn und bringt frischen Wind in die zeitgenössische Musik.</p>
+      <p data-i18n="akad.about.viaNova.t2">Seit 2016 musizieren Nikita Geller (Violine), Daniel Gutiérrez (Violoncello), Marianna Schürmann (Flöte), Moritz Schneidewendt (Klarinette) und Neža Torkar (Akkordeon) gemeinsam und haben sich weit über die Landesgrenzen hinaus einen Ruf als exzellentes Kammermusikensemble erarbeitet. Mit Leidenschaft und Neugier liegt ihr Schwerpunkt auf Uraufführungen sowie der Erkundung neuer Möglichkeiten kammermusikalischer Kommunikation.</p>
+      <p data-i18n="akad.about.viaNova.t3">Die Musiker:innen sind regelmäßig bei internationalen Spielstätten und Festivals zu Gast – Höhepunkte vergangener Tourneen waren unter anderem Konzerte in Südkorea (Seoul/Daegu), beim London Ear Festival, in Danzig, in Italien, in der Schweiz sowie beim Mixtur Festival in Barcelona. Im Zentrum steht dabei der Austausch mit befreundeten Künstler:innen, aus dem auch die eigenen Reihen Reflexionen und CO|:N:|ECT hervorgegangen sind. Diese Formate sind geprägt von Kooperationen – etwa mit Ensemble Mosaik, Lux:NM, Black Pencil, dem Neo Quartett oder der Tanzkompanie Pluto's/Tide Dance – mit dem Ziel, den eigenen künstlerischen Horizont gemeinsam zu erweitern.</p>
+
+      <h2 data-i18n="akad.about.tarn.h">Über Vladimir Tarnopolski</h2>
+      <p data-i18n="akad.about.tarn.t1">Vladimir Tarnopolski (*1955 in Dnipro, Ukraine) ist Komponist und lebt seit 2022 in München. Er studierte Komposition und Musiktheorie am Moskauer Tschaikowski-Konservatorium bei Edison Denisov, Nikolai Sidelnikov und Juri Cholopow. Seine Werke werden international von führenden Orchestern, Ensembles und Interpreten aufgeführt und bei renommierten Festivals zeitgenössischer Musik in Europa und den USA präsentiert.</p>
+      <p data-i18n="akad.about.tarn.t2">Tarnopolski zählt zu den wichtigen Erneuerern des postsowjetischen Musiklebens. 1989 war er Mitbegründer der Association for Contemporary Music (ACM) in Moskau, 1993 gründete er das Centre for Contemporary Music und das Ensemble Studio for New Music. Zudem initiierte er 1994 das internationale Festival „Moscow Forum“, das den Austausch zwischen russischer und europäischer Gegenwartsmusik fördert. Tarnopolski ist Träger zahlreicher internationaler Auszeichnungen und war Composer-in-Residence an bedeutenden Kulturinstitutionen.</p>
+      <p data-i18n="akad.about.tarn.t3">Von 1992 bis 2022 war Tarnopolski Professor für Komposition am Moskauer Tschaikowski-Konservatorium und gründete dort die Abteilung für Zeitgenössische Musik. Er leitete internationale Meisterkurse und Seminare und wirkte bei zahlreichen Wettbewerben als Juror. Derzeit ist er als Gastprofessor in München tätig.</p>
+
+      <h2 data-i18n="akad.about.klose.h">Über Katrin Klose</h2>
+      <p data-i18n="akad.about.klose.t1">Katrin Klose (*1990) studierte Violine als Jungstudentin, ab 2009 Lehramt Musik und ab 2010 zusätzlich BA Komposition bei Prof. Heinz Winbeck, Tobias PM Schneid und Prof. Robert HP Platz an der HfM Würzburg. Von 2015-2018 folgte ein Master Komposition an der Universität Mozarteum in Salzburg bei Prof. Reinhard Febel. Von 2018-2023 absolvierte sie einen PhD mit dem Schwerpunkt Vokalkomposition am RCS Glasgow bei Dr. Stuart McRae und bei Dr. Jonathan Cole vom RCM London.</p>
+      <p data-i18n="akad.about.klose.t2">Ihre Musik (z.B. 1. Streichquartett, Accord für Kammerorchester etc.) wurde mit zahlreichen Kompositionspreisen ausgezeichnet. Sie ist mehrfache Stipendiatin unter anderem des Deutschlandstipendiums, des RCS Research Studentships, der Studienstiftung des Deutschen Volkes sowie der Cité Internationale des Arts in Paris. Ihre Stücke wurden von namhaften Ensembles wie dem SWR Symphonieorchester, dem Hugo-Wolf-Quartett, Ensemble der/gelbe/klang, OENM Salzburg, the Red Note Ensemble, Ensemble NAMES etc. aufgeführt.</p>
+      <p data-i18n="akad.about.klose.t3">Sie ist als Referentin an der Bundesakademie für musikalische Jugendbildung in Trossingen, wo sie unter anderem auch ein Vermittlungsprojekt in Kooperation mit den Donaueschinger Musiktagen leitet. Sie hat an verschiedenen Hochschulen in den Bereichen Komposition, Improvisation und Musiktheorie unterrichtet und gibt privaten Kompositionsunterricht.</p>
+    </div>
+  </main>
+</div>
+
+<!-- ============================================================
+     PAGE: ARCHIV 2025 (1:1-Nachbau der echten adevantgarde.de-Startseite,
+     18. Festival "SCHÖNHEIT")
+     ============================================================ -->
+<div class="page" id="page-archiv-2025">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block" data-default-year="2025">
+            <div class="year-toggle">
+              <a href="#archiv-2025" class="year-big">Festival 2025</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown"><div class="year-dropdown-list"></div></div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+
+
+  <div class="archiv-banner" data-i18n="arch.2025">Archiv — 18. aDevantgarde-Festival 2025</div>
+
+  <div class="wp-wrap">
+    <div class="wp-hero">
+      <a href="https://adevantgarde.de/wp-content/uploads/2025/04/aDevantgarde18-Schoenheit-Motiv-scaled.jpg" target="_blank" rel="noopener">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/aDevantgarde18-Schoenheit-Motiv-1024x722.jpg" alt="SCHÖNHEIT — 18. aDevantgarde-Festival">
+      </a>
+    </div>
+    <h1>SCHÖNHEIT</h1>
+    <p class="wp-dates"><strong>24. Juni – 6. Juli 2025<br>18. aDevantgarde-Festival</strong></p>
+    <p>Der Begriff der <strong>Schönheit</strong> wird in der Neuen Musik seit jeher kontrovers diskutiert. Ging es einmal darum, ihn zu erweitern oder zu dekonstruieren, fordern andere Stimmen wiederum explizit „schöne harmonische Musik" ein. Es drängt sich also die Frage auf, welche Konzeptionen musikalischer Schönheit es in der heutigen Zeit gibt, die über reine Geschmacksfragen hinausgehen.</p>
+    <ul class="wp-jumplinks">
+      <li><a href="#archiv-2025-konzerte">KONZERTE</a></li>
+      <li><a href="#archiv-2025-festival">FESTIVAL &amp; MOTTO</a></li>
+    </ul>
+
+    <h2 id="archiv-2025-konzerte">KONZERTE</h2>
+    <div class="wp-concert-list">
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Vokalzirkel-2023-c-Jakob-Schad.jpg" alt="EUPHONIA">
+        <a href="https://adevantgarde.de/veranstaltung/euphonia" target="_blank" rel="noopener"><strong>EUPHONIA</strong></a>
+        <div>Di. 24.06.25</div>
+        <div>19.00 Uhr</div>
+        <div>Bayerische Akademie der Schönen Künste</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Lauriane-Follonier.jpg" alt="FREUND:INNEN">
+        <a href="https://adevantgarde.de/veranstaltung/freundinnen" target="_blank" rel="noopener"><strong>FREUND:INNEN</strong></a>
+        <div>Mi. 25.06.25</div>
+        <div>20.00 Uhr</div>
+        <div>schwere reiter</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/dergelbeklang-c-Astrid-Ackermann.jpg" alt="CARTE BELLE">
+        <a href="https://adevantgarde.de/veranstaltung/carte-belle" target="_blank" rel="noopener"><strong>CARTE BELLE</strong></a>
+        <div>Fr. 27.06.25</div>
+        <div>20.00 Uhr</div>
+        <div>schwere reiter</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Jumble-c-W-Pakzad.jpg" alt="SCHULTERBLICKE">
+        <a href="https://adevantgarde.de/veranstaltung/schulterblicke-jumble" target="_blank" rel="noopener"><strong>SCHULTERBLICKE</strong></a>
+        <div>Sa. 28.06.25</div>
+        <div>18.00 Uhr</div>
+        <div>schwere reiter</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Salome-Kammer-c-C-Hellhake.jpg" alt="DEDICATED TO…">
+        <a href="https://adevantgarde.de/veranstaltung/dediacated-to-ensemble-jumblex" target="_blank" rel="noopener"><strong>DEDICATED TO…</strong></a>
+        <div>So 29.06.25</div>
+        <div>11.00 Uhr</div>
+        <div>schwere reiter</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/MKO-c-Florian-Ganslmeier.jpg" alt="MKO SONGBOOK">
+        <a href="https://adevantgarde.de/veranstaltung/mko-songbook" target="_blank" rel="noopener"><strong>MKO SONGBOOK</strong></a>
+        <div>So. 29.06.25</div>
+        <div>20.00 Uhr</div>
+        <div>schwere reiter</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Quasar-c-Marie-Lassiat-1.jpg" alt="BEAUTÉ DOUCE-AMÈRE">
+        <a href="https://adevantgarde.de/veranstaltung/quasar-saxophone-quartet" target="_blank" rel="noopener"><strong>BEAUTÉ DOUCE-AMÈRE</strong></a>
+        <div>Fr. 04.07.25</div>
+        <div>20.00 Uhr</div>
+        <div>schwere reiter</div>
+        <div class="wp-concert-note">19:30: Diskussion mit den Komponierenden</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Brigitte-Helbig-c-Natalia-Luzenko.jpg" alt="DIALOGHI D'AMORE">
+        <a href="https://adevantgarde.de/veranstaltung/duo-helbig-wangler" target="_blank" rel="noopener"><strong>DIALOGHI D'AMORE</strong></a>
+        <div>Sa. 05.07.25</div>
+        <div>20.00 Uhr</div>
+        <div>schwere reiter</div>
+      </div>
+      <div class="wp-concert">
+        <img src="https://adevantgarde.de/wp-content/uploads/2025/04/Schoettl-Wurmer-Kuhn-c-Elisabeth-Pfahler-Scharf.jpg" alt="ISARMÄRCHEN">
+        <a href="https://adevantgarde.de/veranstaltung/isarmaerchen" target="_blank" rel="noopener"><strong>ISARMÄRCHEN</strong></a>
+        <div>So. 06.07.25</div>
+        <div>20.00 Uhr</div>
+        <div>Einstein Kultur</div>
+      </div>
+    </div>
+
+    <h2 id="archiv-2025-festival">FESTIVAL</h2>
+    <p>Der Philosoph Byung-Chul Han schreibt nach einer harten Kritik der aalglatten Social Media Schönheitsästhetik am Ende eines seiner neuesten Bücher: „Die <strong>Schönheit</strong> ist ein Beziehungsereignis. Sie entzieht sich dem unmittelbaren Genuss, denn die <strong>Schönheit</strong> einer Sache erscheint erst viel später im Licht einer anderen als Reminiszenz. Sie besteht aus geschichtlichen Ablagerungen, die phosphoreszieren. Die <strong>Schönheit</strong> ist ein Zögerling, ein Nachzügler. <strong>Schönheit</strong> ist kein augenblicklicher Glanz, sondern ein stilles Nachleuchten."</p>
+    <p>Das verweist auf den Schönheitsbegriff in der Neuen Musik, der Schönheit im Sinne Adornos Platon-Rezeption als eine fast unerreichbare Utopie auch heute noch oft begreift. Allerdings gibt es auch die Schockmomente von <strong>Schönheit</strong> in der Neuen Musik, die eher ein helles Aufleuchten statt ein stilles Nachleuchten waren: Being Beauteous nach Arthur Rimbaud von Hans Werner Henze, die Orchestermusik von Wolfgang Rihm, das Geistliche in der Musik von Sofia Gubaidulina, das Reduzierte bei Morton Feldman, die stille Musik von Valentin Silvestrov und der von ihm geprägten Umfelds in Osteuropa.</p>
+    <p>Unser Festival greift all dies mit tiefem Ernst und zugleich mit viel Selbstironie auf. So greift das Vokalkonzert <strong>Euphonia</strong> mit dem Ensemble unter anderem Musik von Luciano Berio, Beat Furrer und Caroline Shaw auf und stellt dem in Uraufführungen von Johannes X. Schachtner, Eva Kuhn und Markus Lehmann-Horn jetztzeitige Aspekte von Schönheit gegenüber. Das Konzert <strong>MKO Songbook</strong> des Münchener Kammerorchesters kontrastiert die Klangsprachen von z.B. Margareta Ferek-Petric, Iris ter Schiphorst, Tomasz Skweres, Georg Haider, Christian Dieck, Hans Abrahamsen und Tobias PM Schneid. Das auf Neue Musik hochspezialisierte Québecer <strong>Quasar Saxophone Quartet</strong> aus Montreal vereint Florence Tremblay, Maxime Mckinley und Francis Battah aus Québec/Kanada und Philipp C. Mayer, Alexander Strauch und Abigél Varga von aDevantgarde.</p>
+    <p>Das Ensemble der/gelbe/klang begibt in sich <strong>Carte Belle</strong> mit seiner Stammbesetzung und u.a. den Komponierenden Nina Deuse, Leon Zmelty und Manue Zwerger auf die Suche des Schönen in einer raumöffnenden Anordnung. Das Klavier-Akkordeon-Duo <strong>Brigitte Helbig/Kai Wangler</strong> stellt zuerst Werke für die Soloinstrumente und Live-Elektronik von Lisa Streich und Gregor Mayrhofer vor und vereint sich dann in Werken von Keiko Harada und Nikolaus Brass und Uraufführungen von Henrik Ajax und Jakob Stillmark. Das Geburtstagskonzert <strong>Freundinnen</strong> für fünf aDevantgarde-Mitglieder zum 60ten ist eine nostalgische Selbstbetrachtung und verbindet die Musik von Moritz Eggert, Markus Muench, Helga Pogatschar, Markus Schmitt und Bernhard Weidner mit neuen Ansätzen der fünf jüngeren Komponierenden, welche die Älteren einluden, Marisa Algari, Nina Deuse, Ines Lütge, Sophie Reich und Katharina Schmauder. Das <strong>Isarmärchen</strong> ist ein selbstironischer Blick auf den in sich schon gebrochenen Schönheitsbegriff der Münchner Volkssängerin Bally Prell und heute in München wirkender Komponierender mit Johannes Brömmel, Alexander F. Hooper, Kathrin Klose, Minami Nagai und Tom Smith.</p>
+    <p>Mit JU[MB]LE Landesjugendensemble für Neue Musik Bayern besteht seit dessen Gründung 2015 eine freundschaftliche Verbindung. Im Festivalprogramm findet das zehnjährige Jubiläum des Jugendensembles im Konzert <strong>Schulterblicke</strong> mit Werken von Pierre Boulez, Ulrich Kreppein, Grace-Evangeline Mason, Wolfgang Rihm und einer Uraufführung von Markus Schmitt statt. In <strong>Dedicated to… JU[MB]LEX</strong> spielen die Ehemaligen des Jugendensembles als <strong>Ensemble JU[MB]LEX</strong> Werke u.a. von Birte Bertelsmeier, Jan Müller-Wieland und Stefan Schulzki.</p>
+
+    <p class="wp-credits">
+      <strong>Veranstalter</strong> aDevantgarde e.V.<br>
+      <strong>Festivalleitung</strong> Markus Lehmann-Horn, Alexander Strauch<br>
+      <strong>Weitere Projektverantwortliche</strong> Henrik Ajax, Caio de Azevedo, Fabian Blum, Sophie Reich, Johannes X. Schachtner, Jakob Stillmark, Abigél Varga, Leon Zmelty<br>
+      <strong>Bühnenmanagement</strong> Abigél Varga<br>
+      <strong>Assistenz Organisation und Bühne</strong> Sarah Luisa Wurmer<br>
+      <strong>PR</strong> Pfau PR<br>
+      <strong>Key Visual</strong> Fabian Filß<br>
+      <strong>Gestaltung &amp; Umsetzung</strong> Sylvie Bohnet
+    </p>
+
+    <p class="wp-credits">
+      <strong>Festivalförderer</strong><br>
+      Landeshauptstadt München, Musikfonds e.V. mit Mitteln der Beauftragten der Bundesregierung für Kultur und Medien, GEMA Stiftung
+    </p>
+    <p class="wp-credits">
+      <strong>Konzertförderer</strong><br>
+      Bayerische Staatskanzlei, Bayerisches Staatsministerium für Wissenschaft und Kultur, Vertretung der Regierung von Québec – Québec Antenne Berlin, Conseil des arts et des lettres du Québec, Bayerische Akademie der Schönen Künste, BR-Klassik
+    </p>
+    <p class="wp-credits">
+      <strong>Kooperationspartner</strong><br>
+      der/gelbe/klang, Münchener Kammerorchester, Tonkünstler München e.V., scope – Spielraum für aktuelle Musik, schwere reiter münchen, Einstein Kultur, JU[MB]LE Landesjugendensemble für Neue Musik Bayern, Ensemble JU[MB]LEX
+    </p>
+
+    <div class="wp-social">
+      <a href="https://www.youtube.com/channel/UCiOtSqLfERr76yZ2WJT08tA" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/aDevantgarde/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/adevantgarde_festival/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/adevantgarde" target="_blank" rel="noopener">Twitter</a>
+    </div>
+    <div class="wp-footer-copy">© 2025 aDevantgarde.de</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE: ARCHIV 2023 — Programmheft als Flipbook (BIEDER_MEIER_X)
+     ============================================================ -->
+<div class="page" id="page-archiv-2023">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block" data-default-year="2023">
+            <div class="year-toggle">
+              <a href="#archiv-2023" class="year-big">Festival 2023</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown"><div class="year-dropdown-list"></div></div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+
+
+  <div class="archiv-banner" data-i18n="arch.2023">Archiv — 17. aDevantgarde-Festival 2023 · BIEDER_MEIER_X</div>
+
+  <div class="flipbook-wrap">
+    <h1 class="flipbook-title" data-i18n="flip.title">Programmheft <span>BIEDER_MEIER_X</span></h1>
+    <div class="flipbook-stage">
+      <div class="flip-page-under"><img id="fpImgUnder" alt=""></div>
+      <div class="flip-page-active" id="fpActive" onclick="flipbookNext()"><img id="fpImgActive" alt=""></div>
+    </div>
+    <div class="flipbook-controls">
+      <button type="button" onclick="flipbookPrev()" aria-label="Vorherige Seite" data-i18n-aria="aria.prev">‹</button>
+      <span id="flipbookPageIndicator" class="flipbook-page-indicator">1 / 52</span>
+      <button type="button" onclick="flipbookNext()" aria-label="Nächste Seite" data-i18n-aria="aria.next">›</button>
+    </div>
+    <p class="flipbook-hint" data-i18n="flip.hint">Klick auf das Bild oder nutze die Pfeile zum Umblättern.</p>
+  </div>
+</div>
+
+<script>
+  // ===== Sprachumschaltung DE / EN =====
+  // Deutsch steht direkt im HTML (Quelle). Elemente mit data-i18n="schlüssel" werden bei "EN" durch EN[schlüssel] ersetzt,
+  // beim Zurückwechseln wird der deutsche Originaltext wiederhergestellt. Dynamische Texte (Team, Termine, Videos) nutzen t().
+  const EN = {
+    'nav.about':'About us', 'nav.events':'Upcoming events', 'nav.press':'Press', 'nav.contact':'Contact',
+    'hon.title':'Honorary members', 'hon.chair':'(Honorary Chair)', 'hon.and':'and',
+    'media.title':'Media', 'media.yt':'Go to YouTube channel ↗',
+    'videos.loading':'Loading videos …', 'videos.none':'No videos available at the moment.',
+    'team.loading':'Loading team …',
+    'off.empty':'No confirmed events at the moment — please check back soon.',
+    'off.legend':'Concerts by <span class="offseason-own-tag">aDevantgarde</span> and by our members',
+    'intro.1':'We are an association of Munich-based composers with a shared passion for new music. We are driven by the wish to strengthen the local scene and connect it internationally.',
+    'intro.2':'aDevantgarde was founded in 1991, on the initiative of Wilhelm Killmayer, by his students as A/DEvantgarde – Projekte Neuer Musik e.V. Originally we saw ourselves as a counter-movement to the classic new-music festival. That format hardly exists in that form anymore – but we stayed the course and keep doing what excites us: fresh ideas at a high artistic level, established and experimental.',
+    'intro.3':'Every two years we present this at our aDevantgarde Festival. In between, we run concert projects in our off-season programme – for example the concert series “Neuer Hoargartn”.',
+    'press.intro':'Press information on the upcoming festival will follow shortly. For press enquiries: <a href="mailto:presse@adevantgarde.de" class="contact-email">presse@adevantgarde.de</a>',
+    'press.files':'Press releases',
+    'contact.general':'General', 'contact.general.t':'Questions about the association and the festival, to',
+    'contact.member':'Become a member', 'contact.member.t':'Informal email with a short introduction, to',
+    'contact.press.t':'Press enquiries and media material, to',
+    'contact.note':'Unfortunately, we cannot accept unsolicited applications from performers, artists or agencies.',
+    'legal.imprint':'Legal notice', 'legal.privacy':'Privacy policy', 'legal.statutes':'Statutes (PDF)', 'legal.members':'Members’ area:',
+    'rec.hero':'Our label permanently documents productions from the festival’s orbit — as physical and digital releases, independent of the festival’s two-year rhythm.',
+    'rec.releases':'Releases', 'rec.all':'All releases', 'rec.info':'Info',
+    'r3.artist':'Composers: Michael Emanuel Bauer, Othmar Schoeck, Gunnar Geisse<br>Performers: Robert Koller (baritone), Stefan Kägi (piano), Gunnar Geisse (laptop guitar)',
+    'r3.desc':'In the summer of 2018, the Swiss pianist Stefan Kägi unearthed the song cycle Nachhall, op. 70 for voice and orchestra by the Swiss composer Othmar Schoeck (1886–1957). Rarely performed because of its technical and interpretive demands, Nachhall, op. 70 is presented here as a first recording in the version for voice and piano. Stefan Kägi and Michael Emanuel Bauer, who both have a great fondness for k-punk aka Mark Fisher – in particular for his book Ghosts of My Life. Writings on Depression, Hauntology and Lost Futures (Zero Books 2014) – felt it would be no bad idea to look at Schoeck’s song cycle anew in the spirit of Derrida’s hauntology. This first recording juxtaposes the two cycles: immediately after each song by Othmar Schoeck follows the corresponding continuation by Michael Emanuel Bauer. Bauer’s continuation does not stop short of the texts by Matthias Claudius and Nikolaus Lenau either: in the tradition of Raymond Queneau and the Oulipo group, the texts are deconstructed in a formal, lettrist manner and reassembled.',
+    'r2.artist':'Tobias PM Schneid · Augsburger Philharmoniker · Domonkos Héja (conductor) · Jung-Eun Shin (violin)',
+    'r2.desc':'With the second release in our label’s live series, we present the recording of Tobias PM Schneid’s Symphony No. 4 (“An Earth Symphony”) by the Augsburger Philharmoniker under Domonkos Héja, with Jung-Eun Shin as solo violinist. Schneid’s “Earth Symphony” is not a transfigured hymn to planet Earth but a large-orchestra outcry, a beacon meant to draw attention – even in the concert hall – to the precarious climate situation and the urgency of a conscious and mindful use of this planet’s resources. The symphony’s five movements – Magma, Water, Tree, Desert and Air – each comment in their own way on our ecosystem being “out of joint” and address the processes of decay to which this system is exposed through human action. Not a musical eco-thriller, but a memorial and a call to act responsibly.',
+    'r1.desc1':'The label aDevantgarde records, founded in Munich in 2023, is dedicated to contemporary music in its many forms and styles. The debut album gathers thirteen string quartets written between 1997 and 2019. The CD is the first product of this new series.',
+    'r1.desc2':'The Zentaur Quartet recorded works by Carl Christian Bettendorf, Caio de Azevedo, Sandeep Bhagwati, Christian Dieck, Nina Deuse, Moritz Eggert, Markus Lehmann-Horn, Helga Pogatschar, Jacopo Salvatori, Johannes X. Schachtner, Katharina Schmauder, Alexander Strauch and Bernhard Weidner, offering a cross-section of more than thirty years of aDevantgarde.',
+    'r1.desc3':'Annette Fritz (1st violin), Marc Kaufmann (2nd violin), Katharina Schmauder (viola) and Caio de Azevedo (cello) once again demonstrate, with this CD production, their outstanding skill and commitment to contemporary composition.',
+    'fest.h1':'19th aDevantgarde Festival – URGENT',
+    'fest.lead':'The 19th aDevantgarde Festival takes place in Munich from 22 June to 3 July 2027 under the motto “<strong>URGENT</strong>”.',
+    'fest.p1':'We bring regional and international players of the independent scene to the stage and present a variety of formats – from classical concerts to an escape room.',
+    'fest.p2':'The detailed programme will be published in February 2027.',
+    'fest.p3':'Stay up to date on <a href="https://www.instagram.com/adevantgarde_festival" target="_blank" rel="noopener">Instagram</a>.',
+    'arch.2025':'Archive — 18th aDevantgarde Festival 2025',
+    'arch.2023':'Archive — 17th aDevantgarde Festival 2023 · BIEDER_MEIER_X',
+    'flip.title':'Programme booklet <span>BIEDER_MEIER_X</span>',
+    'flip.hint':'Click the image or use the arrows to turn the pages.',
+    'legal.back':'← Back to homepage', 'legal.note':'The legal texts on this page are provided in German only.',
+    'akad.back':"← Back to the festival page",
+    'akad.tag':"Open Call",
+    'akad.intro':"For the 19th edition of the festival in 2027, the aDevantgarde Festival is launching an academy programme alongside the festival for the first time. The six-day academy programme will take place in Munich at the same time as the festival.",
+    'akad.sched.deadline.l':"Application deadline",
+    'akad.sched.deadline.v':"15 November 2026",
+    'akad.sched.results.l':"Notification of results",
+    'akad.sched.results.v':"10 January 2027 (at the latest)",
+    'akad.sched.submit.l':"Submission of composition",
+    'akad.sched.submit.v':"1 May 2027",
+    'akad.sched.period.l':"Academy period",
+    'akad.sched.period.v':"22–27 June 2027",
+    'akad.apply.btn':"Apply now ↗",
+    'akad.who.h':"Who can apply?",
+    'akad.who.t':"Young composers who are at the end of their studies or at the beginning of their careers. There is no age limit, and international applications are welcome.",
+    'akad.program.h':"What does the academy programme include?",
+    'akad.program.t':"Academy participants will receive individual composition lessons with Vladimir Tarnopolski and Katrin Klose. In addition, they will attend talks by other renowned personalities and will have the opportunity to present their own artistic work in the form of a lecture. The academy participants will be commissioned to compose a new work, which will be performed by ensemble via nova as part of the festival. The compositions will be developed together with the ensemble, with the rehearsal process being led by the academy participants themselves and professionally supported by the teachers. In addition, academy participants will gain insight into the festival through discussions with the artistic director, rehearsal visits, and free admission to all concerts.",
+    'akad.terms.h':"What are the requirements for the new composition?",
+    'akad.terms.t':"The new composition should be between 5 and 15 minutes long. Composers may choose whether they wish to write for the full ensemble, a smaller ensemble, or as a solo piece. The compositions must be submitted by 1 May 2027. If desired, a meeting with one of the academy teachers or a representative of the ensemble can take place before submission. The 19th aDevantgarde Festival is themed “URGENT”. The composition may relate to the theme, but it does not have to.",
+    'akad.cost.h':"How much does the academy cost?",
+    'akad.cost.t1':"There is no application fee. The participation fee is €250. Accommodation and travel expenses cannot be covered. The festival will assist participants in finding accommodation.",
+    'akad.cost.t2':"Applicants in financially precarious situations may apply to have the participation fee covered — please contact the festival in advance (!) to arrange this.",
+    'akad.apply.h':"What application materials are required and where should they be submitted?",
+    'akad.apply.i1':"Curriculum vitae (in tabular format)",
+    'akad.apply.i2':"Letter of motivation and/or sketch for the new composition, including the desired instrumentation (including an alternative)",
+    'akad.apply.i3':"2 of your own compositions (score + recording, if available)",
+    'akad.apply.lang':"Applications may be submitted in German or English.",
+    'akad.apply.mail':"Applications must be submitted by email to <a href=\"mailto:info@adevantgarde.de\">info@adevantgarde.de</a> by the deadline. Applications received after the deadline cannot be considered.",
+    'akad.jury.h':"Number of places and composition of the jury",
+    'akad.jury.places':"The festival will award approximately 12 places. The jury members are:",
+    'akad.jury.1':"Leon Zmelty (Artistic Director of the aDevantgarde Festival)",
+    'akad.jury.2':"Jakob Stillmark (Ensemble Manager of ensemble via nova and member of the artistic board of aDevantgarde)",
+    'akad.jury.3':"Katrin Klose (Teacher)",
+    'akad.jury.4':"Vladimir Tarnopolski (Teacher)",
+    'akad.jury.5':"Moritz Schneidewendt (ensemble via nova)",
+    'akad.ensemble.h':"ensemble via nova instrumentation",
+    'akad.ens.1':"Daniel Gutiérrez – cello",
+    'akad.ens.2':"Marianna Schürmann – flute",
+    'akad.ens.3':"Moritz Schneidewendt – clarinet",
+    'akad.ens.4':"Neža Torkar – accordion",
+    'akad.ens.5':"N.N. – sound direction",
+    'akad.contact.h':"Questions",
+    'akad.about.viaNova.h':"About ensemble via nova",
+    'akad.about.viaNova.t1':"To explore new paths, leave well-trodden tracks behind, and seek out the unexpected — ensemble via nova looks boldly to the future and brings fresh energy to contemporary music.",
+    'akad.about.viaNova.t2':"Since 2016, Nikita Geller (violin), Daniel Gutiérrez (cello), Marianna Schürmann (flute), Moritz Schneidewendt (clarinet), and Neža Torkar (accordion) have performed together and have established a reputation far beyond Germany as an excellent chamber music ensemble. With passion and curiosity, their focus is on world premieres and exploring new possibilities of chamber music communication.",
+    'akad.about.viaNova.t3':"The musicians regularly perform at international venues and festivals. Highlights of previous tours include concerts in South Korea (Seoul/Daegu), at the London Ear Festival, in Gdańsk, Italy, Switzerland, and at the Mixtur Festival in Barcelona. At the heart of their work is an exchange with fellow artists, which has also led to the creation of their own formats, including Reflexionen and CO|:N:|ECT. These formats are characterised by collaborations — for example with Ensemble Mosaik, Lux:NM, Black Pencil, the Neo Quartet, and the dance company Pluto’s/Tide Dance — with the aim of collectively expanding their artistic horizons.",
+    'akad.about.tarn.h':"About Vladimir Tarnopolski",
+    'akad.about.tarn.t1':"Vladimir Tarnopolski (*1955 in Dnipro, Ukraine) is a composer who has lived in Munich since 2022. He studied composition and music theory at the Moscow Tchaikovsky Conservatory with Edison Denisov, Nikolai Sidelnikov, and Yuri Kholopov. His works are performed internationally by leading orchestras, ensembles, and performers and are presented at renowned contemporary music festivals in Europe and the USA.",
+    'akad.about.tarn.t2':"Tarnopolski is considered one of the important innovators of post-Soviet musical life. In 1989, he co-founded the Association for Contemporary Music (ACM) in Moscow. In 1993, he founded the Centre for Contemporary Music and the Ensemble Studio for New Music. In 1994, he also initiated the international Moscow Forum festival, which promotes exchange between Russian and European contemporary music. Tarnopolski has received numerous international awards and has been Composer-in-Residence at major cultural institutions.",
+    'akad.about.tarn.t3':"From 1992 to 2022, Tarnopolski was Professor of Composition at the Moscow Tchaikovsky Conservatory, where he founded the Department of Contemporary Music. He led international masterclasses and seminars and served as a jury member for numerous competitions. He is currently a visiting professor in Munich.",
+    'akad.about.klose.h':"About Katrin Klose",
+    'akad.about.klose.t1':"Katrin Klose (*1990) studied violin as a pre-college student, began studying music education in 2009, and additionally completed a BA in composition from 2010 with Prof. Heinz Winbeck, Tobias PM Schneid, and Prof. Robert HP Platz at the University of Music Würzburg. From 2015 to 2018, she completed a Master’s degree in composition at the University Mozarteum Salzburg with Prof. Reinhard Febel. From 2018 to 2023, she completed a PhD specialising in vocal composition at the Royal Conservatoire of Scotland in Glasgow with Dr Stuart McRae and Dr Jonathan Cole of the Royal College of Music London.",
+    'akad.about.klose.t2':"Her music (e.g. String Quartet No. 1, Accord for chamber orchestra, etc.) has received numerous composition awards. She has been awarded multiple scholarships, including the Deutschlandstipendium, the RCS Research Studentship, the Studienstiftung des Deutschen Volkes, and a residency at the Cité Internationale des Arts in Paris. Her works have been performed by renowned ensembles such as the SWR Symphony Orchestra, the Hugo Wolf Quartet, Ensemble der/gelbe/klang, OENM Salzburg, the Red Note Ensemble, and Ensemble NAMES, among others.",
+    'akad.about.klose.t3':"She is a lecturer at the Federal Academy for Musical Youth Education in Trossingen, where she also leads an educational project in cooperation with the Donaueschingen Festival. She has taught composition, improvisation, and music theory at various universities and conservatoires and gives private composition lessons.",
+    'akad.cta.tag':"Open Call",
+    'akad.cta.title':"aDe-Akademie",
+    'akad.cta.desc':"Six-day academy programme for young composers, running alongside the festival. Apply by 15 November 2026.",
+    'akad.cta.link':"Find out more ↗",
+    'aria.home':'Go to homepage', 'aria.about':'Sections of About us', 'aria.records':'Albums of aDevantgarde records',
+    'aria.years':'More years', 'aria.hint':'Continue reading', 'aria.prev':'Previous page', 'aria.next':'Next page'
+  };
+  // Texte, die per JavaScript erzeugt werden (beide Sprachen)
+  const T = {
+    de:{ 'off.more':'mehr Infos ↗', 'team.view':'Website ansehen ↗', 'team.private':'Privat', 'photo':'Foto', 'uhr':' Uhr' },
+    en:{ 'off.more':'more info ↗', 'team.view':'View website ↗', 'team.private':'Private', 'photo':'Photo', 'uhr':'' }
+  };
+  let LANG = 'de';
+  try{ const saved = localStorage.getItem('ade-lang'); if(saved === 'en' || saved === 'de') LANG = saved; }catch(e){}
+  function t(key){ return (T[LANG] && T[LANG][key]) || T.de[key] || key; }
+
+  // Datum/Zeit aus dem Sheet (deutsches Format) für Englisch umformen
+  function fmtDate(d){
+    if(LANG !== 'en' || !d) return d;
+    const m = d.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+    if(!m) return d;
+    const mon = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m[2]-1];
+    return +m[1] + ' ' + mon + ' ' + m[3];
+  }
+  function fmtTime(z){
+    if(!z) return '';
+    const s = z.replace(/^(\d{1,2}:\d{2}):\d{2}$/, '$1').replace(/\s*uhr\s*$/i, '');
+    if(LANG === 'en'){
+      const m = s.match(/^(\d{1,2}):(\d{2})$/);
+      if(m){ let hh = +m[1]; const ap = hh >= 12 ? 'pm' : 'am'; hh = hh % 12 || 12; return hh + ':' + m[2] + ' ' + ap; }
+      return s;
+    }
+    return s + t('uhr');
+  }
+  // Funktionsbezeichnungen aus dem Team-Sheet: optionale Spalte F ("Funktion EN") hat Vorrang, sonst Übersetzungsliste
+  function roleLabel(p){
+    if(LANG !== 'en') return p.funktion;
+    if(p.funktionEn) return p.funktionEn;
+    return p.funktion
+      .replace(/Künstlerische Leitung/g, 'Artistic Direction')
+      .replace(/2\. Vorstandsvorsitzende[rn]?/g, 'Deputy Chair')
+      .replace(/1\. Vorstandsvorsitzende[rn]?/g, 'Chair of the Board')
+      .replace(/Vorstandsvorsitzende[rn]?/g, 'Chair of the Board')
+      .replace(/Schatzmeister(in)?/g, 'Treasurer')
+      .replace(/Kuratorium/g, 'Curatorial Board');
+  }
+
+  function applyI18n(root){
+    root = root || document;
+    const nodes = (root.matches && root.matches('[data-i18n]')) ? [root] : [];
+    root.querySelectorAll('[data-i18n]').forEach(n => nodes.push(n));
+    nodes.forEach(el => {
+      if(el.dataset.de === undefined) el.dataset.de = el.innerHTML;
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (LANG === 'en' && EN[key] !== undefined) ? EN[key] : el.dataset.de;
+    });
+    const arias = (root.matches && root.matches('[data-i18n-aria]')) ? [root] : [];
+    root.querySelectorAll('[data-i18n-aria]').forEach(n => arias.push(n));
+    arias.forEach(el => {
+      if(el.dataset.deAria === undefined) el.dataset.deAria = el.getAttribute('aria-label') || '';
+      const key = el.getAttribute('data-i18n-aria');
+      el.setAttribute('aria-label', (LANG === 'en' && EN[key] !== undefined) ? EN[key] : el.dataset.deAria);
+    });
+  }
+  function setLang(lang){
+    LANG = (lang === 'en') ? 'en' : 'de';
+    try{ localStorage.setItem('ade-lang', LANG); }catch(e){}
+    document.documentElement.lang = LANG;
+    applyI18n(document);
+    document.querySelectorAll('.lang-switch button').forEach(b => {
+      const on = b.getAttribute('data-lang') === LANG;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if(window.renderDynamic) window.renderDynamic();
+  }
+  // Direkt beim Laden anwenden (Deutsch merken, ggf. auf Englisch umstellen)
+  setLang(LANG);
+</script>
+<script>
+  // ---- Simple hash-based router across the three "pages" ----
+  const pageIds = ['ueber-uns', 'records', 'festival', 'archiv-2025', 'archiv-2023', 'impressum', 'datenschutz', 'akademie'];
+  function currentPageFromHash(){
+    const h = (location.hash || '').replace('#','');
+    const matchedPage = pageIds.find(p => h === p || h.startsWith(p + '-'));
+    return matchedPage || 'ueber-uns'; // Über uns is the default/home page
+  }
+  function router(){
+    document.querySelectorAll('.nav-dropdown.open, .year-dropdown.open').forEach(d => d.classList.remove('open'));
+    const page = currentPageFromHash();
+    pageIds.forEach(p => document.getElementById('page-' + p).classList.toggle('active', p === page));
+    document.documentElement.classList.toggle('festival-active', page === 'festival');
+    if(page === 'festival' && window.festivalEnter) window.festivalEnter();
+    if(typeof PAGE_TO_YEAR !== 'undefined' && PAGE_TO_YEAR[page] !== undefined){
+      currentFestivalYear = PAGE_TO_YEAR[page];
+    }
+    if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks();
+    // If the hash points at an in-page anchor (e.g. #festival-kalender), scroll to it
+    const h = (location.hash || '').replace('#','');
+    if(h && h !== page){
+      const target = document.getElementById(h);
+      if(target){ setTimeout(() => target.scrollIntoView({behavior:'instant', block:'start'}), 0); }
+    } else {
+      window.scrollTo(0,0);
+    }
+  }
+  window.addEventListener('hashchange', router);
+  window.addEventListener('DOMContentLoaded', router);
+
+  // Großes Logo auf "Über uns": bleibt unter dem Header stehen und blendet beim Scrollen aus
+  function updateHeaderHeight(){
+    const hd = document.querySelector('.page.active header') || document.querySelector('header');
+    if(hd) document.documentElement.style.setProperty('--header-h', hd.offsetHeight + 'px');
+  }
+  function updateLogoFade(){
+    const img = document.querySelector('.logo-hero img');
+    if(!img) return;
+    const o = Math.max(0, 1 - window.scrollY / 240);
+    img.style.opacity = o;
+  }
+  window.addEventListener('scroll', updateLogoFade, { passive: true });
+  window.addEventListener('resize', updateHeaderHeight);
+  window.addEventListener('hashchange', () => { updateHeaderHeight(); updateLogoFade(); });
+  window.addEventListener('DOMContentLoaded', () => { updateHeaderHeight(); updateLogoFade(); });
+  window.addEventListener('load', updateHeaderHeight);
+
+  // Year switcher — synced globally with whichever page/edition is actually loaded
+  const ALL_FESTIVAL_YEARS = [2027,2025,2023,2021,2019,2017,2015,2013,2011,2009,2007,2005,2003,2001,1999,1997,1995,1994,1993,1992];
+  const YEAR_TO_PAGE = {2027:'festival', 2025:'archiv-2025', 2023:'archiv-2023'};
+  const PAGE_TO_YEAR = {festival:2027, 'archiv-2025':2025, 'archiv-2023':2023};
+  const ACTIVE_YEARS = [2027, 2025, 2023];
+  let currentFestivalYear = 2027;
+
+  function hrefForYear(y){ return '#' + (YEAR_TO_PAGE[y] || 'festival'); }
+
+  function renderYearBlock(yearBlock){
+    const bigEl = yearBlock.querySelector('.year-big');
+    const track = yearBlock.querySelector('.year-track');
+    const dropdownList = yearBlock.querySelector('.year-dropdown-list');
+    if(!bigEl || !dropdownList) return;
+    bigEl.textContent = 'Festival ' + currentFestivalYear;
+    bigEl.setAttribute('href', hrefForYear(currentFestivalYear));
+    const rest = ALL_FESTIVAL_YEARS.filter(y => y !== currentFestivalYear);
+    const linksHtml = rest.map(y =>
+      ACTIVE_YEARS.includes(y)
+        ? `<a href="${hrefForYear(y)}" data-year="${y}">${y}</a>`
+        : `<span class="year-disabled">${y}</span>`
+    ).join('');
+    if(track) track.innerHTML = linksHtml;
+    dropdownList.innerHTML = linksHtml;
+    yearBlock.querySelectorAll('.year-track a, .year-dropdown-list a').forEach(a => {
+      a.addEventListener('click', () => {
+        currentFestivalYear = parseInt(a.dataset.year, 10);
+        renderAllYearBlocks();
+        const dd = yearBlock.querySelector('.year-dropdown');
+        if(dd) dd.classList.remove('open');
+      });
+    });
+  }
+
+  function renderAllYearBlocks(){
+    document.querySelectorAll('.year-block').forEach(renderYearBlock);
+  }
+
+  renderAllYearBlocks();
+
+  function toggleYearDropdown(btn){
+    const dropdown = btn.closest('.year-block').querySelector('.year-dropdown');
+    if(!dropdown) return;
+    const willOpen = !dropdown.classList.contains('open');
+    document.querySelectorAll('.year-dropdown.open').forEach(d => d.classList.remove('open'));
+    if(willOpen) dropdown.classList.add('open');
+  }
+  function toggleNavDropdown(btn){
+    const dropdown = btn.closest('.nav-item').querySelector('.nav-dropdown');
+    if(!dropdown) return;
+    const willOpen = !dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+    if(willOpen) dropdown.classList.add('open');
+  }
+  document.addEventListener('click', (ev) => {
+    if(!ev.target.closest('.year-block')){
+      document.querySelectorAll('.year-dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+    if(!ev.target.closest('.nav-item')){
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+  });
+
+  // Team: wird aus dem Tab "Team" im Sheet "adevantgarde.de über uns" geladen (selbes
+  // Dokument wie die Videos). Spalten: A Name · B Funktion · C Bild (Drive-Link) ·
+  // D Internetseite · E Credits Bild.
+  const ABOUT_SHEET_ID = '1lBDxbKKC5cGMT1FcwX_Nt1vn6yRoThiDZH3PY6hjh_0';
+  const TEAM_SHEET_TAB = 'Team';
+
+  let teamData = [];
+  let offseasonData = [];
+
+  function formatPhotoCredit(credit){
+    if(!credit) return '';
+    if(/^privat$/i.test(credit)) return t('team.private');
+    return credit.startsWith('©') ? credit : `© ${credit}`;
+  }
+
+  function renderTeam(){
+    const grid = document.getElementById('teamGrid');
+    if(!grid || !teamData.length) return; // Platzhaltertext bleibt stehen
+    grid.innerHTML = teamData.map(p => {
+      const inner = `
+        <span class="photo-content">${p.bild ? `<img src="${driveImageUrl(p.bild)}" alt="${p.name}" onerror="this.parentElement.textContent='${t('photo')}'">` : t('photo')}</span>
+        ${p.credit ? `<span class="photo-credit">${formatPhotoCredit(p.credit)}</span>` : ''}
+        ${p.website ? `<span class="photo-overlay">${t('team.view')}</span>` : ''}
+      `;
+      const photo = p.website
+        ? `<a class="photo" href="${p.website}" target="_blank" rel="noopener">${inner}</a>`
+        : `<div class="photo">${inner}</div>`;
+      return `<div class="team-card">${photo}<h3>${p.name}</h3><div class="role">${roleLabel(p)}</div></div>`;
+    }).join('');
+  }
+
+  async function loadTeam(){
+    const grid = document.getElementById('teamGrid');
+    if(!grid) return;
+    try{
+      const url = `https://docs.google.com/spreadsheets/d/${ABOUT_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(TEAM_SHEET_TAB)}`;
+      const res = await fetch(url);
+      const text = await res.text();
+      const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+      const rows = json.table.rows || [];
+      const val = (r,i) => (r.c[i] && r.c[i].v != null) ? String(r.c[i].v).trim() : '';
+      // Spalten: A Name · B Funktion · C Bild · D Internetseite · E Credits Bild · F Funktion (EN, optional)
+      teamData = rows.map(r => ({
+        name: val(r,0), funktion: val(r,1), bild: val(r,2), website: val(r,3), credit: val(r,4), funktionEn: val(r,5)
+      })).filter(p => p.name);
+      renderTeam();
+    } catch(err){
+      console.error('Team konnte nicht geladen werden, Platzhaltertext bleibt aktiv.', err);
+    }
+  }
+  loadTeam();
+
+  // Off-Season-Termine: Mitglieder tragen sie per Google-Formular ein, sie landen im Sheet
+  // "Konzerttermine adevantgarde.de (Antworten)". Ein Termin erscheint erst hier, wenn in
+  // Spalte J ("bestätigt") ein Häkchen/Wert gesetzt ist. Spalte K ("eigene Veranstaltung")
+  // wird manuell im Sheet gepflegt und markiert Termine, die aDevantgarde selbst veranstaltet
+  // (z.B. Neuer Hoargartn) — die werden auf der Website farblich hervorgehoben. Tabellenspalten:
+  // A Zeitstempel · B E-Mail-Adresse (wird NIE angezeigt) · C Konzerttitel · D Datum ·
+  // E Zeit · F Kurzbeschreibung · G Link zum Veranstalter · H Foto zur Veranstaltung ·
+  // I Ort · J bestätigt · K eigene Veranstaltung (manuell)
+  const OFFSEASON_SHEET_ID = '13Yr0KSwwBefM3jZM0QxqGlbxc8BWn8B458hm6TCe_iM';
+  const OFFSEASON_SHEET_GID = '134675467';
+
+  function driveImageUrl(link){
+    if(!link) return '';
+    const m = link.match(/[-\w]{25,}/);
+    return m ? `https://drive.google.com/thumbnail?id=${m[0]}&sz=w600` : link;
+  }
+
+
+  async function loadOffSeasonEvents(){
+    const listEl = document.getElementById('offseasonList');
+    if(!listEl) return;
+    try{
+      const url = `https://docs.google.com/spreadsheets/d/${OFFSEASON_SHEET_ID}/gviz/tq?tqx=out:json&gid=${OFFSEASON_SHEET_GID}`;
+      const res = await fetch(url);
+      const text = await res.text();
+      const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+      const rows = json.table.rows || [];
+      // Datum-/Zeit-Zellen liefern in "v" einen rohen Date(...)-Wert (Google-Sheets-Eigenheit
+      // der gviz-API) statt des im Sheet sichtbaren Textes — deshalb bevorzugt die bereits
+      // formatierte Darstellung "f" verwenden, "v" nur als Rückfalloption für reinen Text.
+      const val = (r,i) => {
+        const c = r.c[i];
+        if(!c) return '';
+        if(c.f != null) return String(c.f).trim();
+        if(c.v != null) return String(c.v).trim();
+        return '';
+      };
+      const isChecked = (r,i) => {
+        const cell = r.c[i];
+        if(!cell || cell.v == null) return false;
+        if(typeof cell.v === 'boolean') return cell.v;
+        return /^(bestätigt|wahr|true|ja|x)$/i.test(String(cell.v).trim());
+      };
+      const events = rows.map(r => ({
+        titel: val(r,2), datum: val(r,3), zeit: val(r,4), beschreibung: val(r,5),
+        link: val(r,6), foto: val(r,7), ort: val(r,8), bestaetigt: isChecked(r,9), eigen: isChecked(r,10)
+      })).filter(e => e.titel && e.bestaetigt);
+      offseasonData = events;
+      renderOffSeason();
+    } catch(err){
+      console.error('Off-Season-Termine konnten nicht geladen werden, Platzhaltertext bleibt aktiv.', err);
+    }
+  }
+
+  function renderOffSeason(){
+    const listEl = document.getElementById('offseasonList');
+    const events = offseasonData;
+    if(!listEl || !events.length) return; // Platzhaltertext bleibt stehen
+    try{
+      listEl.innerHTML = events.map(e => `
+        <div class="offseason-item${e.eigen ? ' is-own' : ''}">
+          ${e.foto ? `<div class="offseason-photo"><img src="${driveImageUrl(e.foto)}" alt="${e.titel}" loading="lazy"></div>` : ''}
+          <div class="offseason-content">
+            ${e.eigen ? `<span class="offseason-own-tag">aDevantgarde</span>` : ''}
+            <div class="offseason-date">
+              <span class="offseason-date-d">${fmtDate(e.datum)}</span>${e.zeit ? `<span class="offseason-date-sep">·</span><span class="offseason-date-t">${fmtTime(e.zeit)}</span>` : ''}${e.ort ? `<span class="offseason-date-sep">·</span><span class="offseason-date-o">${e.ort}</span>` : ''}
+            </div>
+            ${(e.beschreibung || e.link) ? `<div class="offseason-title-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleOffseasonItem(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOffseasonItem(this)}"><h3>${e.titel}</h3><span class="offseason-chevron-wrap" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>` : `<div class="offseason-title-row"><h3>${e.titel}</h3></div>`}
+            ${e.beschreibung ? `<p>${e.beschreibung}</p>` : ''}
+            ${e.link ? `<a class="offseason-link" href="${e.link}" target="_blank" rel="noopener">${t('off.more')}</a>` : ''}
+          </div>
+        </div>
+      `).join('');
+      syncOffSeasonPhotoHeights();
+      const legend = document.getElementById('offseasonLegend');
+      if(legend) legend.hidden = !events.some(e => e.eigen);
+    } catch(err){
+      console.error('Off-Season-Termine konnten nicht geladen werden, Platzhaltertext bleibt aktiv.', err);
+    }
+  }
+
+  // Bildhöhe soll sich nach der Höhe der Textspalte rechts richten (nicht umgekehrt) —
+  // dafür Flexbox-"stretch" vermeiden (das würde zirkulär auch von der Bildbreite abhängen)
+  // und die Höhe nach dem Rendern direkt vom Text übernehmen.
+  function toggleOffseasonItem(el){
+    const item = el.closest('.offseason-item');
+    const open = item.classList.toggle('open');
+    const row = item.querySelector('.offseason-title-row');
+    if(row) row.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function syncOffSeasonPhotoHeights(){
+    document.querySelectorAll('#offseasonList .offseason-item').forEach(item => {
+      const photo = item.querySelector('.offseason-photo');
+      const content = item.querySelector('.offseason-content');
+      if(!photo || !content) return;
+      photo.style.height = window.innerWidth > 640 ? content.offsetHeight + 'px' : '';
+    });
+  }
+  window.addEventListener('resize', syncOffSeasonPhotoHeights);
+  window.renderDynamic = function(){ renderTeam(); renderOffSeason(); };
+  loadOffSeasonEvents();
+
+  // YouTube-Videokarussell: Videolinks werden manuell im Tabellenblatt "Videos" gepflegt
+  // (selbes Sheet wie "Team"), Spalte A = YouTube-Link, kein Titel. Es zeigt jeweils ein
+  // Vorschaubild und wechselt automatisch alle paar Sekunden; ein Klick startet die
+  // eingebettete Wiedergabe und stoppt den automatischen Wechsel.
+  const VIDEOS_SHEET_ID = '1lBDxbKKC5cGMT1FcwX_Nt1vn6yRoThiDZH3PY6hjh_0';
+  const VIDEOS_SHEET_TAB = 'Videos';
+
+  let videoList = [];
+  let videoIndex = 0;
+  let videoTimer = null;
+  let videoPlaying = false;
+
+  function extractYoutubeId(url){
+    if(!url) return '';
+    const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : '';
+  }
+
+  function renderVideoThumbs(){
+    const thumbsEl = document.getElementById('videoThumbs');
+    if(!thumbsEl) return;
+    thumbsEl.innerHTML = videoList.map((v,i) => `
+      <button type="button" class="video-carousel-thumb${i === videoIndex ? ' active' : ''}" onclick="goToVideo(${i})" aria-label="Video ${i + 1}">
+        <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.titel}" loading="lazy">
+      </button>
+    `).join('');
+  }
+
+  function buildVideoStageHTML(v){
+    return `
+      <div class="video-carousel-stage" onclick="playCurrentVideo()" onmouseenter="pauseVideoTimer()" onmouseleave="restartVideoTimer()">
+        <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.titel}" loading="lazy">
+        <div class="video-carousel-play">
+          <svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C0 13.05 0 24 0 24s0 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C68 34.95 68 24 68 24s0-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+        </div>
+        ${v.titel ? `<div class="video-carousel-title">${v.titel}</div>` : ''}
+      </div>
+    `;
+  }
+
+  function renderVideoStage(animate){
+    const stage = document.getElementById('videoCarousel');
+    if(!stage || !videoList.length) return;
+    const v = videoList[videoIndex];
+    const existing = stage.querySelector('.video-carousel-stage');
+    const swap = () => {
+      stage.innerHTML = buildVideoStageHTML(v);
+      const el = stage.querySelector('.video-carousel-stage');
+      if(el){
+        el.style.opacity = '0';
+        requestAnimationFrame(() => requestAnimationFrame(() => { el.style.opacity = '1'; }));
+      }
+      renderVideoThumbs();
+    };
+    if(existing && animate !== false){
+      existing.style.opacity = '0';
+      setTimeout(swap, 300);
+    } else {
+      swap();
+    }
+  }
+
+  function goToVideo(i){
+    videoIndex = i;
+    renderVideoStage();
+    restartVideoTimer();
+  }
+
+  function playCurrentVideo(){
+    const stage = document.getElementById('videoCarousel');
+    const v = videoList[videoIndex];
+    if(!stage || !v) return;
+    videoPlaying = true;
+    if(videoTimer) clearInterval(videoTimer);
+    stage.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1" title="${v.titel}" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  }
+
+  function pauseVideoTimer(){
+    if(videoTimer) clearInterval(videoTimer);
+  }
+
+  function restartVideoTimer(){
+    if(videoTimer) clearInterval(videoTimer);
+    if(videoPlaying || videoList.length < 2) return;
+    videoTimer = setInterval(() => {
+      videoIndex = (videoIndex + 1) % videoList.length;
+      renderVideoStage();
+    }, 10000);
+  }
+
+  async function fetchYoutubeTitle(id){
+    try{
+      const url = `https://www.youtube.com/oembed?url=${encodeURIComponent('https://www.youtube.com/watch?v=' + id)}&format=json`;
+      const res = await fetch(url);
+      if(!res.ok) return '';
+      const data = await res.json();
+      return data.title || '';
+    } catch(err){
+      return ''; // Titel bleibt einfach leer, kein Problem für die Anzeige
+    }
+  }
+
+  async function loadVideos(){
+    const container = document.getElementById('videoCarousel');
+    if(!container) return;
+    try{
+      const url = `https://docs.google.com/spreadsheets/d/${VIDEOS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(VIDEOS_SHEET_TAB)}`;
+      const res = await fetch(url);
+      const text = await res.text();
+      const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+      const rows = json.table.rows || [];
+      const val = (r,i) => (r.c[i] && r.c[i].v != null) ? String(r.c[i].v).trim() : '';
+      videoList = rows.map(r => ({ titel: '', id: extractYoutubeId(val(r,0)) })).filter(v => v.id);
+      if(!videoList.length){
+        container.innerHTML = '<p class="videos-status" data-i18n="videos.none">Aktuell keine Videos hinterlegt.</p>'; applyI18n(container);
+        return;
+      }
+      renderVideoStage();
+      restartVideoTimer();
+      // Titel kommen direkt von YouTube (oEmbed) und werden nachgeladen, sobald verfügbar.
+      await Promise.all(videoList.map(async v => { v.titel = await fetchYoutubeTitle(v.id); }));
+      if(!videoPlaying) renderVideoStage(false);
+    } catch(err){
+      console.error('Videos konnten nicht geladen werden.', err);
+    }
+  }
+  loadVideos();
+
+  function togglePress(btn){
+    const body = btn.nextElementSibling;
+    if(!body) return;
+    const willOpen = !body.classList.contains('open');
+    body.classList.toggle('open', willOpen);
+    btn.classList.toggle('open', willOpen);
+  }
+
+  // Tracklist toggles
+  function toggleReleaseDetails(btn){
+    const details = btn.closest('.release-tabs').nextElementSibling;
+    if(!details) return;
+    const willOpen = !details.classList.contains('open');
+    details.classList.toggle('open', willOpen);
+    btn.classList.toggle('open', willOpen);
+  }
+
+
+  // Team (mobil/Touch): 1. Tipp auf das Foto blendet "Website ansehen" ein, 2. Tipp öffnet die Website
+  document.addEventListener('click', (ev) => {
+    const link = ev.target.closest('.team-card a.photo');
+    document.querySelectorAll('.team-card .photo.reveal').forEach(p => { if(p !== link) p.classList.remove('reveal'); });
+    if(!link || !window.matchMedia('(max-width:640px), (hover:none)').matches) return;
+    if(!link.classList.contains('reveal')){
+      ev.preventDefault();
+      link.classList.add('reveal');
+    }
+  });
+
+  function switchTab(releaseId, tab, btn){
+    ['info','tracks','trailer'].forEach(t => {
+      const panel = document.getElementById(releaseId + '-' + t);
+      if(panel) panel.classList.toggle('active', t === tab);
+    });
+    btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // mobil: Klick auf einen Tab klappt die Details automatisch auf
+    if(window.matchMedia('(max-width:640px)').matches){
+      const tabs = btn.closest('.release-tabs');
+      const details = tabs && tabs.nextElementSibling;
+      if(details){
+        details.classList.add('open');
+        const tg = tabs.querySelector('.details-toggle');
+        if(tg) tg.classList.add('open');
+      }
+    }
+  }
+</script>
+
+<script>
+  // Festival-Platzhalter: Seite scrollt nicht, Scroll-Eingaben (Rad, Touch, Tasten) steuern nur den Übergang
+  // Stempel (vorne, füllt alles) -> Text (kommt nach vorne, Stempel tritt zurück)
+  (function(){
+    const stage = document.getElementById('festStage');
+    if(!stage) return;
+    const stamp = document.getElementById('festStamp');
+    const copy = document.getElementById('festCopy');
+    const hint = document.getElementById('festHint');
+    // Geometrie des Stempel-Rechtecks im PNG (Mittelpunkt, Winkel der Längsachse, Länge, Breite)
+    const IMG_W = 1600, IMG_H = 1210, CX = 809.3, CY = 638.4, THETA0 = 37.0, L = 1617.5, S = 546.8, BLEED = 1.04;
+    let target = 0, current = 0, raf = null;
+    const page = document.getElementById('page-festival');
+    const active = () => page.classList.contains('active');
+    const clamp = (v,a,b) => Math.min(b, Math.max(a, v));
+    const smooth = (a,b,x) => { const t = clamp((x-a)/(b-a),0,1); return t*t*(3-2*t); };
+
+    // Seitenverhältnis des Stempel-Rechtecks in Abhängigkeit vom Drehwinkel (0° = Längsachse waagrecht)
+    function aspectAt(phi){
+      const r = phi*Math.PI/180, c = Math.cos(r), s = Math.sin(r);
+      return (L*c + S*s) / (L*s + S*c);
+    }
+    // Drehwinkel finden, bei dem das Stempel-Rechteck genau das Seitenverhältnis der Seite hat
+    function phiFor(a){
+      if(a >= aspectAt(0)) return 0;
+      if(a <= aspectAt(90)) return 90;
+      let lo = 0, hi = 90;
+      for(let i = 0; i < 40; i++){ const mid = (lo+hi)/2; if(aspectAt(mid) > a) lo = mid; else hi = mid; }
+      return (lo+hi)/2;
+    }
+    function layout(){
+      const vw = stage.clientWidth, vh = stage.clientHeight;
+      if(!vw || !vh) return;
+      let phi = phiFor(vw/vh);          // Winkel, bei dem das Rechteck genau zur Seite passt
+      let signed = phi;                  // positiv = fällt nach rechts ab (Querformat)
+      if(vw < vh){                       // Hochformat (mobil): von links unten nach rechts oben, flacher
+        phi = Math.max(35, phi - 14);    // weniger steil -> Stempel ragt links/rechts über den Rand
+        signed = -phi;
+      }
+      const r = phi*Math.PI/180;
+      const bw = L*Math.cos(r) + S*Math.sin(r), bh = L*Math.sin(r) + S*Math.cos(r);
+      const k = Math.max(vw/bw, vh/bh) * BLEED;
+      stamp.style.width = (IMG_W*k) + 'px';
+      stamp.style.height = (IMG_H*k) + 'px';
+      stamp.style.left = (vw/2 - CX*k) + 'px';
+      stamp.style.top = (vh/2 - CY*k) + 'px';
+      stamp.style.transformOrigin = (CX*k) + 'px ' + (CY*k) + 'px';
+      stamp.style.setProperty('--rot', (signed - THETA0) + 'deg');
+    }
+    function apply(p){
+      const stampO = 1 - 0.9*smooth(0, 0.85, p);
+      const reveal = smooth(0.1, 0.8, p);       // 0 = stark verschwommen im Hintergrund, 1 = scharf im Vordergrund
+      const copyO = 0.85 + 0.15*reveal;
+      stamp.style.setProperty('--zoom', (1 + 0.14*p).toFixed(4));
+      stamp.style.opacity = stampO.toFixed(3);
+      copy.style.opacity = copyO.toFixed(3);
+      copy.style.filter = 'blur(' + ((1-reveal)*6).toFixed(1) + 'px)';
+      copy.style.transform = 'scale(' + (0.94 + 0.06*reveal).toFixed(4) + ')';
+      copy.style.zIndex = p > 0.5 ? 3 : 1;
+      copy.style.pointerEvents = p > 0.85 ? 'auto' : 'none';
+      hint.style.opacity = (1 - smooth(0, 0.12, p)).toFixed(3);
+      hint.style.pointerEvents = p > 0.12 ? 'none' : 'auto';
+    }
+    function tick(){
+      current += (target - current) * 0.14;
+      if(Math.abs(target - current) < 0.002) current = target;
+      apply(current);
+      raf = current !== target ? requestAnimationFrame(tick) : null;
+    }
+    function setTarget(v){
+      target = clamp(v, 0, 1);
+      if(!raf) raf = requestAnimationFrame(tick);
+    }
+    window.festivalEnter = function(){
+      target = current = 0;
+      apply(0);
+      requestAnimationFrame(layout);
+    };
+    window.addEventListener('resize', layout);
+    const inMenu = (el) => !!(el && el.closest && el.closest('.year-dropdown, .nav-dropdown'));
+    window.addEventListener('wheel', (e) => {
+      if(!active() || inMenu(e.target)) return;
+      e.preventDefault();
+      const dy = e.deltaMode === 1 ? e.deltaY*16 : e.deltaY;
+      setTarget(target + dy/700);
+    }, { passive:false });
+    let lastY = null;
+    window.addEventListener('touchstart', (e) => { lastY = (active() && !inMenu(e.target)) ? e.touches[0].clientY : null; }, { passive:true });
+    window.addEventListener('touchmove', (e) => {
+      if(!active() || lastY === null) return;
+      e.preventDefault();
+      const y = e.touches[0].clientY;
+      setTarget(target + (lastY - y)/320);
+      lastY = y;
+    }, { passive:false });
+    window.addEventListener('touchend', () => { lastY = null; });
+    window.addEventListener('keydown', (e) => {
+      if(!active()) return;
+      if(['ArrowDown','PageDown',' ','End'].includes(e.key)){ e.preventDefault(); setTarget(e.key === 'ArrowDown' ? target + 0.25 : 1); }
+      if(['ArrowUp','PageUp','Home'].includes(e.key)){ e.preventDefault(); setTarget(e.key === 'ArrowUp' ? target - 0.25 : 0); }
+    });
+    hint.addEventListener('click', () => setTarget(1));
+    apply(0);
+    if(active()) layout();
+  })();
+</script>
+<script>
+  // Programmheft-Flipbook (Archiv 2023) — eigenständig, ohne externe Bibliothek
+  const HEFT_PAGE_COUNT = 52;
+  let heftCurrentPage = 1;
+  let heftFlipbookReady = false;
+
+  function heftPad(n){ return String(n).padStart(2, '0'); }
+  function heftPagePath(n){ return `heft2023/page-${heftPad(n)}.jpg`; }
+
+  function initHeftFlipbook(){
+    if(heftFlipbookReady) return;
+    const activeImg = document.getElementById('fpImgActive');
+    const underImg = document.getElementById('fpImgUnder');
+    if(!activeImg || !underImg) return;
+    heftFlipbookReady = true;
+    renderHeftPage(1);
+  }
+
+  function renderHeftPage(n){
+    const activeImg = document.getElementById('fpImgActive');
+    const underImg = document.getElementById('fpImgUnder');
+    const indicator = document.getElementById('flipbookPageIndicator');
+    if(!activeImg || !underImg) return;
+    heftCurrentPage = n;
+    activeImg.src = heftPagePath(n);
+    underImg.src = n < HEFT_PAGE_COUNT ? heftPagePath(n + 1) : heftPagePath(n);
+    if(indicator) indicator.textContent = n + ' / ' + HEFT_PAGE_COUNT;
+  }
+
+  function heftFlipTo(n){
+    if(n < 1 || n > HEFT_PAGE_COUNT) return;
+    const el = document.getElementById('fpActive');
+    if(!el) return;
+    el.style.transform = 'rotateY(-100deg)';
+    setTimeout(() => {
+      renderHeftPage(n);
+      el.style.transition = 'none';
+      el.style.transform = 'rotateY(0deg)';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => { el.style.transition = 'transform .45s ease'; });
+      });
+    }, 260);
+  }
+
+  function flipbookPrev(){ heftFlipTo(heftCurrentPage - 1); }
+  function flipbookNext(){ heftFlipTo(heftCurrentPage + 1); }
+
+  window.addEventListener('DOMContentLoaded', initHeftFlipbook);
+  window.addEventListener('hashchange', () => { setTimeout(initHeftFlipbook, 50); });
+</script>
+</body>
+</html>
