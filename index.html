@@ -1036,6 +1036,7 @@
       <a href="https://www.instagram.com/adevantgarde_festival/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://twitter.com/adevantgarde" target="_blank" rel="noopener">Twitter</a>
     </div>
+    <div class="arch-pager-host" id="arch2025Pager"></div>
     <div class="wp-footer-copy">© 2025 aDevantgarde.de</div>
   </div>
 </div>
@@ -1238,6 +1239,7 @@
       currentFestivalYear = ym ? parseInt(ym[1], 10) : 2027;
       renderArchive();
     }
+    if(page === 'archiv-2025') renderArchive2025Pager();
     if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks();
     // If the hash points at an in-page anchor (e.g. #festival-kalender), scroll to it
     const h = (location.hash || '').replace('#','');
@@ -1318,15 +1320,16 @@
     de:{tag:'Archiv', back:'← Alle Festivals', all:'Alle Festivals', h1:'Festival-Archiv', lead:'Alle Ausgaben des aDevantgarde-Festivals seit 1991.', upcoming:'Das nächste Festival',
         program:'Programm', videos:'Videos', about:'Über das Festival', team:'Team', heft:'Programmheft', heftOpen:'Programmheft durchblättern', pages:'Seiten',
         heftHint:'Klick auf das Bild oder nutze die Pfeile zum Umblättern.', prevPage:'Vorherige Seite', nextPage:'Nächste Seite', booklet:'Programmheft (PDF)', flyer:'Flyer (PDF)',
-        play:'Video abspielen', badge:'Video', goVideo:'Video ansehen', videoNote:'Die Videos werden erst nach einem Klick von YouTube geladen.', privacy:'Datenschutz',
+        fullscreen:'Vollbild', fullscreenExit:'Vollbild beenden', play:'Video abspielen', badge:'Video', goVideo:'Video ansehen', videoNote:'Die Videos werden erst nach einem Klick von YouTube geladen.', privacy:'Datenschutz',
         prev:'Vorheriges Festival', next:'Nächstes Festival', concerts:['Konzert','Konzerte'], vids:['Video','Videos'], place:'München', poster:'Plakat'},
     en:{tag:'Archive', back:'← All festivals', all:'All festivals', h1:'Festival archive', lead:'All editions of the aDevantgarde Festival since 1991.', upcoming:'The next festival',
         program:'Programme', videos:'Videos', about:'About the festival', team:'Team', heft:'Programme booklet', heftOpen:'Browse the programme booklet', pages:'pages',
         heftHint:'Click the image or use the arrows to turn the pages.', prevPage:'Previous page', nextPage:'Next page', booklet:'Programme booklet (PDF)', flyer:'Flyer (PDF)',
-        play:'Play video', badge:'Video', goVideo:'Watch video', videoNote:'The videos are only loaded from YouTube after you click.', privacy:'Privacy policy',
+        fullscreen:'Full screen', fullscreenExit:'Exit full screen', play:'Play video', badge:'Video', goVideo:'Watch video', videoNote:'The videos are only loaded from YouTube after you click.', privacy:'Privacy policy',
         prev:'Previous festival', next:'Next festival', concerts:['concert','concerts'], vids:['video','videos'], place:'Munich', poster:'Poster'}
   };
   const ARCH_NOTE_EN='The archive texts are available in German only.';
+  const ARCH_YT_PLAY = '<svg aria-hidden="true" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C0 13.05 0 24 0 24s0 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C68 34.95 68 24 68 24s0-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg>';
   function archEsc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
   function archParse(s){ const p = s.slice(0,10).split('-').map(Number); return {y:p[0], m:p[1]-1, d:p[2], dow:new Date(p[0], p[1]-1, p[2]).getDay()}; }
   function archTime(s){
@@ -1351,7 +1354,7 @@
   }
   function archOrdinalEn(n){ const s=['th','st','nd','rd'], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
   function archName(n){ return LANG === 'en' ? `${archOrdinalEn(n)} aDevantgarde Festival` : `${n}. aDevantgarde-Festival`; }
-  function archHref(e){ return '#archiv-' + e.year; }
+  function archHref(e){ return e.href || ('#archiv-' + e.year); }
   function archCount(n, words){ return `${n} ${words[n === 1 ? 0 : 1]}`; }
   function archSec(id, title, note, body){
     return `<section class="arch-sec" id="${id}"><h2>${archEsc(title)}${note ? `<span class="arch-h2-note">${archEsc(note)}</span>` : ''}</h2>${body}</section>`;
@@ -1359,16 +1362,51 @@
 
   function archGoTo(id){
     const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth', block: id.indexOf('arch-vid-') === 0 ? 'center' : 'start'});
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
   }
-  // Video erst nach Klick laden (kein Kontakt zu YouTube beim bloßen Seitenaufruf)
-  function archLoadVideo(btn){
+  // Video wie auf "Über uns": Vorschaubild mit YouTube-Button, nach dem Klick startet der Player
+  function archVideoHtml(id, title, L){
+    const t = archEsc(title);
+    return `<div class="arch-vcard" data-yt="${archEsc(id)}" data-title="${t}"><div class="arch-vbox"><button type="button" class="arch-vthumb" onclick="archPlayVideo(this)" aria-label="${archEsc(L.play)}: ${t}">`
+      + `<img src="https://img.youtube.com/vi/${encodeURIComponent(id)}/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="arch-yt-play">${ARCH_YT_PLAY}</span></button></div></div>`;
+  }
+  function archPlayVideo(btn){
     const card = btn.closest('.arch-vcard');
     const box = card && card.querySelector('.arch-vbox');
     if(!box) return;
-    box.classList.add('is-playing');
-    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(card.dataset.yt) + '?autoplay=1&rel=0" title="' + archEsc(card.dataset.title || 'Video') + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(card.dataset.yt) + '?autoplay=1&rel=0" title="' + archEsc(card.dataset.title || 'Video') + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
   }
+  // Programmheft im Vollbild (echter Vollbildmodus, sonst Overlay über die ganze Seite, z. B. auf dem iPhone)
+  function archHeftFullscreen(){
+    const box = document.querySelector('.arch-heft');
+    if(!box) return;
+    if(box.classList.contains('is-fs')){ archHeftExitFs(); return; }
+    box.classList.add('is-fs');
+    document.documentElement.classList.add('arch-fs-lock');
+    const rq = box.requestFullscreen || box.webkitRequestFullscreen;
+    if(rq){ try{ const r = rq.call(box); if(r && r.catch) r.catch(() => {}); }catch(err){} }
+  }
+  function archHeftExitFs(){
+    const box = document.querySelector('.arch-heft');
+    if(box) box.classList.remove('is-fs');
+    document.documentElement.classList.remove('arch-fs-lock');
+    if(document.fullscreenElement || document.webkitFullscreenElement){
+      const ex = document.exitFullscreen || document.webkitExitFullscreen;
+      if(ex){ try{ const r = ex.call(document); if(r && r.catch) r.catch(() => {}); }catch(err){} }
+    }
+  }
+  ['fullscreenchange','webkitfullscreenchange'].forEach(ev => document.addEventListener(ev, () => {
+    if(document.fullscreenElement || document.webkitFullscreenElement) return;
+    const box = document.querySelector('.arch-heft');
+    if(box) box.classList.remove('is-fs');
+    document.documentElement.classList.remove('arch-fs-lock');
+  }));
+  document.addEventListener('keydown', ev => {
+    if(!document.querySelector('.arch-heft.is-fs')) return;
+    if(ev.key === 'Escape') archHeftExitFs();
+    else if(ev.key === 'ArrowRight') flipbookNext();
+    else if(ev.key === 'ArrowLeft') flipbookPrev();
+  });
   // Fehlt eine Bilddatei, wird (falls vorhanden) die nächste Variante versucht, sonst verschwindet das Bild ohne kaputtes Symbol
   function archImgFallback(img){
     const rest = (img.dataset.alt || '').split('|').filter(Boolean);
@@ -1404,25 +1442,41 @@
     });
   }
 
-  function archEventHtml(ev, vidNo, L){
+  function archEventHtml(ev, L){
     const c = archCal(ev.start);
     const pics = ev.pics || (ev.img ? [{s: ev.img}] : []);
     const first = pics[0] ? [].concat(pics[0].s) : null;
     const thumb = first ? `<span class="arch-ev-thumb"><img src="${archEsc(first[0])}" data-alt="${archEsc(first.slice(1).join('|'))}" alt="" loading="lazy" onerror="archImgFallback(this)"></span>` : '';
-    const badge = ev.yt ? `<span class="arch-ev-badge"><i aria-hidden="true"></i>${archEsc(L.badge)}</span>` : '';
+    const badge = ev.yt ? `<span class="arch-ev-vid"><i aria-hidden="true"></i>${archEsc(L.badge)}</span>` : '';
     const head = `<span class="arch-ev-cal"><span class="d">${c.d}</span><span class="m">${archEsc(c.m)}</span><span class="w">${archEsc(c.w)}</span></span>`
       + `<span class="arch-ev-text"><span class="arch-ev-title">${archEsc(ev.title)}</span>${ev.loc ? `<span class="arch-ev-loc">${archEsc(ev.loc)}</span>` : ''}${badge}</span>${thumb}`;
-    if(!ev.html && !pics.length) return `<div class="arch-event"><div class="arch-ev-head">${head}</div></div>`;
+    if(!ev.html && !pics.length && !ev.yt) return `<div class="arch-event"><div class="arch-ev-head">${head}</div></div>`;
     const figs = pics.map(p => { const s = [].concat(p.s); return `<figure><img src="${archEsc(s[0])}" data-alt="${archEsc(s.slice(1).join('|'))}" alt="${archEsc(ev.title)}" loading="lazy" onerror="archImgFallback(this)">${p.c ? `<figcaption>© ${archEsc(p.c)}</figcaption>` : ''}</figure>`; }).join('');
-    const vlink = (ev.yt && vidNo != null) ? `<p class="arch-ev-vlink"><button type="button" onclick="archGoTo('arch-vid-${vidNo}')"><i aria-hidden="true"></i>${archEsc(L.goVideo)}</button></p>` : '';
+    const vid = ev.yt ? archVideoHtml(ev.yt, ev.title, L) : '';
     const addr = (ev.loc && ev.addr) ? `<p class="arch-ev-addr">${archEsc(ev.loc)}, ${archEsc(ev.addr)}</p>` : '';
     return `<details class="arch-event"><summary class="arch-ev-head">${head}<span class="arch-ev-chev" aria-hidden="true"></span></summary>`
-      + `<div class="arch-ev-body${figs ? ' has-pics' : ''}"><div class="arch-ev-main">${vlink}${ev.html || ''}${addr}</div>${figs ? `<div class="arch-ev-pics">${figs}</div>` : ''}</div></details>`;
+      + `<div class="arch-ev-body${figs ? ' has-pics' : ''}"><div class="arch-ev-main">${vid}${ev.html || ''}${addr}</div>${figs ? `<div class="arch-ev-pics">${figs}</div>` : ''}</div></details>`;
+  }
+
+  function archPagerHtml(prev, next, L){
+    const pg = (x, dir) => !x ? '<span></span>' : `<a class="arch-pg arch-pg--${dir}" href="${archHref(x)}"><span class="arch-arrow" aria-hidden="true"></span>`
+      + `<span class="arch-pg-dir">${archEsc(dir === 'prev' ? L.prev : L.next)}</span><span class="arch-pg-year">${x.year}</span><span class="arch-pg-title">${archEsc(x.motto || archName(x.n))}</span><span class="arch-pg-date">${archEsc(archRange(x.start, x.end))}</span></a>`;
+    return `<nav class="arch-pager">${pg(prev, 'prev')}${pg(next, 'next')}</nav><p class="arch-all"><a href="#archiv">${archEsc(L.all)}</a></p>`;
+  }
+  // Seite 2025 (eigenes Layout): gleiche Blätter-Karten, davor 2023, danach das kommende Festival 2027
+  function renderArchive2025Pager(){
+    const host = document.getElementById('arch2025Pager');
+    if(!host) return;
+    const L = ARCH_L[LANG] || ARCH_L.de;
+    const prev = (window.ARCHIV || []).find(x => x.year === 2023);
+    const next = {year:2027, n:19, motto:'URGENT', start:'2027-06-22', end:'2027-07-03', href:'#festival'};
+    host.innerHTML = archPagerHtml(prev, next, L);
   }
 
   function renderArchive(){
     const root = document.getElementById('archivRoot');
     if(!root) return;
+    archHeftExitFs();
     const data = (window.ARCHIV || []).slice().sort((a,b) => a.n - b.n);
     const L = ARCH_L[LANG] || ARCH_L.de;
     const note = `<p class="legal-note" lang="en">${archEsc(ARCH_NOTE_EN)}</p>`;
@@ -1447,24 +1501,16 @@
     const e = data[idx], prev = data[idx-1], nxt = data[idx+1];
     const title = e.motto || archName(e.n);
     const evs = e.events || [];
-    const vids = []; evs.forEach(ev => { if(ev.yt){ ev._vid = vids.length; vids.push(ev); } else ev._vid = null; });
 
     const sections = [];
     const parts = [];
-    if(evs.length){ sections.push(['arch-sec-program', L.program]); parts.push(archSec('arch-sec-program', L.program, archCount(evs.length, L.concerts), `<div class="arch-events">${evs.map(ev => archEventHtml(ev, ev._vid, L)).join('')}</div>`)); }
-    if(vids.length){
-      sections.push(['arch-sec-videos', L.videos]);
-      const cards = vids.map((v, i) => `<div class="arch-vcard" id="arch-vid-${i}" data-yt="${archEsc(v.yt)}" data-title="${archEsc(v.title)}">`
-        + `<div class="arch-vbox"><button type="button" class="arch-video-btn" onclick="archLoadVideo(this)" aria-label="${archEsc(L.play)}: ${archEsc(v.title)}"><span class="arch-video-play" aria-hidden="true"></span><span class="arch-video-label">${archEsc(L.play)}</span></button></div>`
-        + `<div class="arch-vcap"><strong>${archEsc(v.title)}</strong><span>${archEsc(archEventDate(v.start))}${v.loc ? ' · ' + archEsc(v.loc) : ''}</span></div></div>`).join('');
-      parts.push(archSec('arch-sec-videos', L.videos, archCount(vids.length, L.vids), `<p class="arch-note">${archEsc(L.videoNote)} <a href="#datenschutz">${archEsc(L.privacy)}</a></p><div class="arch-videos">${cards}</div>`));
-    }
+    if(evs.length){ sections.push(['arch-sec-program', L.program]); parts.push(archSec('arch-sec-program', L.program, archCount(evs.length, L.concerts), `<div class="arch-events">${evs.map(ev => archEventHtml(ev, L)).join('')}</div>`)); }
     if(e.heft){
       sections.push(['arch-sec-heft', L.heft]);
       const n = (typeof HEFT_PAGE_COUNT !== 'undefined') ? HEFT_PAGE_COUNT : 52;
       const dl = (e.downloads && e.downloads.length) ? `<p class="arch-dl">${e.downloads.map(d => `<a href="${archEsc(d.f)}" target="_blank" rel="noopener">${archEsc(L[d.k] || d.k)}</a>`).join('')}</p>` : '';
       parts.push(archSec('arch-sec-heft', L.heft, '', `${dl}<details class="arch-heftcard"><summary><span class="arch-heft-ic" aria-hidden="true"></span><span class="arch-heft-t">${archEsc(L.heftOpen)}<small>${n} ${archEsc(L.pages)}</small></span><span class="arch-ev-chev" aria-hidden="true"></span></summary>`
-        + `<div class="arch-heft"><div class="flipbook-stage"><div class="flip-page-under"><img id="fpImgUnder" alt=""></div><div class="flip-page-active" id="fpActive" onclick="flipbookNext()"><img id="fpImgActive" alt="${archEsc(L.heft)}"></div></div>`
+        + `<div class="arch-heft"><button type="button" class="arch-fs-btn" onclick="archHeftFullscreen()" aria-label="${archEsc(L.fullscreen)}" title="${archEsc(L.fullscreen)}"><svg class="ic-in" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-out" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button><div class="flipbook-stage"><div class="flip-page-under"><img id="fpImgUnder" alt=""></div><div class="flip-page-active" id="fpActive" onclick="flipbookNext()"><img id="fpImgActive" alt="${archEsc(L.heft)}"></div></div>`
         + `<div class="flipbook-controls"><button type="button" onclick="flipbookPrev()" aria-label="${archEsc(L.prevPage)}">‹</button><span id="flipbookPageIndicator" class="flipbook-page-indicator">1 / ${n}</span><button type="button" onclick="flipbookNext()" aria-label="${archEsc(L.nextPage)}">›</button></div>`
         + `<p class="flipbook-hint">${archEsc(L.heftHint)}</p></div></details>`));
     }
@@ -1475,14 +1521,11 @@
     const side = e.poster
       ? `<figure class="arch-poster" data-year="${e.year}"><img src="${archEsc(e.poster)}" alt="${archEsc(L.poster + ' ' + title)}" onerror="archPosterFail(this)"></figure>`
       : `<div class="arch-bigyear" aria-hidden="true">${e.year}</div>`;
-    const pg = (x, dir) => !x ? '<span></span>' : `<a class="arch-pg arch-pg--${dir}" href="${archHref(x)}"><span class="arch-arrow" aria-hidden="true"></span>`
-      + `<span class="arch-pg-dir">${archEsc(dir === 'prev' ? L.prev : L.next)}</span><span class="arch-pg-year">${x.year}</span><span class="arch-pg-title">${archEsc(x.motto || archName(x.n))}</span><span class="arch-pg-date">${archEsc(archRange(x.start, x.end))}</span></a>`;
-
     root.innerHTML = `<a class="legal-back" href="#archiv">${archEsc(L.back)}</a>`
       + `<div class="arch-hero${e.motto ? '' : ' no-motto'}"><div class="arch-hero-text"><p class="arch-kicker"><span class="arch-pill">${archEsc(L.tag)}</span>${e.motto ? archEsc(archName(e.n)) : ''}</p>`
       + `<h1>${archEsc(title)}</h1><p class="arch-meta"><span>${archEsc(archRange(e.start, e.end))}</span><span>${archEsc(L.place)}</span></p>${chips}</div><div class="arch-hero-side">${side}</div></div>`
       + note + parts.join('')
-      + `<nav class="arch-pager">${pg(prev, 'prev')}${pg(nxt, 'next')}</nav><p class="arch-all"><a href="#archiv">${archEsc(L.all)}</a></p>`;
+      + archPagerHtml(prev, nxt, L);
     archCheckFiles(root);
     if(e.heft && typeof initHeftFlipbook === 'function') initHeftFlipbook();
   }
@@ -1662,7 +1705,7 @@
     });
   }
   window.addEventListener('resize', syncOffSeasonPhotoHeights);
-  window.renderDynamic = function(){ renderTeam(); renderOffSeason(); if(typeof renderArchive === 'function' && document.getElementById('page-archiv').classList.contains('active')) renderArchive(); if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks(); };
+  window.renderDynamic = function(){ renderTeam(); renderOffSeason(); if(typeof renderArchive === 'function' && document.getElementById('page-archiv').classList.contains('active')) renderArchive(); if(typeof renderArchive2025Pager === 'function' && document.getElementById('page-archiv-2025').classList.contains('active')) renderArchive2025Pager(); if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks(); };
   loadOffSeasonEvents();
 
   // YouTube-Videokarussell: Videolinks werden manuell im Tabellenblatt "Videos" gepflegt
