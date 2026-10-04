@@ -130,7 +130,7 @@ header .header-bottom-row{ display:flex; align-items:center; gap:36px; }
 #page-archiv-2025 .wp-concert{ padding:22px 0; border-bottom:1px solid #e2e2e2; }
 #page-archiv-2025 .wp-concert:first-child{ padding-top:0; }
 #page-archiv-2025 .wp-concert img{ width:100%; max-width:400px; height:auto; display:block; margin-bottom:10px; }
-#page-archiv-2025 .wp-concert a{ font-size:18px; text-decoration:underline; }
+#page-archiv-2025 .wp-concert-title{ font-size:18px; }
 #page-archiv-2025 .wp-concert div{ font-size:15px; color:#333; margin-top:2px; }
 #page-archiv-2025 .wp-concert-note{ font-style:italic; color:#666; }
 #page-archiv-2025 .wp-credits{ font-size:14.5px; line-height:1.9; }
