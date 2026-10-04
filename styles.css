@@ -237,7 +237,7 @@ html.festival-active, html.festival-active body{ overflow:hidden; overscroll-beh
 /* =========================================================
    RECHTLICHES: Impressum / Datenschutzerklärung (ruhige Textseiten im Vereinsstil)
    ========================================================= */
-#page-impressum, #page-datenschutz, #page-akademie{
+#page-impressum, #page-datenschutz, #page-akademie, #page-archiv{
   --bg:#F6F5F1; --ink2:#17171B; --gray:#68666B; --line2:#DDDAD2; --accent:#E83D35;
   background:var(--bg); color:var(--ink2); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;
   line-height:1.65; min-height:100vh;
@@ -278,6 +278,62 @@ html[lang="en"] .legal-note{ display:block; }
 }
 .akad-apply-btn:hover{ opacity:.88; }
 @media (max-width:640px){ .akad-schedule{ grid-template-columns:1fr; } }
+
+/* Festival-Archiv: Übersicht und Einzelseiten */
+#page-archiv .legal-wrap{ max-width:860px; }
+.year-dropdown-list a.year-all{ border-bottom:1px solid rgba(255,255,255,0.14); margin-bottom:4px; font-weight:600; }
+.arch-kicker{ font-size:15px; color:var(--gray); margin:-14px 0 14px; }
+.arch-dates{ font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.02em; color:var(--gray); margin:-14px 0 30px; }
+.legal .arch-intro p{ max-width:68ch; }
+.arch h4{ font-family:'Inter',sans-serif; font-weight:600; font-size:15px; margin:20px 0 6px; }
+
+.arch-list{ margin-top:34px; border-top:1px solid var(--line2); }
+.legal a.arch-row{
+  display:grid; grid-template-columns:96px 1fr auto; gap:6px 22px; align-items:baseline;
+  padding:18px 4px; border-bottom:1px solid var(--line2); text-decoration:none; color:var(--ink2);
+}
+.legal a.arch-row:hover{ background:rgba(0,0,0,0.03); color:var(--ink2); }
+.arch-row-year{ font-family:'Newsreader',serif; font-size:30px; line-height:1; }
+.arch-row-main{ display:flex; flex-direction:column; gap:2px; }
+.arch-row-n{ font-size:13.5px; color:var(--gray); }
+.arch-row-motto{ font-family:'Newsreader',serif; font-size:22px; line-height:1.2; }
+.arch-row-dates{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--gray); white-space:nowrap; }
+.arch-badge{ font-style:normal; font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; background:var(--accent); color:#fff; padding:2px 8px; border-radius:999px; margin-left:6px; }
+
+.arch-events{ margin-top:10px; border-top:1px solid var(--line2); }
+.arch-event{ border-bottom:1px solid var(--line2); }
+.arch-ev-head{ display:grid; grid-template-columns:250px 1fr; gap:4px 24px; padding:16px 34px 16px 0; position:relative; }
+details.arch-event > summary{ list-style:none; cursor:pointer; }
+details.arch-event > summary::-webkit-details-marker{ display:none; }
+details.arch-event > summary::after{
+  content:''; position:absolute; right:8px; top:24px; width:8px; height:8px;
+  border-right:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(45deg); transition:transform .2s ease;
+}
+details.arch-event[open] > summary::after{ transform:rotate(-135deg); top:28px; }
+details.arch-event > summary:hover .arch-ev-title{ color:var(--accent); }
+.arch-ev-date{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--gray); padding-top:5px; }
+.arch-ev-text{ display:flex; flex-direction:column; }
+.arch-ev-title{ font-family:'Newsreader',serif; font-size:21px; line-height:1.25; }
+.arch-ev-loc{ font-size:13.5px; color:var(--gray); margin-top:3px; }
+.arch-ev-body{ padding:0 34px 24px 274px; }
+.legal .arch-ev-body p{ font-size:15px; max-width:64ch; }
+.legal .arch-ev-addr{ font-size:13px; color:var(--gray); margin-top:16px; }
+
+.arch-pager{ display:flex; justify-content:space-between; gap:16px; margin-top:56px; padding-top:22px; border-top:1px solid var(--line2); }
+.legal .arch-pager a{ display:flex; flex-direction:column; gap:2px; text-decoration:none; font-size:13.5px; color:var(--gray); }
+.legal .arch-pager a strong{ font-family:'Newsreader',serif; font-size:24px; font-weight:500; color:var(--ink2); }
+.legal .arch-pager a:hover strong{ color:var(--accent); }
+.arch-pager-next{ text-align:right; align-items:flex-end; }
+
+@media (max-width:640px){
+  .legal a.arch-row{ grid-template-columns:70px 1fr; }
+  .legal a.arch-row .arch-row-dates{ grid-column:2; }
+  .arch-row-year{ font-size:24px; }
+  .arch-ev-head{ grid-template-columns:1fr; padding-right:30px; }
+  .arch-ev-body{ padding:0 4px 22px 0; }
+  details.arch-event > summary::after{ top:22px; }
+  details.arch-event[open] > summary::after{ top:26px; }
+}
 
 /* =========================================================
    SHARED MINIMAL STYLE (Über uns / records)
