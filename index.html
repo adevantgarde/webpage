@@ -1401,6 +1401,12 @@
   function archOrdinalEn(n){ const s=['th','st','nd','rd'], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
   function archName(n){ return LANG === 'en' ? `${archOrdinalEn(n)} aDevantgarde Festival` : `${n}. aDevantgarde-Festival`; }
   function archHref(e){ return '#archiv-' + e.year; }
+  // Fehlt eine Bilddatei, wird (falls vorhanden) die nächste Variante versucht, sonst verschwindet das Bild ohne kaputtes Symbol
+  function archImgFallback(img){
+    const rest = (img.dataset.alt || '').split('|').filter(Boolean);
+    if(rest.length){ img.dataset.alt = rest.slice(1).join('|'); img.src = rest[0]; }
+    else { const f = img.closest('figure'); if(f) f.remove(); }
+  }
 
   function renderArchive(){
     const root = document.getElementById('archivRoot');
@@ -1431,9 +1437,11 @@
     const kicker = e.motto ? `<p class="arch-kicker">${archEsc(archName(e.n))}</p>` : '';
     const events = (e.events || []).map(ev => {
       const head = `<span class="arch-ev-date">${archEsc(archEventDate(ev.start))}</span><span class="arch-ev-text"><span class="arch-ev-title">${archEsc(ev.title)}</span>${ev.loc ? `<span class="arch-ev-loc">${archEsc(ev.loc)}</span>` : ''}</span>`;
-      if(!ev.html) return `<div class="arch-event"><div class="arch-ev-head">${head}</div></div>`;
+      if(!ev.html && !ev.img) return `<div class="arch-event"><div class="arch-ev-head">${head}</div></div>`;
       const addr = ev.addr ? `<p class="arch-ev-addr">${archEsc(ev.loc)}, ${archEsc(ev.addr)}</p>` : '';
-      return `<details class="arch-event"><summary class="arch-ev-head">${head}</summary><div class="arch-ev-body">${ev.html}${addr}</div></details>`;
+      const imgs = ev.img ? [].concat(ev.img) : [];
+      const pic = imgs.length ? `<figure class="arch-ev-img"><img src="${archEsc(imgs[0])}" data-alt="${archEsc(imgs.slice(1).join('|'))}" alt="${archEsc(ev.title)}" loading="lazy" onerror="archImgFallback(this)"></figure>` : '';
+      return `<details class="arch-event"><summary class="arch-ev-head">${head}</summary><div class="arch-ev-body">${pic}${ev.html}${addr}</div></details>`;
     }).join('');
     const pager = `<nav class="arch-pager">
       ${prev ? `<a href="${archHref(prev)}">← ${archEsc(L.prev)}<strong>${prev.year}</strong></a>` : '<span></span>'}
@@ -1446,7 +1454,7 @@
       <h1>${archEsc(title)}</h1>
       <p class="arch-dates">${archEsc(archRange(e.start, e.end))} · ${archEsc(L.place)}</p>
       ${note}
-      ${e.intro ? `<div class="arch-intro">${e.intro}</div>` : ''}
+      ${(e.intro || e.poster) ? `<div class="arch-top"><div class="arch-intro">${e.intro || ''}</div>${e.poster ? `<figure class="arch-poster"><img src="${archEsc(e.poster)}" alt="${archEsc((LANG === 'en' ? 'Poster ' : 'Plakat ') + title)}" loading="lazy" onerror="this.closest('figure').remove()"></figure>` : ''}</div>` : ''}
       ${events ? `<h2>${archEsc(L.program)}</h2><div class="arch-events">${events}</div>` : ''}
       ${pager}`;
   }
