@@ -143,8 +143,8 @@
   <section id="mitwirkende">
     <div class="wrap">
       <h2 data-i18n="mw.title">Mitwirkende seit 1991</h2>
-      <p class="mw-lead" data-i18n="mw.lead">Komponist:innen, Interpret:innen und Ensembles, die bei aDevantgarde gespielt haben oder mitgewirkt haben – mit den Jahren der Festivals. Ein Klick auf ein Jahr führt zum Festival-Archiv.</p>
-      <div id="mwRoot"></div>
+      <p class="mwp-lead" data-i18n="mw.lead">Komponist:innen, Interpret:innen und Ensembles, die bei aDevantgarde gespielt oder mitgewirkt haben.</p>
+      <div id="mwpRoot"></div>
     </div>
   </section>
 
@@ -881,6 +881,58 @@
   </main>
 </div>
 
+<div class="page" id="page-mitwirkende-7q4k9x">
+  <header>
+          <div class="wrap">
+        <a href="#ueber-uns" class="logo-link" aria-label="Zur Startseite" data-i18n-aria="aria.home"><img class="site-logo" src="aDevantgarde-logo.png" alt="aDevantgarde"></a>
+        <div class="header-bottom-row">
+          <div class="year-block">
+            <div class="year-toggle">
+              <a href="#festival" class="year-big">Festival 2027</a>
+              <button type="button" class="year-arrow-btn" onclick="toggleYearDropdown(this)" aria-label="Weitere Jahre" data-i18n-aria="aria.years">▾</button>
+            </div>
+            <div class="year-dropdown">
+              <div class="year-dropdown-list"></div>
+            </div>
+          </div>
+          <nav class="header-nav">
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#ueber-uns" data-i18n="nav.about">Über uns</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Unterseiten von Über uns" data-i18n-aria="aria.about">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#off-season" data-i18n="nav.events">Kommende Veranstaltungen</a>
+              <a href="#intro" data-i18n="nav.about">Über uns</a>
+              <a href="#team">Team</a>
+              <a href="#mitwirkende" data-i18n="nav.artists">Mitwirkende</a>
+              <a href="#presse" data-i18n="nav.press">Presse</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-toggle">
+              <a href="#records">aDevantgarde records</a>
+              <button type="button" class="nav-arrow-btn" onclick="toggleNavDropdown(this)" aria-label="Alben von aDevantgarde records" data-i18n-aria="aria.records">▾</button>
+            </div>
+            <div class="nav-dropdown">
+              <a href="#records-release-3">Schoeck vs. Bauer</a>
+              <a href="#records-release-2">An Earth Symphony</a>
+              <a href="#records-release-1">Zentaur – Quartet</a>
+            </div>
+          </div>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Sprache / Language">
+            <button type="button" data-lang="de" onclick="setLang('de')">DE</button><span aria-hidden="true">/</span><button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+  </header>
+  <main class="legal arch mwpage">
+    <div class="legal-wrap" id="mwRoot"></div>
+  </main>
+</div>
+
 <!-- ============================================================
      PAGE: ARCHIV 2025 (1:1-Nachbau der echten adevantgarde.de-Startseite,
      18. Festival "SCHÖNHEIT")
@@ -945,6 +997,7 @@
     <p>Der Begriff der <strong>Schönheit</strong> wird in der Neuen Musik seit jeher kontrovers diskutiert. Ging es einmal darum, ihn zu erweitern oder zu dekonstruieren, fordern andere Stimmen wiederum explizit „schöne harmonische Musik" ein. Es drängt sich also die Frage auf, welche Konzeptionen musikalischer Schönheit es in der heutigen Zeit gibt, die über reine Geschmacksfragen hinausgehen.</p>
     <ul class="wp-jumplinks">
       <li><a href="#archiv-2025-konzerte">KONZERTE</a></li>
+      <li><a href="#archiv-2025-videos">VIDEOS</a></li>
       <li><a href="#archiv-2025-festival">FESTIVAL &amp; MOTTO</a></li>
     </ul>
 
@@ -1016,6 +1069,9 @@
       </div>
     </div>
 
+    <h2 id="archiv-2025-videos">VIDEOS</h2>
+    <div class="arch-pl-host" id="arch2025Videos"></div>
+
     <h2 id="archiv-2025-festival">FESTIVAL</h2>
     <p>Der Philosoph Byung-Chul Han schreibt nach einer harten Kritik der aalglatten Social Media Schönheitsästhetik am Ende eines seiner neuesten Bücher: „Die <strong>Schönheit</strong> ist ein Beziehungsereignis. Sie entzieht sich dem unmittelbaren Genuss, denn die <strong>Schönheit</strong> einer Sache erscheint erst viel später im Licht einer anderen als Reminiszenz. Sie besteht aus geschichtlichen Ablagerungen, die phosphoreszieren. Die <strong>Schönheit</strong> ist ein Zögerling, ein Nachzügler. <strong>Schönheit</strong> ist kein augenblicklicher Glanz, sondern ein stilles Nachleuchten."</p>
     <p>Das verweist auf den Schönheitsbegriff in der Neuen Musik, der Schönheit im Sinne Adornos Platon-Rezeption als eine fast unerreichbare Utopie auch heute noch oft begreift. Allerdings gibt es auch die Schockmomente von <strong>Schönheit</strong> in der Neuen Musik, die eher ein helles Aufleuchten statt ein stilles Nachleuchten waren: Being Beauteous nach Arthur Rimbaud von Hans Werner Henze, die Orchestermusik von Wolfgang Rihm, das Geistliche in der Musik von Sofia Gubaidulina, das Reduzierte bei Morton Feldman, die stille Musik von Valentin Silvestrov und der von ihm geprägten Umfelds in Osteuropa.</p>
@@ -1066,7 +1122,7 @@
   // Deutsch steht direkt im HTML (Quelle). Elemente mit data-i18n="schlüssel" werden bei "EN" durch EN[schlüssel] ersetzt,
   // beim Zurückwechseln wird der deutsche Originaltext wiederhergestellt. Dynamische Texte (Team, Termine, Videos) nutzen t().
   const EN = {
-    'nav.artists':'Contributors', 'mw.title':'Contributors since 1991', 'mw.lead':'Composers, performers and ensembles who have played or contributed at aDevantgarde – with the years of the festivals. Click a year to open the festival archive.',
+    'nav.artists':'Contributors', 'mw.title':'Contributors since 1991', 'mw.lead':'Composers, performers and ensembles who have played or contributed at aDevantgarde.',
     'nav.about':'About us', 'nav.events':'Upcoming events', 'nav.press':'Press', 'nav.contact':'Contact',
     'hon.title':'Honorary members', 'hon.chair':'(Honorary Chair)', 'hon.and':'and',
     'media.title':'Media', 'media.yt':'Go to YouTube channel ↗',
@@ -1238,7 +1294,7 @@
 </script>
 <script>
   // ---- Simple hash-based router across the three "pages" ----
-  const pageIds = ['ueber-uns', 'records', 'festival', 'archiv-2025', 'impressum', 'datenschutz', 'akademie', 'archiv'];
+  const pageIds = ['ueber-uns', 'records', 'festival', 'archiv-2025', 'impressum', 'datenschutz', 'akademie', 'archiv', 'mitwirkende-7q4k9x'];
   function currentPageFromHash(){
     const h = (location.hash || '').replace('#','');
     const matchedPage = pageIds.find(p => h === p || h.startsWith(p + '-'));
@@ -1258,8 +1314,10 @@
       currentFestivalYear = ym ? parseInt(ym[1], 10) : 2027;
       renderArchive();
     }
-    if(page === 'archiv-2025') renderArchive2025Pager();
-    if(page === 'ueber-uns' && typeof renderMitwirkende === 'function' && !document.querySelector('#mwRoot .mw-controls')) renderMitwirkende();
+    if(page === 'archiv-2025'){ renderArchive2025Pager(); renderArchive2025Videos(); }
+    if(page === 'ueber-uns' && typeof renderMitwirkendePublic === 'function' && !document.querySelector('#mwpRoot .mwp-controls')) renderMitwirkendePublic();
+    if(page === 'mitwirkende-7q4k9x' && typeof renderMitwirkende === 'function') renderMitwirkende();
+    if(typeof setNoIndex === 'function') setNoIndex(page === 'mitwirkende-7q4k9x');
     if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks();
     // If the hash points at an in-page anchor (e.g. #festival-kalender), scroll to it
     const h = (location.hash || '').replace('#','');
@@ -1340,12 +1398,12 @@
     de:{tag:'Archiv', back:'← Alle Festivals', all:'Alle Festivals', h1:'Festival-Archiv', lead:'Alle Ausgaben des aDevantgarde-Festivals seit 1991.', upcoming:'Das nächste Festival',
         program:'Programm', videos:'Videos', about:'Über das Festival', team:'Team', heft:'Programmheft', heftOpen:'Programmheft durchblättern', pages:'Seiten',
         heftHint:'Klick auf das Bild oder nutze die Pfeile zum Umblättern.', prevPage:'Vorherige Seite', nextPage:'Nächste Seite', booklet:'Programmheft (PDF)', flyer:'Flyer (PDF)',
-        fullscreen:'Vollbild', fullscreenExit:'Vollbild beenden', play:'Video abspielen', badge:'Video', goVideo:'Video ansehen', videoNote:'Die Videos werden erst nach einem Klick von YouTube geladen.', privacy:'Datenschutz',
+        fullscreen:'Vollbild', fullscreenExit:'Vollbild beenden', play:'Video abspielen', playlist:'Alle Videos abspielen', playlistAll:'Alle Videos auf YouTube ansehen ↗', badge:'Video', goVideo:'Video ansehen', videoNote:'Die Videos werden erst nach einem Klick von YouTube geladen.', privacy:'Datenschutz',
         prev:'Vorheriges Festival', next:'Nächstes Festival', concerts:['Konzert','Konzerte'], vids:['Video','Videos'], place:'München', poster:'Plakat'},
     en:{tag:'Archive', back:'← All festivals', all:'All festivals', h1:'Festival archive', lead:'All editions of the aDevantgarde Festival since 1991.', upcoming:'The next festival',
         program:'Programme', videos:'Videos', about:'About the festival', team:'Team', heft:'Programme booklet', heftOpen:'Browse the programme booklet', pages:'pages',
         heftHint:'Click the image or use the arrows to turn the pages.', prevPage:'Previous page', nextPage:'Next page', booklet:'Programme booklet (PDF)', flyer:'Flyer (PDF)',
-        fullscreen:'Full screen', fullscreenExit:'Exit full screen', play:'Play video', badge:'Video', goVideo:'Watch video', videoNote:'The videos are only loaded from YouTube after you click.', privacy:'Privacy policy',
+        fullscreen:'Full screen', fullscreenExit:'Exit full screen', play:'Play video', playlist:'Play all videos', playlistAll:'Watch all videos on YouTube ↗', badge:'Video', goVideo:'Watch video', videoNote:'The videos are only loaded from YouTube after you click.', privacy:'Privacy policy',
         prev:'Previous festival', next:'Next festival', concerts:['concert','concerts'], vids:['video','videos'], place:'Munich', poster:'Poster'}
   };
   const ARCH_NOTE_EN='The archive texts are available in German only.';
@@ -1483,6 +1541,24 @@
       + `<span class="arch-pg-dir">${archEsc(dir === 'prev' ? L.prev : L.next)}</span><span class="arch-pg-year">${x.year}</span><span class="arch-pg-title">${archEsc(x.motto || archName(x.n))}</span><span class="arch-pg-date">${archEsc(archRange(x.start, x.end))}</span></a>`;
     return `<nav class="arch-pager">${pg(prev, 'prev')}${pg(next, 'next')}</nav><p class="arch-all"><a href="#archiv">${archEsc(L.all)}</a></p>`;
   }
+  // Seite 2025: YouTube-Playlist des Festivals als Player (Vorschau mit rotem Button, Klick startet die Wiedergabe)
+  const ARCH2025_PLAYLIST = {id:'PLL1-Zp98ch_n-x42UvA4iD6jCoqAAQOwv', title:'18. aDevantgarde-Festival Schönheit', count:14};
+  function renderArchive2025Videos(){
+    const host = document.getElementById('arch2025Videos');
+    if(!host) return;
+    const L = ARCH_L[LANG] || ARCH_L.de, P = ARCH2025_PLAYLIST;
+    const n = `${P.count} ${LANG === 'en' ? 'videos' : 'Videos'}`;
+    host.innerHTML = `<div class="arch-vcard arch-plcard" data-list="${archEsc(P.id)}" data-title="${archEsc(P.title)}"><div class="arch-vbox"><button type="button" class="arch-vthumb arch-plthumb" onclick="archPlayPlaylist(this)" aria-label="${archEsc(L.playlist)}: ${archEsc(P.title)}">`
+      + `<span class="arch-pl-label"><strong>${archEsc(P.title)}</strong><span>${archEsc(n)}</span></span><span class="arch-yt-play">${ARCH_YT_PLAY}</span></button></div></div>`
+      + `<p class="arch-pl-link"><a href="https://www.youtube.com/playlist?list=${encodeURIComponent(P.id)}" target="_blank" rel="noopener">${archEsc(L.playlistAll)}</a></p>`;
+  }
+  function archPlayPlaylist(btn){
+    const card = btn.closest('.arch-plcard');
+    const box = card && card.querySelector('.arch-vbox');
+    if(!box) return;
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=' + encodeURIComponent(card.dataset.list) + '&autoplay=1&rel=0" title="' + archEsc(card.dataset.title || 'Playlist') + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+  }
+
   // Seite 2025 (eigenes Layout): gleiche Blätter-Karten, davor 2023, danach das kommende Festival 2027
   function renderArchive2025Pager(){
     const host = document.getElementById('arch2025Pager');
@@ -1550,44 +1626,95 @@
     if(e.heft && typeof initHeftFlipbook === 'function') initHeftFlipbook();
   }
 
-  // ===== Mitwirkende: Komponist:innen, Interpret:innen und Ensembles seit 1991 (aus mitwirkende-daten.js) =====
+  // ===== Mitwirkende (nicht öffentlich verlinkte Seite, Daten aus mitwirkende-daten.js) =====
   const MW_L = {
-    de:{search:'Name suchen …', all:'Alle', persons:'Personen', ens:'Ensembles', names:['Name','Namen'], none:'Keine Treffer.', more:'Alle anzeigen', less:'Weniger anzeigen', note:'Zusammengestellt aus den Programmtexten der Festivals; Schreibweisen und Vollständigkeit ohne Gewähr.'},
-    en:{search:'Search name …', all:'All', persons:'People', ens:'Ensembles', names:['name','names'], none:'No results.', more:'Show all', less:'Show less', note:'Compiled from the festival programme texts; spelling and completeness without guarantee.'}
+    de:{back:'← Zur Startseite', pill:'Intern', hint:'nicht öffentlich verlinkt', h1:'Mitwirkende seit 1991', lead:'Komponist:innen, Interpret:innen und Ensembles, die bei aDevantgarde gespielt oder mitgewirkt haben – mit den Jahren der Festivals. Ein Klick auf ein Jahr öffnet das Festival-Archiv.',
+        persons:['Person','Personen'], ensembles:['Ensemble','Ensembles'], festivals:['Festival','Festivals'], search:'Name suchen …', all:'Alle', tabP:'Personen', tabE:'Ensembles', allYears:'Alle Festivals', names:['Name','Namen'], none:'Keine Treffer.', ens:'Ensemble',
+        note:'Zusammengestellt aus den Programmtexten der Festivals. Wer nur im Programmheft oder auf Plakaten genannt wurde, fehlt; Schreibweisen und Vollständigkeit ohne Gewähr.', total:'Namen'},
+    en:{back:'← Back to start', pill:'Internal', hint:'not publicly linked', h1:'Contributors since 1991', lead:'Composers, performers and ensembles who have played or contributed at aDevantgarde – with the years of the festivals. Click a year to open the festival archive.',
+        persons:['person','people'], ensembles:['ensemble','ensembles'], festivals:['festival','festivals'], search:'Search name …', all:'All', tabP:'People', tabE:'Ensembles', allYears:'All festivals', names:['name','names'], none:'No results.', ens:'Ensemble',
+        note:'Compiled from the festival programme texts. People named only in programme booklets or posters are missing; spelling and completeness without guarantee.', total:'names'}
   };
-  let mwFilter = 'all', mwQuery = '', mwOpen = false;
+  let mwFilter = 'all', mwQuery = '', mwYear = 0;
   function mwAsc(s){ return String(s).toLowerCase().replace(/ß/g,'ss').normalize('NFKD').replace(/[\u0300-\u036f]/g,''); }
+  function setNoIndex(on){
+    let m = document.querySelector('meta[name="robots"][data-mw]');
+    if(on && !m){ m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; m.setAttribute('data-mw', ''); document.head.appendChild(m); }
+    else if(!on && m) m.remove();
+  }
   function renderMitwirkende(keepFocus){
     const root = document.getElementById('mwRoot');
     const data = window.MITWIRKENDE;
     if(!root || !data) return;
     const L = MW_L[LANG] || MW_L.de;
+    const years = [...new Set([].concat(...data.p.map(r => r[1]), ...data.e.map(r => r[1])))].sort((a,b) => b - a);
+    const motto = {}; (window.ARCHIV || []).forEach(e => { motto[e.year] = e.motto || ''; });
     const q = mwAsc(mwQuery).trim();
-    const rows = [];
+    let rows = [];
     if(mwFilter !== 'ens') data.p.forEach(r => rows.push({n:r[0], y:r[1], k:r[2], e:false}));
     if(mwFilter !== 'persons') data.e.forEach(r => rows.push({n:r[0], y:r[1], k:r[2], e:true}));
     rows.sort((a,b) => a.k < b.k ? -1 : a.k > b.k ? 1 : 0);
-    const hits = q ? rows.filter(r => mwAsc(r.n).indexOf(q) >= 0 || r.y.some(y => String(y).indexOf(q) >= 0)) : rows;
-    const groups = {};
-    hits.forEach(r => { const L0 = r.k.charAt(0).toUpperCase(); (groups[L0] = groups[L0] || []).push(r); });
+    if(mwYear) rows = rows.filter(r => r.y.indexOf(mwYear) >= 0);
+    if(q) rows = rows.filter(r => mwAsc(r.n).indexOf(q) >= 0);
+    const groups = {}; rows.forEach(r => { const l = r.k.charAt(0).toUpperCase(); (groups[l] = groups[l] || []).push(r); });
     const letters = Object.keys(groups).sort();
     const link = y => `<a href="${y === 2027 ? '#festival' : '#archiv-' + y}">${y}</a>`;
-    const body = letters.map(l => `<div class="mw-group" id="mw-l-${l}"><h3>${l}</h3><ul>${groups[l].map(r => `<li class="${r.e ? 'is-ens' : ''}"><span class="mw-name">${archEsc(r.n)}</span><span class="mw-years">${r.y.map(link).join('')}</span></li>`).join('')}</ul></div>`).join('');
-    const jump = letters.map(l => `<button type="button" onclick="mwJump('${l}')">${l}</button>`).join('');
-    const total = data.p.length + data.e.length;
+    const card = r => `<li class="mw-card${r.e ? ' is-ens' : ''}">${r.e ? `<span class="mw-tag">${archEsc(L.ens)}</span>` : ''}<span class="mw-name">${archEsc(r.n)}</span><span class="mw-years">${r.y.map(link).join('')}</span></li>`;
+    const body = letters.map(l => `<section class="mw-group" id="mw-l-${l}"><h2 class="mw-letter">${l}</h2><ul class="mw-grid">${groups[l].map(card).join('')}</ul></section>`).join('');
+    const nP = data.p.length, nE = data.e.length;
     const tab = (id, label) => `<button type="button" class="mw-tab${mwFilter === id ? ' active' : ''}" onclick="mwSetFilter('${id}')">${archEsc(label)}</button>`;
-    root.innerHTML = `<div class="mw-controls"><input type="search" id="mwSearch" class="mw-search" placeholder="${archEsc(L.search)}" value="${archEsc(mwQuery)}" oninput="mwSearch(this.value)" aria-label="${archEsc(L.search)}">`
-      + `<div class="mw-tabs">${tab('all', L.all)}${tab('persons', L.persons)}${tab('ens', L.ens)}</div><span class="mw-count">${hits.length} ${L.names[hits.length === 1 ? 0 : 1]}</span></div>`
-      + (letters.length > 1 ? `<div class="mw-jump">${jump}</div>` : '')
-      + `<div class="mw-list${(mwOpen || q) ? ' is-open' : ''}">${body || `<p class="mw-none">${archEsc(L.none)}</p>`}</div>`
-      + (q || !letters.length ? '' : `<button type="button" class="mw-more" onclick="mwToggle()">${archEsc(mwOpen ? L.less : L.more)}</button>`)
-      + `<p class="mw-note">${archEsc(L.note)}</p>`;
+    const opts = `<option value="0">${archEsc(L.allYears)}</option>` + years.map(y => `<option value="${y}"${mwYear === y ? ' selected' : ''}>${y}${motto[y] ? ' · ' + archEsc(motto[y]) : ''}</option>`).join('');
+    root.innerHTML = `<a class="legal-back" href="#ueber-uns">${archEsc(L.back)}</a>`
+      + `<div class="arch-hero no-motto"><div class="arch-hero-text"><p class="arch-kicker"><span class="arch-pill">${archEsc(L.pill)}</span>${archEsc(L.hint)}</p><h1>${archEsc(L.h1)}</h1>`
+      + `<p class="arch-meta"><span>${nP} ${L.persons[1]}</span><span>${nE} ${L.ensembles[1]}</span><span>${(window.ARCHIV || []).length || years.length} ${L.festivals[1]}</span></p><p class="arch-lead">${archEsc(L.lead)}</p></div>`
+      + `<div class="arch-hero-side"><div class="arch-bigyear" aria-hidden="true">${nP + nE}</div></div></div>`
+      + `<div class="mw-bar"><input type="search" id="mwSearch" class="mw-search" placeholder="${archEsc(L.search)}" value="${archEsc(mwQuery)}" oninput="mwSearch(this.value)" aria-label="${archEsc(L.search)}">`
+      + `<div class="mw-tabs">${tab('all', L.all)}${tab('persons', L.tabP)}${tab('ens', L.tabE)}</div>`
+      + `<select class="mw-select" onchange="mwSetYear(this.value)" aria-label="${archEsc(L.allYears)}">${opts}</select>`
+      + `<span class="mw-count">${rows.length} ${L.names[rows.length === 1 ? 0 : 1]}</span></div>`
+      + (letters.length > 1 ? `<div class="mw-jump">${letters.map(l => `<button type="button" onclick="mwJump('${l}')">${l}</button>`).join('')}</div>` : '')
+      + `<div class="mw-body">${body || `<p class="mw-none">${archEsc(L.none)}</p>`}</div><p class="mw-note">${archEsc(L.note)}</p>`;
     if(keepFocus){ const el = document.getElementById('mwSearch'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); } }
   }
   function mwSearch(v){ mwQuery = v; renderMitwirkende(true); }
   function mwSetFilter(f){ mwFilter = f; renderMitwirkende(); }
-  function mwToggle(){ mwOpen = !mwOpen; renderMitwirkende(); if(!mwOpen){ const s = document.getElementById('mitwirkende'); if(s) s.scrollIntoView({block:'start'}); } }
-  function mwJump(l){ mwOpen = true; renderMitwirkende(); const el = document.getElementById('mw-l-' + l); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  function mwSetYear(v){ mwYear = parseInt(v, 10) || 0; renderMitwirkende(); }
+  function mwJump(l){ const el = document.getElementById('mw-l-' + l); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }
+
+  // ===== Mitwirkende auf "Über uns": nur Namen, ohne Jahre und Links (die Version mit Jahren liegt auf der internen Seite) =====
+  const MWP_L = {
+    de:{search:'Name suchen …', all:'Alle', persons:'Personen', ens:'Ensembles', names:['Name','Namen'], none:'Keine Treffer.', more:'Alle anzeigen', less:'Weniger anzeigen', note:'Zusammengestellt aus den Programmtexten der Festivals; Schreibweisen und Vollständigkeit ohne Gewähr.'},
+    en:{search:'Search name …', all:'All', persons:'People', ens:'Ensembles', names:['name','names'], none:'No results.', more:'Show all', less:'Show less', note:'Compiled from the festival programme texts; spelling and completeness without guarantee.'}
+  };
+  let mwpFilter = 'all', mwpQuery = '', mwpOpen = false;
+  function renderMitwirkendePublic(keepFocus){
+    const root = document.getElementById('mwpRoot');
+    const data = window.MITWIRKENDE;
+    if(!root || !data) return;
+    const L = MWP_L[LANG] || MWP_L.de;
+    const q = mwAsc(mwpQuery).trim();
+    const rows = [];
+    if(mwpFilter !== 'ens') data.p.forEach(r => rows.push({n:r[0], k:r[2], e:false}));
+    if(mwpFilter !== 'persons') data.e.forEach(r => rows.push({n:r[0], k:r[2], e:true}));
+    rows.sort((a,b) => a.k < b.k ? -1 : a.k > b.k ? 1 : 0);
+    const hits = q ? rows.filter(r => mwAsc(r.n).indexOf(q) >= 0) : rows;
+    const groups = {};
+    hits.forEach(r => { const l = r.k.charAt(0).toUpperCase(); (groups[l] = groups[l] || []).push(r); });
+    const letters = Object.keys(groups).sort();
+    const body = letters.map(l => `<div class="mwp-group" id="mwp-l-${l}"><h3>${l}</h3><ul>${groups[l].map(r => `<li class="${r.e ? 'is-ens' : ''}">${archEsc(r.n)}</li>`).join('')}</ul></div>`).join('');
+    const tab = (id, label) => `<button type="button" class="mwp-tab${mwpFilter === id ? ' active' : ''}" onclick="mwpSetFilter('${id}')">${archEsc(label)}</button>`;
+    root.innerHTML = `<div class="mwp-controls"><input type="search" id="mwpSearch" class="mwp-search" placeholder="${archEsc(L.search)}" value="${archEsc(mwpQuery)}" oninput="mwpSearch(this.value)" aria-label="${archEsc(L.search)}">`
+      + `<div class="mwp-tabs">${tab('all', L.all)}${tab('persons', L.persons)}${tab('ens', L.ens)}</div><span class="mwp-count">${hits.length} ${L.names[hits.length === 1 ? 0 : 1]}</span></div>`
+      + (letters.length > 1 ? `<div class="mwp-jump">${letters.map(l => `<button type="button" onclick="mwpJump('${l}')">${l}</button>`).join('')}</div>` : '')
+      + `<div class="mwp-list${(mwpOpen || q) ? ' is-open' : ''}">${body || `<p class="mwp-none">${archEsc(L.none)}</p>`}</div>`
+      + (q || !letters.length ? '' : `<button type="button" class="mwp-more" onclick="mwpToggle()">${archEsc(mwpOpen ? L.less : L.more)}</button>`)
+      + `<p class="mwp-note">${archEsc(L.note)}</p>`;
+    if(keepFocus){ const el = document.getElementById('mwpSearch'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); } }
+  }
+  function mwpSearch(v){ mwpQuery = v; renderMitwirkendePublic(true); }
+  function mwpSetFilter(f){ mwpFilter = f; renderMitwirkendePublic(); }
+  function mwpToggle(){ mwpOpen = !mwpOpen; renderMitwirkendePublic(); if(!mwpOpen){ const s = document.getElementById('mitwirkende'); if(s) s.scrollIntoView({block:'start'}); } }
+  function mwpJump(l){ mwpOpen = true; renderMitwirkendePublic(); const el = document.getElementById('mwp-l-' + l); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }
 
   function toggleYearDropdown(btn){
     const dropdown = btn.closest('.year-block').querySelector('.year-dropdown');
@@ -1764,7 +1891,7 @@
     });
   }
   window.addEventListener('resize', syncOffSeasonPhotoHeights);
-  window.renderDynamic = function(){ renderTeam(); renderOffSeason(); if(typeof renderMitwirkende === 'function') renderMitwirkende(); if(typeof renderArchive === 'function' && document.getElementById('page-archiv').classList.contains('active')) renderArchive(); if(typeof renderArchive2025Pager === 'function' && document.getElementById('page-archiv-2025').classList.contains('active')) renderArchive2025Pager(); if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks(); };
+  window.renderDynamic = function(){ renderTeam(); renderOffSeason(); if(typeof renderMitwirkendePublic === 'function') renderMitwirkendePublic(); if(typeof renderMitwirkende === 'function') renderMitwirkende(); if(typeof renderArchive === 'function' && document.getElementById('page-archiv').classList.contains('active')) renderArchive(); if(typeof renderArchive2025Pager === 'function' && document.getElementById('page-archiv-2025').classList.contains('active')){ renderArchive2025Pager(); renderArchive2025Videos(); } if(typeof renderAllYearBlocks === 'function') renderAllYearBlocks(); };
   loadOffSeasonEvents();
 
   // YouTube-Videokarussell: Videolinks werden manuell im Tabellenblatt "Videos" gepflegt
