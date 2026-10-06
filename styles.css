@@ -438,6 +438,38 @@ html.arch-fs-lock{ overflow:hidden; }
 .arch-card-date{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gray); margin-top:8px; }
 .arch-card-meta{ margin-top:auto; padding-top:14px; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); }
 
+
+/* ---- Mitwirkende seit 1991 (Über uns) ---- */
+#page-ueber-uns .mw-lead{ font-size:16px; color:var(--gray); line-height:1.7; max-width:680px; margin:0 0 26px; }
+#page-ueber-uns .mw-controls{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; margin-bottom:16px; }
+#page-ueber-uns .mw-search{ flex:1 1 260px; max-width:360px; font:inherit; font-size:15px; padding:11px 16px; border:1.5px solid var(--line2); border-radius:999px; background:#fff; color:var(--ink2); }
+#page-ueber-uns .mw-search:focus{ outline:none; border-color:var(--accent); }
+#page-ueber-uns .mw-tabs{ display:flex; gap:8px; }
+#page-ueber-uns .mw-tab{ font:inherit; font-size:13.5px; font-weight:600; padding:8px 16px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
+#page-ueber-uns .mw-tab:hover, #page-ueber-uns .mw-tab.active{ background:var(--ink2); color:var(--bg); }
+#page-ueber-uns .mw-count{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--gray); }
+#page-ueber-uns .mw-jump{ display:flex; flex-wrap:wrap; gap:4px; margin:0 0 18px; }
+#page-ueber-uns .mw-jump button{ font:inherit; font-size:13px; font-weight:600; width:30px; height:30px; border:none; border-radius:8px; background:transparent; color:var(--gray); cursor:pointer; }
+#page-ueber-uns .mw-jump button:hover{ background:var(--accent); color:#fff; }
+#page-ueber-uns .mw-list{ position:relative; column-count:3; column-gap:36px; max-height:420px; overflow:hidden; }
+#page-ueber-uns .mw-list.is-open{ max-height:none; overflow:visible; }
+#page-ueber-uns .mw-list:not(.is-open)::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(246,245,241,0), var(--bg)); pointer-events:none; }
+#page-ueber-uns .mw-group{ break-inside:avoid-column; margin-bottom:22px; scroll-margin-top:90px; }
+#page-ueber-uns .mw-group h3{ font-family:'Newsreader',serif; font-weight:500; font-size:30px; line-height:1; color:var(--accent); margin:0 0 8px; padding-bottom:6px; border-bottom:1px solid var(--line2); }
+#page-ueber-uns .mw-group ul{ list-style:none; margin:0; padding:0; }
+#page-ueber-uns .mw-group li{ display:flex; flex-direction:column; gap:1px; padding:5px 0; break-inside:avoid; }
+#page-ueber-uns .mw-name{ font-size:15px; line-height:1.35; color:var(--ink2); }
+#page-ueber-uns .mw-group li.is-ens .mw-name{ font-style:italic; }
+#page-ueber-uns .mw-years{ display:flex; flex-wrap:wrap; gap:2px 8px; }
+#page-ueber-uns .mw-years a{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--gray); text-decoration:none; border-bottom:1px solid var(--line2); }
+#page-ueber-uns .mw-years a:hover{ color:var(--accent); border-bottom-color:var(--accent); }
+#page-ueber-uns .mw-more{ display:block; margin:14px auto 0; font:inherit; font-size:14px; font-weight:600; padding:10px 24px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
+#page-ueber-uns .mw-more:hover{ background:var(--ink2); color:var(--bg); }
+#page-ueber-uns .mw-none{ color:var(--gray); }
+#page-ueber-uns .mw-note{ font-size:12.5px; color:var(--gray); margin:18px 0 0; max-width:680px; }
+@media (max-width:900px){ #page-ueber-uns .mw-list{ column-count:2; } }
+@media (max-width:560px){ #page-ueber-uns .mw-list{ column-count:1; max-height:360px; } #page-ueber-uns .mw-tabs{ flex-wrap:wrap; } }
+
 /* ---- Responsiv ---- */
 @media (max-width:900px){
   .arch-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
