@@ -203,7 +203,7 @@ html.festival-active, html.festival-active body{ overflow:hidden; overscroll-beh
 /* =========================================================
    RECHTLICHES: Impressum / Datenschutzerklärung (ruhige Textseiten im Vereinsstil)
    ========================================================= */
-#page-impressum, #page-datenschutz, #page-akademie, #page-archiv{
+#page-impressum, #page-datenschutz, #page-akademie, #page-archiv, #page-mitwirkende-7q4k9x{
   --bg:#F6F5F1; --ink2:#17171B; --gray:#68666B; --line2:#DDDAD2; --accent:#E83D35;
   background:var(--bg); color:var(--ink2); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;
   line-height:1.65; min-height:100vh;
@@ -324,6 +324,15 @@ details[open] > summary .arch-ev-chev{ transform:rotate(180deg); border-color:va
 .arch-yt-play svg{ width:72px; height:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,.45)); transition:transform .2s ease; }
 .arch-vthumb:hover .arch-yt-play svg{ transform:scale(1.1); }
 .arch-vbox iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+.arch-plthumb{ background:linear-gradient(135deg,#2B2825 0%,#17130F 100%); }
+.arch-pl-label{ position:absolute; left:22px; bottom:20px; right:22px; display:flex; flex-direction:column; gap:3px; text-align:left; color:#F3EFE8; text-shadow:0 1px 8px rgba(0,0,0,.5); }
+.arch-pl-label strong{ font-family:'Newsreader',serif; font-weight:500; font-size:clamp(18px,3vw,26px); line-height:1.2; }
+.arch-pl-label span{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; opacity:.75; }
+#page-archiv-2025 .arch-pl-host{ margin:0 0 8px; }
+#page-archiv-2025 .arch-pl-host .arch-vcard{ max-width:none; margin:0 0 12px; }
+#page-archiv-2025 .arch-pl-host .arch-vthumb{ margin:0; border-radius:0; }
+#page-archiv-2025 .arch-pl-link{ margin:0 0 8px; font-size:14px; }
+
 
 /* ---- Programmheft ---- */
 .legal p.arch-dl{ display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 16px; max-width:none; }
@@ -439,36 +448,73 @@ html.arch-fs-lock{ overflow:hidden; }
 .arch-card-meta{ margin-top:auto; padding-top:14px; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); }
 
 
-/* ---- Mitwirkende seit 1991 (Über uns) ---- */
-#page-ueber-uns .mw-lead{ font-size:16px; color:var(--gray); line-height:1.7; max-width:680px; margin:0 0 26px; }
-#page-ueber-uns .mw-controls{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; margin-bottom:16px; }
-#page-ueber-uns .mw-search{ flex:1 1 260px; max-width:360px; font:inherit; font-size:15px; padding:11px 16px; border:1.5px solid var(--line2); border-radius:999px; background:#fff; color:var(--ink2); }
-#page-ueber-uns .mw-search:focus{ outline:none; border-color:var(--accent); }
-#page-ueber-uns .mw-tabs{ display:flex; gap:8px; }
-#page-ueber-uns .mw-tab{ font:inherit; font-size:13.5px; font-weight:600; padding:8px 16px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
-#page-ueber-uns .mw-tab:hover, #page-ueber-uns .mw-tab.active{ background:var(--ink2); color:var(--bg); }
-#page-ueber-uns .mw-count{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--gray); }
-#page-ueber-uns .mw-jump{ display:flex; flex-wrap:wrap; gap:4px; margin:0 0 18px; }
-#page-ueber-uns .mw-jump button{ font:inherit; font-size:13px; font-weight:600; width:30px; height:30px; border:none; border-radius:8px; background:transparent; color:var(--gray); cursor:pointer; }
-#page-ueber-uns .mw-jump button:hover{ background:var(--accent); color:#fff; }
-#page-ueber-uns .mw-list{ position:relative; column-count:3; column-gap:36px; max-height:420px; overflow:hidden; }
-#page-ueber-uns .mw-list.is-open{ max-height:none; overflow:visible; }
-#page-ueber-uns .mw-list:not(.is-open)::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(246,245,241,0), var(--bg)); pointer-events:none; }
-#page-ueber-uns .mw-group{ break-inside:avoid-column; margin-bottom:22px; scroll-margin-top:90px; }
-#page-ueber-uns .mw-group h3{ font-family:'Newsreader',serif; font-weight:500; font-size:30px; line-height:1; color:var(--accent); margin:0 0 8px; padding-bottom:6px; border-bottom:1px solid var(--line2); }
-#page-ueber-uns .mw-group ul{ list-style:none; margin:0; padding:0; }
-#page-ueber-uns .mw-group li{ display:flex; flex-direction:column; gap:1px; padding:5px 0; break-inside:avoid; }
-#page-ueber-uns .mw-name{ font-size:15px; line-height:1.35; color:var(--ink2); }
-#page-ueber-uns .mw-group li.is-ens .mw-name{ font-style:italic; }
-#page-ueber-uns .mw-years{ display:flex; flex-wrap:wrap; gap:2px 8px; }
-#page-ueber-uns .mw-years a{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--gray); text-decoration:none; border-bottom:1px solid var(--line2); }
-#page-ueber-uns .mw-years a:hover{ color:var(--accent); border-bottom-color:var(--accent); }
-#page-ueber-uns .mw-more{ display:block; margin:14px auto 0; font:inherit; font-size:14px; font-weight:600; padding:10px 24px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
-#page-ueber-uns .mw-more:hover{ background:var(--ink2); color:var(--bg); }
-#page-ueber-uns .mw-none{ color:var(--gray); }
-#page-ueber-uns .mw-note{ font-size:12.5px; color:var(--gray); margin:18px 0 0; max-width:680px; }
-@media (max-width:900px){ #page-ueber-uns .mw-list{ column-count:2; } }
-@media (max-width:560px){ #page-ueber-uns .mw-list{ column-count:1; max-height:360px; } #page-ueber-uns .mw-tabs{ flex-wrap:wrap; } }
+/* ---- Mitwirkende (nicht öffentlich verlinkte Seite) ---- */
+#page-mitwirkende-7q4k9x .legal-wrap{ max-width:1040px; }
+.mwpage .arch-hero.no-motto h1{ font-size:clamp(40px,6.4vw,72px); }
+.mwpage .arch-bigyear{ font-size:clamp(110px,15vw,200px); }
+.mw-bar{ position:sticky; top:58px; z-index:20; display:flex; flex-wrap:wrap; align-items:center; gap:12px 14px; margin:44px 0 0; padding:14px 0; background:var(--bg); border-bottom:1px solid var(--line2); }
+.mw-search{ flex:1 1 240px; max-width:340px; font:inherit; font-size:15px; padding:11px 18px; border:1.5px solid var(--line2); border-radius:999px; background:#fff; color:var(--ink2); }
+.mw-search:focus, .mw-select:focus{ outline:none; border-color:var(--accent); }
+.mw-tabs{ display:flex; gap:8px; }
+.mw-tab{ font:inherit; font-size:13.5px; font-weight:600; padding:9px 16px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
+.mw-tab:hover, .mw-tab.active{ background:var(--ink2); color:var(--bg); }
+.mw-select{ font:inherit; font-size:14px; padding:10px 14px; border:1.5px solid var(--line2); border-radius:999px; background:#fff; color:var(--ink2); max-width:220px; }
+.mw-count{ margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--gray); }
+.mw-jump{ display:flex; flex-wrap:wrap; gap:2px; margin:18px 0 0; }
+.mw-jump button{ font:inherit; font-size:13px; font-weight:600; width:32px; height:32px; border:none; border-radius:8px; background:transparent; color:var(--gray); cursor:pointer; }
+.mw-jump button:hover{ background:var(--accent); color:#fff; }
+.mw-group{ margin-top:34px; scroll-margin-top:150px; }
+.legal h2.mw-letter{ display:flex; align-items:center; gap:18px; font-size:52px; line-height:1; color:var(--accent); margin:0 0 16px; }
+.legal h2.mw-letter::after{ content:''; flex:1; height:1px; background:var(--line2); }
+.legal ul.mw-grid{ max-width:none; }
+.mw-grid{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.legal li.mw-card{ position:relative; display:flex; flex-direction:column; gap:9px; margin:0; padding:15px 17px 13px; background:#fff; border:1px solid var(--line2); border-radius:14px; font-size:inherit; transition:border-color .15s ease, box-shadow .15s ease; }
+.legal li.mw-card::before{ display:none; }
+.mw-card:hover{ border-color:#C9C5BA; box-shadow:0 6px 20px rgba(0,0,0,.06); }
+.mw-card.is-ens{ border-top:3px solid var(--accent); padding-top:13px; }
+.mw-tag{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); }
+.mw-name{ font-family:'Newsreader',serif; font-size:20px; line-height:1.25; color:var(--ink2); overflow-wrap:anywhere; }
+.mw-card.is-ens .mw-name{ font-style:italic; }
+.mw-years{ display:flex; flex-wrap:wrap; gap:5px; margin-top:auto; }
+.legal .mw-years a{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1; padding:5px 8px; border-radius:999px; background:#F1EEE6; color:var(--ink2); text-decoration:none; word-break:normal; }
+.legal .mw-years a:hover{ background:var(--accent); color:#fff; }
+.mw-none{ color:var(--gray); margin-top:30px; }
+.legal p.mw-note{ font-size:12.5px; color:var(--gray); margin:56px 0 0; max-width:640px; }
+@media (max-width:900px){ .mw-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){
+  .mw-bar{ position:static; margin-top:34px; }
+  .mw-grid{ grid-template-columns:1fr; }
+  .mw-count{ margin-left:0; width:100%; }
+  .mw-group{ scroll-margin-top:100px; }
+  .legal h2.mw-letter{ font-size:44px; }
+}
+
+/* ---- Mitwirkende auf "Über uns" (öffentlich, nur Namen) ---- */
+#page-ueber-uns .mwp-lead{ font-size:16px; color:var(--gray); line-height:1.7; max-width:680px; margin:0 0 26px; }
+#page-ueber-uns .mwp-controls{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; margin-bottom:16px; }
+#page-ueber-uns .mwp-search{ flex:1 1 260px; max-width:360px; font:inherit; font-size:15px; padding:11px 18px; border:1.5px solid var(--line2); border-radius:999px; background:#fff; color:var(--ink2); }
+#page-ueber-uns .mwp-search:focus{ outline:none; border-color:var(--accent); }
+#page-ueber-uns .mwp-tabs{ display:flex; gap:8px; flex-wrap:wrap; }
+#page-ueber-uns .mwp-tab{ font:inherit; font-size:13.5px; font-weight:600; padding:8px 16px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
+#page-ueber-uns .mwp-tab:hover, #page-ueber-uns .mwp-tab.active{ background:var(--ink2); color:var(--bg); }
+#page-ueber-uns .mwp-count{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--gray); }
+#page-ueber-uns .mwp-jump{ display:flex; flex-wrap:wrap; gap:4px; margin:0 0 18px; }
+#page-ueber-uns .mwp-jump button{ font:inherit; font-size:13px; font-weight:600; width:30px; height:30px; border:none; border-radius:8px; background:transparent; color:var(--gray); cursor:pointer; }
+#page-ueber-uns .mwp-jump button:hover{ background:var(--accent); color:#fff; }
+#page-ueber-uns .mwp-list{ position:relative; column-count:3; column-gap:36px; max-height:420px; overflow:hidden; }
+#page-ueber-uns .mwp-list.is-open{ max-height:none; overflow:visible; }
+#page-ueber-uns .mwp-list:not(.is-open)::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(246,245,241,0), var(--bg)); pointer-events:none; }
+#page-ueber-uns .mwp-group{ break-inside:avoid-column; margin-bottom:22px; scroll-margin-top:90px; }
+#page-ueber-uns .mwp-group h3{ font-family:'Newsreader',serif; font-weight:500; font-size:30px; line-height:1; color:var(--accent); margin:0 0 8px; padding-bottom:6px; border-bottom:1px solid var(--line2); }
+#page-ueber-uns .mwp-group ul{ list-style:none; margin:0; padding:0; }
+#page-ueber-uns .mwp-group li{ padding:4px 0; font-size:15px; line-height:1.4; color:var(--ink2); break-inside:avoid; }
+#page-ueber-uns .mwp-group li.is-ens{ font-style:italic; }
+#page-ueber-uns .mwp-more{ display:block; margin:14px auto 0; font:inherit; font-size:14px; font-weight:600; padding:10px 24px; border:1.5px solid var(--ink2); border-radius:999px; background:transparent; color:var(--ink2); cursor:pointer; }
+#page-ueber-uns .mwp-more:hover{ background:var(--ink2); color:var(--bg); }
+#page-ueber-uns .mwp-none{ color:var(--gray); }
+#page-ueber-uns .mwp-note{ font-size:12.5px; color:var(--gray); margin:18px 0 0; max-width:680px; }
+@media (max-width:900px){ #page-ueber-uns .mwp-list{ column-count:2; } }
+@media (max-width:560px){ #page-ueber-uns .mwp-list{ column-count:1; max-height:360px; } }
 
 /* ---- Responsiv ---- */
 @media (max-width:900px){
