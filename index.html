@@ -1810,6 +1810,34 @@
   }
 
 
+  // Termine: nur kommende (heute und später), nach Datum und Uhrzeit sortiert.
+  // Läuft bei jedem Seitenaufruf im Browser – vergangene Termine verschwinden also von selbst, ohne dass am Sheet etwas gelöscht werden muss.
+  function parseEventDay(e){
+    const s = e.datum || '';
+    let m = s.match(/(\d{1,2})\.\s?(\d{1,2})\.\s?(\d{4}|\d{2})\b/);
+    if(m){ let y = +m[3]; if(y < 100) y += 2000; return new Date(y, +m[2] - 1, +m[1]); }
+    m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if(m) return new Date(+m[1], +m[2] - 1, +m[3]);
+    m = String(e.datumRaw || '').match(/Date\((\d{4}),\s*(\d{1,2}),\s*(\d{1,2})/);   // gviz-Rohwert, Monat ist dort 0-basiert
+    if(m) return new Date(+m[1], +m[2], +m[3]);
+    return null;
+  }
+  function parseEventMinutes(z){
+    const m = String(z || '').match(/(\d{1,2})[:.](\d{2})/);
+    return m ? (+m[1]) * 60 + (+m[2]) : 0;
+  }
+  function selectUpcoming(list, now){
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return list.map(e => Object.assign({}, e, {_day: parseEventDay(e)}))
+      .filter(e => !e._day || e._day >= today)                  // Termine ohne lesbares Datum bleiben sichtbar (am Ende), damit nichts still verschwindet
+      .sort((a, b) => {
+        if(!a._day && !b._day) return 0;
+        if(!a._day) return 1;
+        if(!b._day) return -1;
+        return (a._day - b._day) || (parseEventMinutes(a.zeit) - parseEventMinutes(b.zeit));
+      });
+  }
+
   async function loadOffSeasonEvents(){
     const listEl = document.getElementById('offseasonList');
     if(!listEl) return;
@@ -1837,9 +1865,10 @@
       };
       const events = rows.map(r => ({
         titel: val(r,2), datum: val(r,3), zeit: val(r,4), beschreibung: val(r,5),
-        link: val(r,6), foto: val(r,7), ort: val(r,8), bestaetigt: isChecked(r,9), eigen: isChecked(r,10)
+        link: val(r,6), foto: val(r,7), ort: val(r,8), bestaetigt: isChecked(r,9), eigen: isChecked(r,10),
+        datumRaw: (r.c[3] && r.c[3].v != null) ? String(r.c[3].v) : ''
       })).filter(e => e.titel && e.bestaetigt);
-      offseasonData = events;
+      offseasonData = selectUpcoming(events, new Date());
       renderOffSeason();
     } catch(err){
       console.error('Off-Season-Termine konnten nicht geladen werden, Platzhaltertext bleibt aktiv.', err);
